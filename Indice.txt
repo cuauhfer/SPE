@@ -1,0 +1,15 @@
+----------------Funciones generales---------------------
+
+Index		Pagina Principal del sistema
+Login		Metodo y pagina de ingreso para usuarios
+logout		Metodo para finalizar una sesion (Solo metodo, no visible)
+Administrador	Pagina principal para usuarios tipo administrador
+Integrante	Pagina Principal para usuarios tipo integrante
+Persona		Pagina del perfil de un usuario de cualquier tipo
+Comprobar	Pagina para editar informacion basica de perfil (Todos los usuarios)
+
+----------------Funciones del administrador-------------
+
+Admin_usuario	Pagina para ver informacion importante de cuentas de usuario (Solo administrador)
+Admin_userdata	Pagina para editar la informacion de cualquier usuario (Solo administrador)
+Admin_useradd 	Pagina para agregar usuarios al sistema (Solo administrador)
