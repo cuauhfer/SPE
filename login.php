@@ -11,7 +11,7 @@
 	<link rel="icon" type="image/png" href="pictures/logo.png" />
 	<!--Script-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src='js/script.js'></script>
+	<script src='js/script-form.js'></script>
 	<!--Titulo-->
 	<title>Ingreso</title>
 </head>
@@ -43,6 +43,7 @@
 		if(mysqli_num_rows($resultado) == 1){
 
 			$_SESSION['username'] = $reg['username'];
+			$_SESSION['persona'] = $reg;
 
 			//Logs
 			$cod = $reg['codigo'];
@@ -57,8 +58,11 @@
 				$_SESSION['administrador'] = $reg['nivel'];
 				header('Location: administrador.php');
 			}
+			else if($reg['nivel'] == 1){
+				$_SESSION['colaborador'] = $reg['nivel'];
+				//header('Location: administrador.php');
+			}
 		}else{
-			//header('Location: login.php');
 			echo '<script language="JavaScript"> alert("Datos Incorrectos"); </script>'; 
 		}
 	}
@@ -66,12 +70,14 @@
 ?>
 
 <body>
-	    <form method="post">
-			<h3>Acceder al Sistema</h3>
-			<input class="form-control" type="text" name="username" placeholder="Username" required>
-			<input class="form-control" type="Password" name="password" placeholder="&#128272; Password" required>
-			<input type="submit" name="Buscar" value="Login">
-		</form>
+    <form method="post">
+    	<div align="center"><a href="index.php"><img src="pictures/logo.png" width="100" height="100"></a></div>
+		<h3>Acceder al Sistema</h3>
+		<input class="form-control" type="text" name="username" placeholder="Username" required>
+		<input class="form-control" type="Password" name="password" placeholder="&#128272; Password" required>
+		<input type="submit" name="Buscar" value="Login">
+	</form>
+
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>

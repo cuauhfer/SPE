@@ -44,11 +44,11 @@
 		</section>
 
 		<section id='body'>
+			<br>
 			<div class="container-fluid">
-
 				<!--Carrusel de Imagenes-->	
 				<section class="row">
-					<br>
+					
 					<script type="text/javascript">
 							//Ancho (en pixeles)
 							var sliderwidth="1360px"
@@ -62,7 +62,7 @@
 							//Vínculos y enlaces de las imágenes
 							var leftrightslide=new Array()
 							var finalslide=''
-							leftrightslide[0]='<a href="https://facebook.com" target="blank" title="Facebook"><img border="1" src="pictures/Albedo.png" height="200"></a>'
+							leftrightslide[0]='<a href="int_produccion.php" target="blank" title="Nueva Produccion Academica"><img border="1" src="pictures/Albedo.png" height="200"></a>'
 							leftrightslide[1]='<a href="https://google.com" target="blank" title="Google"><img border="1" src="pictures/Kiokay.png" height="200"></a>'
 							leftrightslide[2]='<a href="https://youtube.com" target="blank" title="Youtube"><img border="1" src="pictures/Ulquiorra.png" height="200"></a>'
 							leftrightslide[3]='<a href="http://cuceineerbd.byethost17.com/Home.html" target="blank" title="Home"><img border="1" src="pictures/Rukia.png" height="200"></a>'

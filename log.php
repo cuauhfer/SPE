@@ -22,7 +22,7 @@
 		//Conexion a BD
 		$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
 		$usuario = $_SESSION['username'];
-		$sql = "SELECT * FROM `logs` ORDER BY `logs`.`fecha` DESC";
+		$sql = "SELECT * FROM `logs` ORDER BY `fecha` DESC";
 		$resultado = mysqli_query($conexion, $sql);
 		$reg = mysqli_fetch_array($resultado);
 ?>
@@ -47,12 +47,11 @@
 				<div class="container col-xs-12 col-sm-12 col-md-10 col-lg-10">
 					<table class="table table-dark table-bordered table-striped table-hover">
 						<tr><th colspan="5"><center><h2>Logs</h2></center></th></tr>
-						<tr><th>Codigo</th><th>Actividad</th><th>Fecha</th><th>Hora</th><th>IP</th></tr>
+						<tr><th>Codigo</th><th>Actividad</th><th>Fecha</th><th>Hora</th></tr>
 						<?php
 							while($reg = mysqli_fetch_array($resultado)){
 								$date = date_create($reg['fecha']);
-								echo 
-									"<tr><td>".$reg['codigo_usuario']."</td><td>".$reg['actividad']."</td> <td>".date_format($date, 'd-m-Y')."</td><td>".date_format($date, 'H:i:s')."</td><td>".$reg['ip']."</td></tr>";
+								echo "<tr><td>".$reg['codigo_usuario']."</td><td>".$reg['actividad']."</td> <td>".date_format($date, 'd-m-Y')."</td><td>".date_format($date, 'H:i:s')."</td></tr>";
 							}//Llave del while
 						?>
 					</table>

@@ -13,7 +13,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src='js/script-form.js'></script>
 	<!--Titulo-->
-	<title>Modifical Usuario</title>
+	<title>Modificar Usuario</title>
 </head>
 <?php 
 	//Inicio de secion
@@ -37,6 +37,7 @@
 			$escolaridad = $_POST['escolaridad'];
 			$sql = "INSERT INTO usuario(codigo, username, password, nivel, nombre, apellidop, apellidom, email, telefono, division, escolaridad) VALUES('$codigo', '$username', '$password', '$nivel', '$nombre', '$apep', '$apem', '$correo', '$telefono', '$division', '$escolaridad')";
 			$resultado = mysqli_query($conexion, $sql);
+			header('Location: admin_usuario.php');
 		}
 ?>
 	<body>
