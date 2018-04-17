@@ -77,12 +77,13 @@
 
 							if($_POST['tipo'] == "1"){
 								?>
+									<div class="container"></div>
 									<form method="post">
 										<table class="table table-dark table-bordered table-striped table-hover">
 											
 											<tr>
 												<td colspan="1">Nombre</td>
-												<td colspan="3"><input class="form-control" type="text" name="username" required></td>
+												<td colspan="3"><input class="form-control" type="text" name="nombre" required></td>
 											</tr>
 											<tr>
 												<td colspan="1">Autor</td>
@@ -92,17 +93,34 @@
 											<tr>
 												<td>Fecha</td>
 												<td><input class="form-control" type="date" name="fecha" required></td>
-												<td>Borrador</td>
-												<td align="center"><input class="form-control" type="checkbox" name="apellidop" required></td>
+												<td colspan="2">
+													<div class="checkbox input-group-text">
+														<label>
+															<input type="checkbox" aria-label="Checkbox for following text input" name="borrador"> Borrador
+														</label>
+													</div>
+												</td>
 											</tr>
 											<tr>
 												<td colspan="1">Revista</td><td colspan="3"><input class="form-control" type="text" name="revista" required></td>
 											</tr>
 											<tr>
-												<td colspan="1">Paginas</td><td colspan="3"><input class="form-control" type="text" name="paginas" required></td>
+												<td colspan="1">Paginas</td>
+												<td colspan="3">
+													<div class="input-group">
+														<div class="input-group-prepend">
+															<span class="input-group-text" id="">Desde</span>
+														</div>
+													  	<input type="number" class="form-control" name="pag1">
+													  	<div class="input-group-prepend">
+															<span class="input-group-text" id="">Hasta</span>
+														</div>
+													  	<input type="number" class="form-control" name="pag2">
+													</div>
+												</td>
 											</tr>
 											<tr>
-												<td colspan="1">Linea</td><td colspan="3"></td>
+												<td colspan="1">Linea</td><td colspan="3"><input class="form-control" type="text" name="linea" required></td>
 											</tr>
 											<tr>
 												<td colspan="1">ISSN</td><td colspan="3"><input class="form-control" type="text" name="issn" required></td>
@@ -121,16 +139,144 @@
 							}
 							else if($_POST['tipo'] == "2"){
 								?>
-								<?php
+									<form method="post">
+											<table class="table table-dark table-bordered table-striped table-hover">
+												
+												<tr>
+													<td colspan="1">Nombre</td>
+													<td colspan="3"><input class="form-control" type="text" name="nombre" required></td>
+												</tr>
+												<tr>
+													<td colspan="1">Autor</td>
+													<td colspan="3"><?php 
+														$persona = $_SESSION['persona']; echo $persona['nombre'];?></td>
+												</tr>
+												<tr>
+													<td>Fecha</td>
+													<td><input class="form-control" type="date" name="fecha" required></td>
+													<td colspan="2">
+														<div class="checkbox input-group-text">
+															<label>
+																<input type="checkbox" aria-label="Checkbox for following text input" name="borrador"> Borrador
+															</label>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td colspan="1">Dependencia</td><td colspan="3"><input class="form-control" type="text" name="dependencia" required></td>
+												</tr>
+												<tr>
+													<td colspan="4"></td>
+												</tr>
+												<tr>
+													<td colspan="1"><input class="btn btn-warning" type="reset" name=""></td>
+													<td colspan="1"><input class="btn btn-success" type="submit" name="agregar"></td>
+													<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar"></td>
+												</tr>
+											</table>
+										</form>
+									<?php
 							}
-
 							else if($_POST['tipo'] == "3"){
 								?>
-								<?php
+									<form method="post">
+											<table class="table table-dark table-bordered table-striped table-hover">
+												
+												<tr>
+													<td colspan="1">Nombre</td>
+													<td colspan="3"><input class="form-control" type="text" name="nombre" required></td>
+												</tr>
+												<tr>
+													<td colspan="1">Autor</td>
+													<td colspan="3"><?php 
+														$persona = $_SESSION['persona']; echo $persona['nombre'];?></td>
+												</tr>
+												<tr>
+													<td>Fecha</td>
+													<td><input class="form-control" type="date" name="fecha" required></td>
+													<td colspan="2">
+														<div class="checkbox input-group-text">
+															<label>
+																<input type="checkbox" aria-label="Checkbox for following text input" name="borrador"> Borrador
+															</label>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td colspan="1">Registro</td><td colspan="3"><input class="form-control" type="text" name="registro" required></td>
+												</tr>
+												<tr>
+													<td colspan="4"></td>
+												</tr>
+												<tr>
+													<td colspan="1"><input class="btn btn-warning" type="reset" name=""></td>
+													<td colspan="1"><input class="btn btn-success" type="submit" name="agregar"></td>
+													<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar"></td>
+												</tr>
+											</table>
+										</form>
+									<?php
 							}
 							else if($_POST['tipo'] == "4"){
 								?>
-								<?php
+									<form method="post">
+											<table class="table table-dark table-bordered table-striped table-hover">
+												
+												<tr>
+													<td colspan="1">Nombre</td>
+													<td colspan="3"><input class="form-control" type="text" name="nombre" required></td>
+												</tr>
+												<tr>
+													<td colspan="1">Autor</td>
+													<td colspan="3"><?php 
+														$persona = $_SESSION['persona']; echo $persona['nombre'];?></td>
+												</tr>
+												<tr>
+												<td>Fecha</td>
+												<td><input class="form-control" type="date" name="fecha" required></td>
+												<td colspan="2">
+													<div class="checkbox input-group-text">
+														<label>
+															<input type="checkbox" aria-label="Checkbox for following text input" name="borrador"> Borrador
+														</label>
+													</div>
+												</td>
+											</tr>
+												<tr>
+													<td colspan="1">ISBN</td><td colspan="3"><input class="form-control" type="text" name="isbn" required></td>
+												</tr>
+												<tr>
+													<td colspan="1">Paginas</td>
+													<td colspan="3">
+														<div class="input-group">
+															<div class="input-group-prepend">
+																<span class="input-group-text" id="">Desde</span>
+															</div>
+														  	<input type="number" class="form-control" name="pag1">
+														  	<div class="input-group-prepend">
+																<span class="input-group-text" id="">Hasta</span>
+															</div>
+														  	<input type="number" class="form-control" name="pag2">
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td colspan="1">Linea</td><td colspan="3"><input class="form-control" type="text" name="Linea" required></td>
+												</tr>
+												<tr>
+													<td colspan="1">Editorial</td><td colspan="3"><input class="form-control" type="text" name="editorial" required></td>
+												</tr>
+												<tr>
+													<td colspan="4"></td>
+												</tr>
+												<tr>
+													<td colspan="1"><input class="btn btn-warning" type="reset" name=""></td>
+													<td colspan="1"><input class="btn btn-success" type="submit" name="agregar"></td>
+													<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar"></td>
+												</tr>
+											</table>
+										</form>
+									<?php
 							}
 						}
 						else{
@@ -139,7 +285,7 @@
 									<tr>
 										<form method="post">
 											<td colspan="1">Tipo de Publicacion</td>
-											<td colspan="2"><select class="form-control" type="select" name="tipo" id="tipo">
+											<td colspan="2"><select class="form-control custom-select" type="select" name="tipo" id="tipo">
 												<option value="1">Articulo</option>
 												<option value="2">Informe Tecnico</option>
 												<option value="3">Manual</option>
