@@ -33,8 +33,9 @@
 
 	//Conexion a BD
 	$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
-	$usuario = $_SESSION['username'];
-	$sql = "SELECT * FROM usuario WHERE username='$usuario'";
+	$usuario = $_SESSION['user'];
+	$codigo = $usuario['codigo'];
+	$sql = "SELECT * FROM persona WHERE codigo='$codigo'";
 	$resultado = mysqli_query($conexion, $sql);
 	$reg = mysqli_fetch_array($resultado);
 	if(isset($_SESSION['username'])){ 
@@ -93,7 +94,7 @@
 				$escolaridad = $_POST['escolaridad'];
 			}
 
-			$sql = "UPDATE usuario SET nombre='$nombre', apellidop='$apep', apellidom='$apem', email='$correo', telefono='$telefono', division='$division', escolaridad='$escolaridad' WHERE codigo='$codigo'";
+			$sql = "UPDATE persona SET nombre='$nombre', apellidop='$apep', apellidom='$apem', email='$correo', telefono='$telefono', division='$division', escolaridad='$escolaridad' WHERE codigo='$codigo'";
 			$resultado = mysqli_query($conexion, $sql);
 
 			//Logs

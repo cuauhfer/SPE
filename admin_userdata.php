@@ -23,21 +23,27 @@
 	//Conexion a BD
 	$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
 	$usuario = $_SESSION['username'];
-	$sql = "SELECT * FROM usuario WHERE codigo='$codigo'";
 
+	$sql = "SELECT * FROM usuario WHERE codigo='$codigo'";
 	$resultado = mysqli_query($conexion, $sql);
 	$reg = mysqli_fetch_array($resultado);
-	if(isset($_SESSION['username'])){ 
+
+	if(isset($_SESSION['username'])){
+
+		$sql = "SELECT * FROM persona WHERE codigo='$codigo'";
+		$resultado = mysqli_query($conexion, $sql);
+		$persona = mysqli_fetch_array($resultado);
+
 		$username = $reg['username'];
 		$password = $reg['password'];
 		$nivel = $reg['nivel'];
-		$nombre = $reg['nombre'];
-		$apep = $reg['apellidop'];
-		$apem = $reg['apellidom'];
-		$correo = $reg['email'];
-		$telefono = $reg['telefono'];
-		$division = $reg['division'];
-		$escolaridad = $reg['escolaridad'];
+		$nombre = $persona['nombre'];
+		$apep = $persona['apellidop'];
+		$apem = $persona['apellidom'];
+		$correo = $persona['email'];
+		$telefono = $persona['telefono'];
+		$division = $persona['division'];
+		$escolaridad = $persona['escolaridad'];
 		$chance = false;
 		if(isset($_POST['guardar'])){
 			$reg = mysqli_fetch_array($resultado);
@@ -45,43 +51,43 @@
 			//Multivalidaciones
 			//nombre
 			if($_POST['nombre']==""){
-				$nombre = $reg['nombre'];
+				$nombre = $persona['nombre'];
 			}else{
 				$nombre = $_POST['nombre'];
 			}
 			//apellido paterno
 			if($_POST['apellidop']==""){
-				$apep = $reg['apellidop'];
+				$apep = $persona['apellidop'];
 			}else{
 				$apep = $_POST['apellidop'];
 			}
 			//apellido materno
 			if($_POST['apellidom']==""){
-				$apem = $reg['apellidom'];
+				$apem = $persona['apellidom'];
 			}else{
 				$apem = $_POST['apellidom'];
 			}
 			//Correo
 			if($_POST['correo']==""){
-				$correo = $reg['email'];
+				$correo = $persona['email'];
 			}else{
 				$correo = $_POST['correo'];
 			}
 			//telefono
 			if($_POST['telefono']==""){
-				$telefono = $reg['telefono'];
+				$telefono = $persona['telefono'];
 			}else{
 				$telefono = $_POST['telefono'];
 			}
 			//division
 			if($_POST['division']==""){
-				$division = $reg['division'];
+				$division = $persona['division'];
 			}else{
 				$division = $_POST['division'];
 			}
 			//escolaridad
 			if($_POST['escolaridad']==""){
-				$escolaridad = $reg['escolaridad'];
+				$escolaridad = $persona['escolaridad'];
 			}else{
 				$escolaridad = $_POST['escolaridad'];
 			}
@@ -103,13 +109,18 @@
 			}else{
 				$nivel = $_POST['nivel'];
 			}
+			$persona = $_SESSION['persona'];
+			$codigoadmin = $persona['codigo'];
 
-			$sql = "UPDATE usuario SET nombre='$nombre', apellidop='$apep', apellidom='$apem', email='$correo', telefono='$telefono', division='$division', escolaridad='$escolaridad', username='$username', password='$password', nivel='$nivel' WHERE codigo='$codigo'";
+			$sql = "UPDATE persona SET nombre='$nombre', apellidop='$apep', apellidom='$apem', email='$correo', telefono='$telefono', division='$division', escolaridad='$escolaridad' WHERE codigo='$codigo'";
+			$resultado = mysqli_query($conexion, $sql);
+
+			$sql = "UPDATE usuario SET username='$username', password='$password', nivel='$nivel' WHERE codigo='$codigo'";
 			$resultado = mysqli_query($conexion, $sql);
 
 			//Logs
 			$cod = $codigo;
-			$sql = "INSERT INTO logs (codigo_usuario, actividad, fecha) VALUES ('$cod', 'Se modifico su perfil por medio de administrador', NOW())";
+			$sql = "INSERT INTO logs (codigo_usuario, actividad, fecha) VALUES ('$cod', 'Se modifico su perfil por medio del administrador $codigoadmin', NOW())";
 			$resultado = mysqli_query($conexion, $sql);
 
 			if(($reg['nivel'] != $_POST['nivel']) && ($_POST['username'] == $_SESSION['username'])){
@@ -122,7 +133,10 @@
 
 		}//llave del if guardar
 		else if(isset($_POST['eliminar'])){
-			$sql = "UPDATE usuario SET telefono='-', division='-', escolaridad='-', username='-', password='-', nivel='0' WHERE codigo='$codigo'";
+			$sql = "DELETE FROM persona WHERE codigo='$codigo'";
+			$resultado = mysqli_query($conexion, $sql);
+
+			$sql = "DELETE FROM usuario WHERE codigo='$codigo'";
 			$resultado = mysqli_query($conexion, $sql);
 
 			//Logs
@@ -162,7 +176,11 @@
 							<?php  
 							echo "<tr><td><label>Nombre usuario</label></td><td><input class='form-control type='text' name='username' value='$username' placeholder='Nuevo Usuario'></td></tr>";
 							echo "<tr><td><label>Contraseña</label></td><td><input class='form-control type='password' name='password' value='$password' placeholder='Nueva Contraseña'></td></tr>";
-							echo "<tr><td><label>Nivel</label></td><td><input class='form-control type='text' name='nivel' value='$nivel' placeholder='Nuevo Nivel'></td></tr>";
+							echo "<tr><td>Nivel</td><td><select class='form-control' name='nivel' size='1'>
+												<option value = '1'> Colaborador </option>
+												<option value = '2'> Integrante </option>
+												<option value = '3'> Administrador </option>
+									</select></td></tr>";
 							echo "<tr><td><label>Nombre</label></td><td><input class='form-control type='text' name='nombre' value='$nombre' placeholder='Nuevo Nombre'></td></tr>";
 							echo "<tr><td><label>Apellido Paterno</label></td><td><input class='form-control type='text' name='apellidop' value='$apep' placeholder='Nuevo Apellido Paterno'></td></tr>";
 							echo "<tr><td><label>Apellido Materno</label></td><td><input class='form-control type='text' name='apellidom' value='$apem' placeholder='Nuevo Apellido Materno'></td></tr>";

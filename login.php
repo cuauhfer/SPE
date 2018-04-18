@@ -43,7 +43,7 @@
 		if(mysqli_num_rows($resultado) == 1){
 
 			$_SESSION['username'] = $reg['username'];
-			$_SESSION['persona'] = $reg;
+			$_SESSION['user'] = $reg;
 
 			//Logs
 			$cod = $reg['codigo'];
@@ -62,6 +62,12 @@
 				$_SESSION['colaborador'] = $reg['nivel'];
 				//header('Location: administrador.php');
 			}
+			$codigo = $reg['codigo'];
+
+			$sql = "SELECT * FROM persona WHERE codigo='$codigo'";
+			$resultado = mysqli_query($conexion, $sql);
+			$reg = mysqli_fetch_array($resultado); 
+			$_SESSION['persona'] = $reg;
 		}else{
 			echo '<script language="JavaScript"> alert("Datos Incorrectos"); </script>'; 
 		}

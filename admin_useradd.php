@@ -35,9 +35,13 @@
 			$telefono =  $_POST['telefono'];
 			$division =  $_POST['division'];
 			$escolaridad = $_POST['escolaridad'];
-			$sql = "INSERT INTO usuario(codigo, username, password, nivel, nombre, apellidop, apellidom, email, telefono, division, escolaridad) VALUES('$codigo', '$username', '$password', '$nivel', '$nombre', '$apep', '$apem', '$correo', '$telefono', '$division', '$escolaridad')";
+			$sql = "INSERT INTO persona(codigo, nombre, apellidop, apellidom, email, telefono, division, escolaridad) VALUES('$codigo', '$nombre', '$apep', '$apem', '$correo', '$telefono', '$division', '$escolaridad')";
+			$resultado = mysqli_query($conexion, $sql);
+
+			$sql = "INSERT INTO usuario(codigo, username, password, nivel) VALUES('$codigo', '$username', '$password', '$nivel')";
 			$resultado = mysqli_query($conexion, $sql);
 			header('Location: admin_usuario.php');
+
 		}
 ?>
 	<body>
@@ -64,17 +68,17 @@
 						<tr><td>Nombre de usuario</td><td><input class="form-control" type="text" name="username" required></td></tr>
 						<tr><td>Contraseña</td><td><input class="form-control" type="password" name="password" required></td></tr>
 						<tr><td>Nivel</td><td><select class="form-control" name="nivel" size="1">
-												<option value = "1"> Nivel 1 </option>
-												<option value = "2"> Nivel 2 </option>
-												<option value = "3"> Nivel 3 </option>
+												<option value = "1"> Colaborador </option>
+												<option value = "2"> Integrante </option>
+												<option value = "3"> Administrador </option>
 						</select></td></tr>
 						<tr><td>Nombre</td><td><input class="form-control" type="text" name="nombre" required></td></tr>
 						<tr><td>Apellido Paterno</td><td><input class="form-control" type="text" name="apellidop" required></td></tr>
 						<tr><td>Apellido Materno</td><td><input class="form-control" type="text" name="apellidom" required></td></tr>
 						<tr><td>Correo</td><td><input class="form-control" type="text" name="correo" required></td></tr>
-						<tr><td>Telefono</td><td><input class="form-control" type="text" name="telefono" required></td></tr>
-						<tr><td>Division</td><td><input class="form-control" type="text" name="division" required></td></tr>
-						<tr><td>Escolaridad</td><td><input class="form-control" type="text" name="escolaridad" required></td></tr>
+						<tr><td>Telefono</td><td><input class="form-control" type="text" name="telefono"></td></tr>
+						<tr><td>Division</td><td><input class="form-control" type="text" name="division"></td></tr>
+						<tr><td>Escolaridad</td><td><input class="form-control" type="text" name="escolaridad"></td></tr>
 						<tr><td><input class="btn btn-warning" type="reset" name=""></td><td><input class="btn btn-success" type="submit" name="agregar"></td></tr>
 					</table>
 				</form>

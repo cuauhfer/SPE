@@ -81,8 +81,13 @@
 						<tr><th>Codigo</th><th>Nombre</th><th>Nombre Usuario</th><th>Contraseña</th><th>Nivel</th></tr>
 						<?php 
 							while($reg = mysqli_fetch_array($resultado)){
-								echo 
-									"<tr><td>".$reg['codigo']."</td><td>".$reg['nombre']." ".$reg['apellidop']." ".$reg['apellidom']."</td><td>".$reg['username']."</td><td>".$reg['password']."</td><td>".nivel($reg['nivel'])."</td></tr>";
+								$sql = "SELECT * FROM `persona`";
+								$resultado_p = mysqli_query($conexion, $sql);
+								while ($persona = mysqli_fetch_array($resultado_p)) {
+									if($reg['codigo'] == $persona['codigo']){
+										echo "<tr><td>".$reg['codigo']."</td><td>".$persona['nombre']." ".$persona['apellidop']." ".$persona['apellidom']."</td><td>".$reg['username']."</td><td>".$reg['password']."</td><td>".nivel($reg['nivel'])."</td></tr>";
+									}
+								}
 							}//Llave del while
 						?>
 					</table>
@@ -93,7 +98,7 @@
 					</form>
 					<form method="post">
 						<input class="form" type="text" name="codigo" required>
-						<input class="btn btn-success" type="submit" name="seleccionar" value="Modificar">
+						<input class="btn btn-success" type="submit" name="seleccionar" value="Buscar">
 						<p class="text-warning">Seleccione un codigo para operar con ese usuario</p>
 					</form>
 				</div>

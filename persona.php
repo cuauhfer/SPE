@@ -134,16 +134,23 @@
 							if(!isset($_POST['modificar'])){
 								$sql = "SELECT * FROM usuario WHERE username='$usuario'";
 								$resultado = mysqli_query($conexion, $sql);
+
+								$usuario = $_SESSION["user"];
+								$codigo = $usuario['codigo'];
+								$sql = "SELECT * FROM persona WHERE codigo='$codigo'";
+								$resultado_p = mysqli_query($conexion, $sql);
+								$reg_p = mysqli_fetch_array($resultado_p);
+
 								while($reg = mysqli_fetch_array($resultado)){
 								echo 
 									"<tr><td>Codigo</td><td>".$reg['codigo']."</td></tr>".
-									"<tr><td>Nombre</td><td>".$reg['nombre']."</td>"."</tr>".
-									"<tr><td>Apellido Paterno</td><td>".$reg['apellidop']."</td>"."</tr>".
-									"<tr><td>Apellido Materno</td><td>".$reg['apellidom']."</td>"."</tr>".
-									"<tr><td>Correo</td><td>".$reg['email']."</td>"."</tr>".
-									"<tr><td>Telefono</td><td>".$reg['telefono']."</td>"."</tr>".
-									"<tr><td>Division</td><td>".$reg['division']."</td>"."</tr>".
-									"<tr><td>Escolaridad</td><td>".$reg['escolaridad']."</td>"."</tr>".
+									"<tr><td>Nombre</td><td>".$reg_p['nombre']."</td>"."</tr>".
+									"<tr><td>Apellido Paterno</td><td>".$reg_p['apellidop']."</td>"."</tr>".
+									"<tr><td>Apellido Materno</td><td>".$reg_p['apellidom']."</td>"."</tr>".
+									"<tr><td>Correo</td><td>".$reg_p['email']."</td>"."</tr>".
+									"<tr><td>Telefono</td><td>".$reg_p['telefono']."</td>"."</tr>".
+									"<tr><td>Division</td><td>".$reg_p['division']."</td>"."</tr>".
+									"<tr><td>Escolaridad</td><td>".$reg_p['escolaridad']."</td>"."</tr>".
 									"<tr><td>Nombre de Usuario</td><td>".$reg['username']."</td>"."</tr>";
 								}//Llave del while
 							}//Llave del else
