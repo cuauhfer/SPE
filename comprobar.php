@@ -41,8 +41,8 @@
 	if(isset($_SESSION['username'])){ 
 		$codigo = $reg['codigo'];
 		$nombre = $reg['nombre'];
-		$apep = $reg['apellidop'];
-		$apem = $reg['apellidom'];
+		$apep = $reg['apellidoP'];
+		$apem = $reg['apellidoM'];
 		$correo = $reg['email'];
 		$telefono = $reg['telefono'];
 		$division = $reg['division'];
@@ -59,13 +59,13 @@
 			}
 			//apellido paterno
 			if($_POST['apellidop']==""){
-				$apep = $reg['apellidop'];
+				$apep = $reg['apellidoP'];
 			}else{
 				$apep = $_POST['apellidop'];
 			}
 			//apellido materno
 			if($_POST['apellidom']==""){
-				$apem = $reg['apellidom'];
+				$apem = $reg['apellidoM'];
 			}else{
 				$apem = $_POST['apellidom'];
 			}
@@ -94,7 +94,7 @@
 				$escolaridad = $_POST['escolaridad'];
 			}
 
-			$sql = "UPDATE persona SET nombre='$nombre', apellidop='$apep', apellidom='$apem', email='$correo', telefono='$telefono', division='$division', escolaridad='$escolaridad' WHERE codigo='$codigo'";
+			$sql = "UPDATE persona SET nombre='$nombre', apellidoP='$apep', apellidoM='$apem', email='$correo', telefono='$telefono', division='$division', escolaridad='$escolaridad' WHERE codigo='$codigo'";
 			$resultado = mysqli_query($conexion, $sql);
 
 			//Logs

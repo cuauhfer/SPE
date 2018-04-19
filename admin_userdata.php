@@ -38,8 +38,8 @@
 		$password = $reg['password'];
 		$nivel = $reg['nivel'];
 		$nombre = $persona['nombre'];
-		$apep = $persona['apellidop'];
-		$apem = $persona['apellidom'];
+		$apep = $persona['apellidoP'];
+		$apem = $persona['apellidoM'];
 		$correo = $persona['email'];
 		$telefono = $persona['telefono'];
 		$division = $persona['division'];
@@ -57,13 +57,13 @@
 			}
 			//apellido paterno
 			if($_POST['apellidop']==""){
-				$apep = $persona['apellidop'];
+				$apep = $persona['apellidoP'];
 			}else{
 				$apep = $_POST['apellidop'];
 			}
 			//apellido materno
 			if($_POST['apellidom']==""){
-				$apem = $persona['apellidom'];
+				$apem = $persona['apellidoM'];
 			}else{
 				$apem = $_POST['apellidom'];
 			}
@@ -112,7 +112,7 @@
 			$persona = $_SESSION['persona'];
 			$codigoadmin = $persona['codigo'];
 
-			$sql = "UPDATE persona SET nombre='$nombre', apellidop='$apep', apellidom='$apem', email='$correo', telefono='$telefono', division='$division', escolaridad='$escolaridad' WHERE codigo='$codigo'";
+			$sql = "UPDATE persona SET nombre='$nombre', apellidoP='$apep', apellidoM='$apem', email='$correo', telefono='$telefono', division='$division', escolaridad='$escolaridad' WHERE codigo='$codigo'";
 			$resultado = mysqli_query($conexion, $sql);
 
 			$sql = "UPDATE usuario SET username='$username', password='$password', nivel='$nivel' WHERE codigo='$codigo'";
@@ -177,9 +177,9 @@
 							echo "<tr><td><label>Nombre usuario</label></td><td><input class='form-control type='text' name='username' value='$username' placeholder='Nuevo Usuario'></td></tr>";
 							echo "<tr><td><label>Contraseña</label></td><td><input class='form-control type='password' name='password' value='$password' placeholder='Nueva Contraseña'></td></tr>";
 							echo "<tr><td>Nivel</td><td><select class='form-control' name='nivel' size='1'>
-												<option value = '1'> Colaborador </option>
-												<option value = '2'> Integrante </option>
-												<option value = '3'> Administrador </option>
+												<option value = '1' "; if($nivel == "1"){echo "selected";} echo "> Colaborador </option>
+												<option value = '2' "; if($nivel == "2"){echo "selected";} echo "> Integrante </option>
+												<option value = '3' "; if($nivel == "3"){echo "selected";} echo "> Administrador </option>
 									</select></td></tr>";
 							echo "<tr><td><label>Nombre</label></td><td><input class='form-control type='text' name='nombre' value='$nombre' placeholder='Nuevo Nombre'></td></tr>";
 							echo "<tr><td><label>Apellido Paterno</label></td><td><input class='form-control type='text' name='apellidop' value='$apep' placeholder='Nuevo Apellido Paterno'></td></tr>";

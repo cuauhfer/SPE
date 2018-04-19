@@ -85,7 +85,7 @@
 								$resultado_p = mysqli_query($conexion, $sql);
 								while ($persona = mysqli_fetch_array($resultado_p)) {
 									if($reg['codigo'] == $persona['codigo']){
-										echo "<tr><td>".$reg['codigo']."</td><td>".$persona['nombre']." ".$persona['apellidop']." ".$persona['apellidom']."</td><td>".$reg['username']."</td><td>".$reg['password']."</td><td>".nivel($reg['nivel'])."</td></tr>";
+										echo "<tr><td>".$reg['codigo']."</td><td>".$persona['nombre']." ".$persona['apellidoP']." ".$persona['apellidoM']."</td><td>".$reg['username']."</td><td>".$reg['password']."</td><td>".nivel($reg['nivel'])."</td></tr>";
 									}
 								}
 							}//Llave del while

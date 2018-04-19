@@ -22,7 +22,7 @@
 		//Conexion a BD
 		$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
 		$usuario = $_SESSION['username'];
-		$sql = "SELECT * FROM `logs` ORDER BY `fecha` DESC";
+		$sql = "SELECT * FROM `log` ORDER BY `fecha` DESC";
 		$resultado = mysqli_query($conexion, $sql);
 		$reg = mysqli_fetch_array($resultado);
 ?>

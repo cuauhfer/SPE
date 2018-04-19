@@ -145,8 +145,8 @@
 								echo 
 									"<tr><td>Codigo</td><td>".$reg['codigo']."</td></tr>".
 									"<tr><td>Nombre</td><td>".$reg_p['nombre']."</td>"."</tr>".
-									"<tr><td>Apellido Paterno</td><td>".$reg_p['apellidop']."</td>"."</tr>".
-									"<tr><td>Apellido Materno</td><td>".$reg_p['apellidom']."</td>"."</tr>".
+									"<tr><td>Apellido Paterno</td><td>".$reg_p['apellidoP']."</td>"."</tr>".
+									"<tr><td>Apellido Materno</td><td>".$reg_p['apellidoM']."</td>"."</tr>".
 									"<tr><td>Correo</td><td>".$reg_p['email']."</td>"."</tr>".
 									"<tr><td>Telefono</td><td>".$reg_p['telefono']."</td>"."</tr>".
 									"<tr><td>Division</td><td>".$reg_p['division']."</td>"."</tr>".
@@ -161,23 +161,10 @@
 					?>
 						<form method="post">
 							<input class="btn btn-success" type="submit" name="modificar" value="Modificar">
-							<?php 
-								if(isset($_SESSION['administrador'])){
-							?>
-									<input class="btn btn-success" onclick="return confirmar()" type="submit" name="eliminar" value="Eliminar">
-							<?php
-								}
-							?>
 						</form>
 					<?php
 						}else{
 							header('Location: comprobar.php');
-						}
-						if(isset($_POST['eliminar'])){
-							unlink('profile_pictures/'.$codigo.".jpg");
-							$sql = "UPDATE usuario SET username='-', password='-', nivel='0' WHERE codigo='$codigo'";
-							$resultado = mysqli_query($conexion, $sql);
-							header('Location: logout.php');
 						}
 					?>
 					

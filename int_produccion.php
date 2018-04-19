@@ -28,7 +28,7 @@
 	<script src='js/script-form.js'></script>
 	<script src='add_produccion.js'></script>
 	<!--Titulo-->
-	<title>Modificar Usuario</title>
+	<title>Crear Producción</title>
 </head>
 <?php 
 
@@ -76,6 +76,7 @@
 									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="2"){echo "selected";}?> value="2">Informe Tecnico</option>
 									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="3"){echo "selected";}?> value="3">Manual</option>
 									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="4"){echo "selected";}?> value="4">Libro</option>
+									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="5"){echo "selected";}?> value="5">Linea de Innovación</option>
 								</select></td>
 								<td><input class="btn btn-success" type="submit" name="comenzar" value="Comenzar"></td>
 							</tr>
@@ -161,7 +162,21 @@
 												</td>
 											</tr>
 											<tr>
-												<td colspan="1">Linea</td><td colspan="3"><input class="form-control" type="text" name="linea" required></td>
+												<td colspan="1">Linea de pertenencia</td>
+												<td colspan="3"><select class="form-control custom-select" type="select" name="linea" id="linea" required>
+													<?php 
+														$sql = "SELECT * FROM lineainn";
+														$resultado = mysqli_query($conexion, $sql);
+														while ($lineas = mysqli_fetch_array($resultado)){
+															$nombrelinea = $lineas['nombre'];
+															$idlinea = $lineas['id'];
+															?>
+																<option <?php echo "value = '$idlinea'";?> > <?php echo $nombrelinea; ?></option>
+															<?php
+														}
+
+													?>
+												</select></td>
 											</tr>
 											<tr>
 												<td colspan="1">ISSN</td><td colspan="3"><input class="form-control" type="text" name="issn"></td>
@@ -391,7 +406,21 @@
 													</td>
 												</tr>
 												<tr>
-													<td colspan="1">Linea</td><td colspan="3"><input class="form-control" type="text" name="linea" required></td>
+													<td colspan="1">Linea de pertenencia</td>
+													<td colspan="3"><select class="form-control custom-select" type="select" name="linea" id="linea" required>
+														<?php 
+															$sql = "SELECT * FROM lineainn";
+															$resultado = mysqli_query($conexion, $sql);
+															while ($lineas = mysqli_fetch_array($resultado)){
+																$nombrelinea = $lineas['nombre'];
+																$idlinea = $lineas['id'];
+																?>
+																	<option <?php echo "value = '$idlinea'";?> > <?php echo $nombrelinea; ?></option>
+																<?php
+															}
+
+														?>
+													</select></td>
 												</tr>
 												<tr>
 													<td colspan="1">Editorial</td><td colspan="3"><input class="form-control" type="text" name="editorial" required></td>
@@ -407,6 +436,48 @@
 											</table>
 										</form>
 									<?php
+							}
+							else if($_POST['tipo'] == "5"){
+								$persona = $_SESSION['persona'];
+								$tipo = $_POST['tipo'];
+
+								if(isset($_POST['agregar'])){
+									$nombre = $_POST['nombre'];
+									$autor = $persona['codigo'];
+									$campo = $_POST['campo'];
+
+									$publicacion = $tipo;
+									$sql = "INSERT INTO lineainn(nombre, codigoPersona, campo) VALUES('$nombre', '$autor', '$campo')";
+									$resultado = mysqli_query($conexion, $sql);
+
+									echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+								}
+								?>
+									<div class="container"></div>
+										<table class="table table-dark table-bordered table-striped table-hover">
+											
+											<tr>
+												<td colspan="1">Nombre</td>
+												<td colspan="3"><input class="form-control" type="text" name="nombre" required></td>
+											</tr>
+											<tr>
+												<td colspan="1">Registra: </td>
+												<td colspan="3"><?php 
+													 echo $persona['nombre'];?></td>
+											</tr>
+											<tr>
+												<td colspan="1">Campo</td><td colspan="3"><input class="form-control" type="text" name="campo"></td>
+											</tr>
+											<tr>
+												<td colspan="4"></td>
+											</tr>
+											<tr>
+												<td colspan="1"><input class="btn btn-warning" type="reset" name=""></td>
+												<td colspan="1"><input class="btn btn-success" type="submit" name="agregar"></td>
+												<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar"></td>
+											</tr>
+										</table>
+								<?php
 							}
 						}
 						else if(isset($_POST['cancelar'])){
