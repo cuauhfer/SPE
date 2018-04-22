@@ -60,7 +60,7 @@
 			}
 			else if($reg['nivel'] == 1){
 				$_SESSION['colaborador'] = $reg['nivel'];
-				//header('Location: administrador.php');
+				header('Location: colaborador.php');
 			}
 			$codigo = $reg['codigo'];
 
@@ -81,7 +81,7 @@
 		<h3>Acceder al Sistema</h3>
 		<input class="form-control" type="text" name="username" placeholder="Username" required>
 		<input class="form-control" type="Password" name="password" placeholder="&#128272; Password" required>
-		<input type="submit" name="Buscar" value="Login">
+		<input class="btn btn-outline-primary my-2 my-sm-0" type="submit" name="Buscar" value="Login">
 	</form>
 
 	<script src="js/jquery.js"></script>

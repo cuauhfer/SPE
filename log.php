@@ -27,7 +27,7 @@
 		$reg = mysqli_fetch_array($resultado);
 ?>
 	<body>
-		<header>
+		<header class="fixed-top">
 			<nav>
 				<ul>
 					<a href='administrador.php'><li>Principal</li></a>

@@ -45,7 +45,7 @@
 		}
 ?>
 	<body>
-		<header>
+		<header class="fixed-top">
 			<nav>
 				<ul>
 					<a href='admin_usuario.php'><li>Atras</li></a>

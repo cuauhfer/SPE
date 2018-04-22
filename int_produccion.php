@@ -37,7 +37,7 @@
 		$usuario = $_SESSION['username'];
 ?>
 	<body>
-		<header>
+		<header class="fixed-top">
 			<nav>
 				<ul>
 					<?php
@@ -78,7 +78,7 @@
 									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="4"){echo "selected";}?> value="4">Libro</option>
 									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="5"){echo "selected";}?> value="5">Linea de Innovación</option>
 								</select></td>
-								<td><input class="btn btn-success" type="submit" name="comenzar" value="Comenzar"></td>
+								<td><input class="btn btn-success" type="submit" name="comenzar" value="Comenzar" formnovalidate></td>
 							</tr>
 						</table>
 					<?php 
@@ -187,7 +187,7 @@
 											<tr>
 												<td colspan="1"><input class="btn btn-warning" type="reset" name=""></td>
 												<td colspan="1"><input class="btn btn-success" type="submit" name="agregar"></td>
-												<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar"></td>
+												<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar" formnovalidate></td>
 											</tr>
 										</table>
 								<?php
@@ -255,7 +255,7 @@
 												<tr>
 													<td colspan="1"><input class="btn btn-warning" type="reset" name=""></td>
 													<td colspan="1"><input class="btn btn-success" type="submit" name="agregar"></td>
-													<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar"></td>
+													<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar" formnovalidate></td>
 												</tr>
 											</table>
 										</form>
@@ -324,7 +324,7 @@
 												<tr>
 													<td colspan="1"><input class="btn btn-warning" type="reset" name=""></td>
 													<td colspan="1"><input class="btn btn-success" type="submit" name="agregar"></td>
-													<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar"></td>
+													<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar" formnovalidate></td>
 												</tr>
 											</table>
 										</form>
@@ -431,7 +431,7 @@
 												<tr>
 													<td colspan="1"><input class="btn btn-warning" type="reset" name=""></td>
 													<td colspan="1"><input class="btn btn-success" type="submit" name="agregar"></td>
-													<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar"></td>
+													<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar" formnovalidate></td>
 												</tr>
 											</table>
 										</form>
@@ -474,7 +474,7 @@
 											<tr>
 												<td colspan="1"><input class="btn btn-warning" type="reset" name=""></td>
 												<td colspan="1"><input class="btn btn-success" type="submit" name="agregar"></td>
-												<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar"></td>
+												<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar" formnovalidate></td>
 											</tr>
 										</table>
 								<?php

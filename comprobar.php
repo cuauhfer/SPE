@@ -19,6 +19,11 @@
 			<link rel="stylesheet" href="css/index_style_administrador.css">
 			<?php
 		}
+		else if(isset($_SESSION['colaborador'])){
+			?>
+			<link rel="stylesheet" href="css/index_style_home.css">
+			<?php
+		}
 	?>
 	<!--Favicon-->
 	<link rel="icon" type="image/png" href="pictures/logo.png" />
@@ -114,7 +119,7 @@
 		}
 ?>
 	<body>
-		<header>
+		<header class="fixed-top">
 			<nav>
 				<ul>
 				</ul>

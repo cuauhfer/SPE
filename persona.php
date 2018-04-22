@@ -19,6 +19,11 @@
 			<link rel="stylesheet" href="css/index_style_administrador.css">
 			<?php
 		}
+		else if(isset($_SESSION['colaborador'])){
+			?>
+			<link rel="stylesheet" href="css/index_style_home.css">
+			<?php
+		}
 	?>
 	<!--Favicon-->
 	<link rel="icon" type="image/png" href="pictures/logo.png" />
@@ -49,7 +54,7 @@
 	if(isset($_SESSION['username'])){ 
 ?>
 	<body>
-		<header>
+		<header class="fixed-top">
 			<nav>
 				<ul>
 				<?php
@@ -62,7 +67,12 @@
 				?>
 					<a href='administrador.php'><li>Principal</li></a>
 				<?php
-				}
+					}
+					else if(isset($_SESSION['colaborador'])){
+				?>
+					<a href='colaborador.php'><li>Principal</li></a>
+				<?php
+					}
 				?>
 				</ul>
 						

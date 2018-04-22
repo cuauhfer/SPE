@@ -13,6 +13,8 @@ section#banner{
 }
 
 section#carrusel{
+	display: flex;
+	overflow: hidden;
 	width: 100%;
 	background-attachment: contain;
 	background-position: center;

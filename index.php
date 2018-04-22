@@ -17,26 +17,27 @@
 </head>
 
 <body>
-	<header>
+	<header  class="fixed-top">
 		<nav>
 			<ul>
 				<a href='login.php'><li>Ingresar</li></a>
-					<a href=''><li>Opc2</li></a>
-					<a href=''><li>Opc3</li></a>
 				</ul>
 					
-					<img id='logo' src='pictures/logo.png'>
+					<a href="login.php"><img id='logo' src='pictures/logo.png'></a>
 
 				<ul>
-					<a href=''><li>Opc4</li></a>
-					<a href=''><li>Opc5</li></a>
-					<a href=''><li>Opc6</li></a>
+					<section align="right">
+						<form class="form-inline my-2 my-lg-0">
+      						<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+      						<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
+   						</form>
+   					</section>
+
 			</ul>
 		</nav>
 	</header>
 
 	<section id='banner'>
-
 	</section>
 
 	<section id='body'>
@@ -47,7 +48,8 @@
 				<br>
 				<script type="text/javascript">
 						//Ancho (en pixeles)
-						var sliderwidth="1360px"
+						var screen = screen.availWidth;
+						var sliderwidth=(screen)+"px"
 						//Alto
 						var sliderheight="200px"
 						//Velocidad 1-10
@@ -58,14 +60,13 @@
 						//Vínculos y enlaces de las imágenes
 						var leftrightslide=new Array()
 						var finalslide=''
-						leftrightslide[0]='<a href="login.php" target="blank" title="Facebook"><img border="1" src="pictures/Albedo.png" height="200"></a>'
 						leftrightslide[1]='<a href="login.php" target="blank" title="Google"><img border="1" src="pictures/Kiokay.png" height="200"></a>'
 						leftrightslide[2]='<a href="login.php" target="blank" title="Youtube"><img border="1" src="pictures/Ulquiorra.png" height="200"></a>'
 						leftrightslide[3]='<a href="login.php" target="blank" title="Home"><img border="1" src="pictures/Rukia.png" height="200"></a>'
 						leftrightslide[4]='<a href="login.php" target="blank" title="Belzec"><img border="1" src="pictures/Adlet.png" height="200"></a>'
 						
 						var imagegap=""
-						var slideshowgap=5
+						var slideshowgap=4
 
 
 						var copyspeed=slidespeed
@@ -146,6 +147,73 @@
 						}
 				</script> 
 			</section>
+
+			<br><br><br>
+			<!--Vista rapida-->
+			<h1 align="center">Lo más Reciente</h1>
+			<br>
+			<?php  
+
+				$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
+
+				function nombre($codigo){
+					$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
+					$sql = "SELECT * FROM persona WHERE codigo = $codigo";
+					$resultado = mysqli_query($conexion, $sql);
+					$persona = mysqli_fetch_array($resultado);
+					echo $persona['nombre']." ".$persona['apellidoP']." ".$persona['apellidoM'];
+				}
+
+				//$sql = "SELECT * FROM produccion WHERE aprobacion = true ORDER BY 'id' DESC LIMIT 0, 4";
+				$sql = "SELECT * FROM produccion ORDER BY 'id' DESC LIMIT 0, 5";
+				$resultado = mysqli_query($conexion, $sql);
+
+
+				while ($reg = mysqli_fetch_array($resultado)){
+			?>
+			<!--Vistas rapidas-->
+				<div class="row mb-2">
+
+			        <div class="col-md-6">
+			          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
+				          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Ulquiorra.png" alt="Card image cap" width="200" height="200">
+				            <div class="card-body d-flex flex-column align-items-start">
+				              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
+				              	<h3 class="mb-0">
+				                	<a class="text-dark" href="#"><?php echo $reg['nombre']; ?></a>
+				              	</h3>
+				              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
+				              	<p class="card-text mb-auto">Texto</p>
+				              	<a href="#" class="btn btn-primary">Ver mas</a>
+				            </div>
+			            
+			          	</div>
+			        </div>
+				<?php
+					$reg2 = mysqli_fetch_array($resultado);
+					if($reg2){
+				?>
+
+			        <div class="col-md-6">
+			          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
+				          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Kiokay.png" alt="Card image cap" width="200" height="200">
+				            <div class="card-body d-flex flex-column align-items-start">
+				              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
+				              	<h3 class="mb-0">
+				                	<a class="text-dark" href="#"><?php echo $reg2['nombre']; ?></a>
+				              	</h3>
+				              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
+				              	<p class="card-text mb-auto">Texto</p>
+				              	<a href="#" class="btn btn-primary">Ver mas</a>
+				            </div>
+			          	</div>
+			        </div>
+			    </div>
+
+		    <?php 
+		    		}
+		    	}//Llave del while
+		    ?>
 		</div>
 	</section>
 	<script src="js/jquery.js"></script>
