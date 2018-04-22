@@ -26,7 +26,7 @@
 			<nav>
 				<ul>
 					<a href='persona.php'><li>Perfil</li></a>
-					<a href='logout.php'><li>Salir</li></a>
+					<a href='mis_publicaciones.php'><li>Publicaciones</li></a>
 				</ul>
 					
 					<img id='logo' src='pictures/logo.png'>
@@ -37,6 +37,7 @@
 						<form class="form-inline my-2 my-lg-0">
       						<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
       						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      						<a href='logout.php'><li>Salir</li></a>
    						</form>
    					</section>
 				</ul>
@@ -187,7 +188,7 @@
 					            <div class="card-body d-flex flex-column align-items-start">
 					              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
 					              	<h3 class="mb-0">
-					                	<a class="text-dark" href="#"><?php echo $reg['nombre']; ?></a>
+					                	<?php echo $reg['nombre']; ?>
 					              	</h3>
 					              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
 					              	<?php 
@@ -208,7 +209,7 @@
 					            <div class="card-body d-flex flex-column align-items-start">
 					              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
 					              	<h3 class="mb-0">
-					                	<a class="text-dark" href="#"><?php echo $reg2['nombre']; ?></a>
+					                	<?php echo $reg2['nombre']; ?>
 					              	</h3>
 					              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
 					              	<?php 

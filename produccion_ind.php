@@ -127,6 +127,7 @@
 							$resultado = mysqli_query($conexion, $sql);
 							$lin = mysqli_fetch_array($resultado);
 							?>
+								<div class="mb-1 text-muted">Articulo</div>
 								<div class="mb-1">Revista: <?php echo $art['revista'] ?></div>
 								<div class="mb-1"><?php echo $art['paginas'] ?></div>
 								<div class="mb-1">ISSN: <?php echo $art['issn'] ?></div>
@@ -139,6 +140,7 @@
 							$inf = mysqli_fetch_array($resultado);
 
 							?>
+								<div class="mb-1 text-muted">Informe Técnico</div>
 								<div class="mb-1">Dependencia: <?php echo $inf['dependencia'] ?></div>
 							<?php
 						}else if($reg['tipoPublicacion'] == "3"){
@@ -148,7 +150,8 @@
 							$man = mysqli_fetch_array($resultado);
 
 							?>
-								<div class="mb-1">Dependencia: <?php echo $man['registro'] ?></div>
+								<div class="mb-1 text-muted">Manual</div>
+								<div class="mb-1">Registro: <?php echo $man['registro'] ?></div>
 							<?php
 						}else if($reg['tipoPublicacion'] == "4"){
 							$idpu = $reg['id'];
@@ -161,6 +164,7 @@
 							$resultado = mysqli_query($conexion, $sql);
 							$lin = mysqli_fetch_array($resultado);
 							?>
+								<div class="mb-1 text-muted">Libro</div>
 								<div class="mb-1">Editorial: <?php echo $lib['editorial'] ?></div>
 								<div class="mb-1"><?php echo $lib['paginas'] ?></div>
 								<div class="mb-1">ISSN: <?php echo $lib['isbn'] ?></div>

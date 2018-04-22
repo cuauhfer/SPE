@@ -27,4 +27,6 @@ Status_aprobar	Metodo para procesar una aprobacion
 
 ----------------Funciones del integrante----------------
 
-Int_produccion	Pagina para crear publicaciones
+Int_produccion		Pagina para crear publicaciones
+mis_publicaciones	Pagina para mostrar publicaciones pertenecientes al integrante
+status_eliminar 	Procesa las eliminaciones logicas y fisicas
