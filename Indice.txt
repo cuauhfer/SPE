@@ -1,15 +1,30 @@
 ----------------Funciones generales---------------------
 
-Index		Pagina Principal del sistema
 Login		Metodo y pagina de ingreso para usuarios
-logout		Metodo para finalizar una sesion (Solo metodo, no visible)
+Logout		Metodo para finalizar una sesion (Solo metodo, no visible)
+
+----------------Interfaces Principales------------------
+
+Index		Pagina Principal del sistema
 Administrador	Pagina principal para usuarios tipo administrador
 Integrante	Pagina Principal para usuarios tipo integrante
+Colaborador 	Pagina Principal para usuarios tipo Colaborador
+
+----------------Interfaces Secundarias------------------
+
 Persona		Pagina del perfil de un usuario de cualquier tipo
 Comprobar	Pagina para editar informacion basica de perfil (Todos los usuarios)
+Produccion_ind	Pagina que muestra informacion de una producción academica (Solo producción)
 
 ----------------Funciones del administrador-------------
 
 Admin_usuario	Pagina para ver informacion importante de cuentas de usuario (Solo administrador)
 Admin_userdata	Pagina para editar la informacion de cualquier usuario (Solo administrador)
 Admin_useradd 	Pagina para agregar usuarios al sistema (Solo administrador)
+Log		Vista del historial de acciones realizadas en el sistema
+Notificacion	Ver publicaciones pendientes de aprobacion
+Status_aprobar	Metodo para procesar una aprobacion
+
+----------------Funciones del integrante----------------
+
+Int_produccion	Pagina para crear publicaciones

@@ -15,6 +15,9 @@
 	<!--Titulo-->
 	<title>Home SPE</title>
 </head>
+<?php 
+	session_start();
+?>
 
 <body>
 	<header  class="fixed-top">
@@ -153,7 +156,7 @@
 			<h1 align="center">Lo más Reciente</h1>
 			<br>
 			<?php  
-
+				$_SESSION['visitante'] = "0";
 				$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
 
 				function nombre($codigo){
@@ -164,8 +167,8 @@
 					echo $persona['nombre']." ".$persona['apellidoP']." ".$persona['apellidoM'];
 				}
 
-				//$sql = "SELECT * FROM produccion WHERE aprobacion = true ORDER BY 'id' DESC LIMIT 0, 4";
-				$sql = "SELECT * FROM produccion ORDER BY 'id' DESC LIMIT 0, 5";
+				$sql = "SELECT * FROM produccion WHERE aprobacion = true ORDER BY `produccion`.`id` DESC LIMIT 0, 4";
+				//$sql = "SELECT * FROM produccion ORDER BY `produccion`.`id` DESC LIMIT 0, 4";
 				$resultado = mysqli_query($conexion, $sql);
 
 
@@ -180,11 +183,12 @@
 				            <div class="card-body d-flex flex-column align-items-start">
 				              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
 				              	<h3 class="mb-0">
-				                	<a class="text-dark" href="#"><?php echo $reg['nombre']; ?></a>
+				                	<?php echo $reg['nombre']; ?>
 				              	</h3>
 				              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
-				              	<p class="card-text mb-auto">Texto</p>
-				              	<a href="#" class="btn btn-primary">Ver mas</a>
+				              	<?php 
+					              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver mas</a>";
+					            ?>
 				            </div>
 			            
 			          	</div>
@@ -200,11 +204,12 @@
 				            <div class="card-body d-flex flex-column align-items-start">
 				              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
 				              	<h3 class="mb-0">
-				                	<a class="text-dark" href="#"><?php echo $reg2['nombre']; ?></a>
+				                	<?php echo $reg2['nombre']; ?>
 				              	</h3>
 				              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
-				              	<p class="card-text mb-auto">Texto</p>
-				              	<a href="#" class="btn btn-primary">Ver mas</a>
+				              	<?php 
+					              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver mas</a>";
+					            ?>
 				            </div>
 			          	</div>
 			        </div>

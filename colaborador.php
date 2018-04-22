@@ -168,8 +168,8 @@
 							echo $persona['nombre']." ".$persona['apellidoP']." ".$persona['apellidoM'];
 						}
 
-						//$sql = "SELECT * FROM produccion WHERE aprobacion = true ORDER BY 'id' DESC LIMIT 0, 4";
-						$sql = "SELECT * FROM produccion ORDER BY 'id' DESC LIMIT 0, 5";
+						$sql = "SELECT * FROM produccion WHERE aprobacion = true ORDER BY `produccion`.`id` DESC LIMIT 0, 4";
+						//$sql = "SELECT * FROM produccion ORDER BY 'id' DESC LIMIT 0, 4";
 						$resultado = mysqli_query($conexion, $sql);
 
 
@@ -187,8 +187,9 @@
 						                	<a class="text-dark" href="#"><?php echo $reg['nombre']; ?></a>
 						              	</h3>
 						              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
-						              	<p class="card-text mb-auto">Texto</p>
-						              	<a href="#" class="btn btn-primary">Ver mas</a>
+						              	<?php 
+						              		echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver mas</a>";
+						              	?>
 						            </div>
 					            
 					          	</div>
@@ -207,8 +208,9 @@
 						                	<a class="text-dark" href="#"><?php echo $reg2['nombre']; ?></a>
 						              	</h3>
 						              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
-						              	<p class="card-text mb-auto">Texto</p>
-						              	<a href="#" class="btn btn-primary">Ver mas</a>
+						              	<?php 
+					              			echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver mas</a>";
+					              		?>
 						            </div>
 					          	</div>
 					        </div>
