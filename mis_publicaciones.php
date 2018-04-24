@@ -55,11 +55,12 @@
 				<?php
 					}
 				?>
-					<a href='logout.php'><li>Salir</li></a>
+					
 				</ul>
 				<img id='logo' src='pictures/logo.png'>
 
 			<ul>
+				<a href='logout.php'><li>Salir</li></a>
 			</ul>
 		</nav>
 	</header>
