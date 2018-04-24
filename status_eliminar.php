@@ -15,7 +15,7 @@
 
 		while($reg = mysqli_fetch_array($resultado)){
 			$idpd = $reg['id'];
-			$sql = "UPDATE produccion SET borrador = true WHERE id='$idpd'";
+			$sql = "UPDATE produccion SET borrador = true, aprobacion = false WHERE id='$idpd'";
 			$resultado = mysqli_query($conexion, $sql);
 		}
 	}

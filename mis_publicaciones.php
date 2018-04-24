@@ -9,21 +9,22 @@
 	<?php  
 		//Inicio de secion
 		session_start();
-		if(isset($_SESSION['integrante'])){
-			?>
-			<link rel="stylesheet" href="css/index_style_integrante.css">
-			<?php  
-		}
-		else if(isset($_SESSION['administrador'])){
-			?>
-			<link rel="stylesheet" href="css/index_style_administrador.css">
-			<?php
-		}
-		else if(isset($_SESSION['colaborador'])){
-			?>
-			<link rel="stylesheet" href="css/index_style_home.css">
-			<?php
-		}
+		if(isset($_SESSION['username'])){
+			if(isset($_SESSION['integrante'])){
+				?>
+				<link rel="stylesheet" href="css/index_style_integrante.css">
+				<?php  
+			}
+			else if(isset($_SESSION['administrador'])){
+				?>
+				<link rel="stylesheet" href="css/index_style_administrador.css">
+				<?php
+			}
+			else if(isset($_SESSION['colaborador'])){
+				?>
+				<link rel="stylesheet" href="css/index_style_home.css">
+				<?php
+			}
 	?>
 	<!--Favicon-->
 	<link rel="icon" type="image/png" href="pictures/logo.png" />
@@ -83,7 +84,12 @@
 
 			$user = $_SESSION['user'];
 			$cod = $user['codigo'];
-			$sql = "SELECT * FROM produccion WHERE autor = '$cod'";
+			if(isset($_SESSION['integrante'])){
+				$sql = "SELECT * FROM produccion WHERE autor = '$cod'";
+			}
+			else if(isset($_SESSION['administrador'])){
+				$sql = "SELECT * FROM produccion";
+			}
 			//$sql = "SELECT * FROM produccion ORDER BY 'id' DESC LIMIT 0, 4";
 			$resultado = mysqli_query($conexion, $sql);
 
@@ -105,7 +111,7 @@
 			              	<div class="d-inline-block">
 			              	<?php 
 			              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-success'>Ver mas</a> "; 
-			              	echo "<a href='produccion_ind.php/?id=".$reg['id']."&tipo=".$reg['tipoPublicacion']."' class='btn btn-primary'>Modificar</a> ";
+			              	echo "<a href='status_modificar.php/?id=".$reg['id']."&tipo=".$reg['tipoPublicacion']."' class='btn btn-primary'>Modificar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=1' class='btn btn-warning'>Ocultar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=0' class='btn btn-danger'>Eliminar</a>";
 			              	?>
@@ -131,7 +137,7 @@
 			              	<div class="d-inline-block">
 			              	<?php 
 			              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-success'>Ver mas</a> ";
-			              	echo "<a href='produccion_ind.php/?id=".$reg2['id']."&tipo=".$reg2['tipoPublicacion']."' class='btn btn-primary'>Modificar</a> ";
+			              	echo "<a href='status_modificar.php/?id=".$reg2['id']."&tipo=".$reg2['tipoPublicacion']."' class='btn btn-primary'>Modificar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=1' class='btn btn-warning'>Ocultar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=0' class='btn btn-danger'>Eliminar</a>";
 			              	?>
@@ -150,4 +156,10 @@
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>
+
+<?php 
+}else{
+	header('Location: login.php');
+}
+?>
 </html>
