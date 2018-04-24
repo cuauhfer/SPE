@@ -60,6 +60,7 @@
 							//Ancho (en pixeles)
 							var screen = screen.availWidth;
 							var sliderwidth=(screen)+"px"
+
 							//Alto
 							var sliderheight="200px"
 							//Velocidad 1-10

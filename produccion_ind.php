@@ -9,31 +9,33 @@
 	<?php  
 		//Inicio de secion
 		session_start();
-		$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
 
-		function nombre($codigo){
+		if(isset($_SESSION['username'])){
 			$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
-			$sql = "SELECT * FROM persona WHERE codigo = $codigo";
-			$resultado = mysqli_query($conexion, $sql);
-			$persona = mysqli_fetch_array($resultado);
-			echo $persona['nombre']." ".$persona['apellidoP']." ".$persona['apellidoM'];
-		}
 
-		if(isset($_SESSION['integrante'])){
-			?>
-			<link rel="stylesheet" href="../css/index_style_integrante.css">
-			<?php  
-		}
-		else if(isset($_SESSION['administrador'])){
-			?>
-			<link rel="stylesheet" href="../css/index_style_administrador.css">
-			<?php
-		}
-		else if(isset($_SESSION['colaborador']) || isset($_SESSION['visitante'])){
-			?>
-			<link rel="stylesheet" href="../css/index_style_home.css">
-			<?php
-		}
+			function nombre($codigo){
+				$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
+				$sql = "SELECT * FROM persona WHERE codigo = $codigo";
+				$resultado = mysqli_query($conexion, $sql);
+				$persona = mysqli_fetch_array($resultado);
+				echo $persona['nombre']." ".$persona['apellidoP']." ".$persona['apellidoM'];
+			}
+
+			if(isset($_SESSION['integrante'])){
+				?>
+				<link rel="stylesheet" href="../css/index_style_integrante.css">
+				<?php  
+			}
+			else if(isset($_SESSION['administrador'])){
+				?>
+				<link rel="stylesheet" href="../css/index_style_administrador.css">
+				<?php
+			}
+			else if(isset($_SESSION['colaborador']) || isset($_SESSION['visitante'])){
+				?>
+				<link rel="stylesheet" href="../css/index_style_home.css">
+				<?php
+			}
 	?>
 	<!--Favicon-->
 	<link rel="icon" type="image/png" href="../pictures/logo.png" />
@@ -94,7 +96,7 @@
 			</nav>
 	</header>
 
-	<?php  
+	<?php 
 		$var1 = $_GET['nombre'];
 		$var2 = $_GET['autor']; 
 
@@ -169,8 +171,11 @@
 								<div class="mb-1"><?php echo $lib['paginas'] ?></div>
 								<div class="mb-1">ISSN: <?php echo $lib['isbn'] ?></div>
 								<div class="mb-1">Campo: <?php echo $lin['nombre'] ?></div>
-							<?php	
+							<?php
 						} 
+						if($reg['borrador'] == true){
+							echo "<div class='mb-1'>Borrador</div>";
+						}
 					?>
 		        </div>
 	      	</div>
@@ -182,4 +187,8 @@
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>
+<?php 
+}else{
+	header('Location: login.php');
+} ?>
 </html>

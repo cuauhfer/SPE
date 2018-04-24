@@ -56,7 +56,7 @@
 					echo $persona['nombre']." ".$persona['apellidoP']." ".$persona['apellidoM'];
 				}
 
-				$sql = "SELECT * FROM produccion WHERE aprobacion = false";
+				$sql = "SELECT * FROM produccion WHERE aprobacion = false AND borrador = false";
 				$resultado = mysqli_query($conexion, $sql);
 				while($reg = mysqli_fetch_array($resultado)){
 					if(!$reg){
@@ -72,7 +72,7 @@
 					            <div class="card-body d-flex flex-column align-items-start">
 					              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
 					              	<h3 class="mb-0">
-					                	<a class="text-dark" href="#"><?php echo $reg['nombre']; ?></a>
+					                	<?php echo $reg['nombre']; ?>
 					              	</h3>
 					              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
 					              	<div class="d-inline-block">
@@ -98,7 +98,7 @@
 					            <div class="card-body d-flex flex-column align-items-start">
 					              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
 					              	<h3 class="mb-0">
-					                	<a class="text-dark" href="#"><?php echo $reg2['nombre']; ?></a>
+					                	<?php echo $reg2['nombre']; ?>
 					              	</h3>
 					              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
 					              	<div class="d-inline-block">
