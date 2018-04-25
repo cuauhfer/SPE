@@ -19,6 +19,7 @@
 <?php 
 	session_start();
 	if(isset($_SESSION['username']) && isset($_SESSION['administrador'])){ 
+		$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
 ?>
 
 	<body>
@@ -27,7 +28,15 @@
 				<ul>
 					<a href='persona.php'><li>Perfil</li></a>
 					<a href='admin_usuario.php'><li>Usuarios</li></a>
-					<a href='notificacion.php'><li>Pendientes</li></a>
+					<a href='notificacion.php'><li>Pendientes
+						<?php  
+							$sql = "SELECT * FROM produccion WHERE aprobacion = false AND borrador = false";
+							$resultado = mysqli_query($conexion, $sql);
+							$pendiente = $resultado -> num_rows;
+							$sql = "SELECT * FROM proyecto WHERE aprobacion = false AND borrador = false";
+							$resultado = mysqli_query($conexion, $sql);
+							$pendiente = $pendiente + ($resultado -> num_rows);
+						?><span class="badge badge-light"><?php echo $pendiente; ?></span></li></a>
 					<a href='mis_publicaciones.php'><li>Publicaciones</li></a>
 					<a href='log.php'><li>Logs</li></a>
 				</ul>
@@ -71,11 +80,11 @@
 							//Vínculos y enlaces de las imágenes
 							var leftrightslide=new Array()
 							var finalslide=''
-							leftrightslide[0]='<a href="int_produccion.php" target="blank" title="Nueva Produccion Academica"><img border="1" src="pictures/Albedo.png" height="200"></a>'
-							leftrightslide[1]='<a href="https://google.com" target="blank" title="Google"><img border="1" src="pictures/Kiokay.png" height="200"></a>'
-							leftrightslide[2]='<a href="https://youtube.com" target="blank" title="Youtube"><img border="1" src="pictures/Ulquiorra.png" height="200"></a>'
-							leftrightslide[3]='<a href="http://cuceineerbd.byethost17.com/Home.html" target="blank" title="Home"><img border="1" src="pictures/Rukia.png" height="200"></a>'
-							leftrightslide[4]='<a href="http://blog.belzec.net/" target="blank" title="Belzec"><img border="1" src="pictures/Adlet.png" height="200"></a>'
+							leftrightslide[0]='<a href="int_produccion.php" title="Nueva Produccion Academica"><img class="rounded-circle" border="1" src="pictures/Albedo.png" height="200" width="200"></a>'
+							leftrightslide[1]='<a href="https://google.com" title="Google"><img class="rounded-circle" border="1" src="pictures/Kiokay.png" height="200" width="200"></a>'
+							leftrightslide[2]='<a href="https://youtube.com" title="Youtube"><img class="rounded-circle" border="1" src="pictures/Ulquiorra.png" height="200" width="200"></a>'
+							leftrightslide[3]='<a href="http://cuceineerbd.byethost17.com/Home.html" title="Home"><img class="rounded-circle" border="1" src="pictures/Rukia.png" height="200" width="200"></a>'
+							leftrightslide[4]='<a href="ver_produccion.php" title="Producción Academica"><img border="1" class="rounded-circle" src="pictures/Adlet.png" height="200" width="200"></a>'
 							
 							var imagegap=""
 							var slideshowgap=5
@@ -162,12 +171,9 @@
 
 				<br><br><br>
 				<!--Vista rapida-->
-				<h1 align="center">Lo más Reciente</h1>
+				<h1 align="center">Lo más Reciente <br> Producción Academica</h1>
 				<br>
 				<?php  
-
-					$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
-
 					function nombre($codigo){
 						$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
 						$sql = "SELECT * FROM persona WHERE codigo = $codigo";
@@ -188,7 +194,7 @@
 
 				        <div class="col-md-6">
 				          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Ulquiorra.png" alt="Card image cap" width="200" height="200">
+					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
 					            <div class="card-body d-flex flex-column align-items-start">
 					              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
 					              	<h3 class="mb-0">
@@ -209,7 +215,7 @@
 
 				        <div class="col-md-6">
 				          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Kiokay.png" alt="Card image cap" width="200" height="200">
+					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
 					            <div class="card-body d-flex flex-column align-items-start">
 					              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
 					              	<h3 class="mb-0">

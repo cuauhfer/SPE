@@ -68,7 +68,7 @@
 
 				        <div class="col-md-6">
 				          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Ulquiorra.png" alt="Card image cap" width="200" height="200">
+					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
 					            <div class="card-body d-flex flex-column align-items-start">
 					              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
 					              	<h3 class="mb-0">
@@ -94,7 +94,7 @@
 
 				        <div class="col-md-6">
 				          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Kiokay.png" alt="Card image cap" width="200" height="200">
+					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
 					            <div class="card-body d-flex flex-column align-items-start">
 					              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
 					              	<h3 class="mb-0">

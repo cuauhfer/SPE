@@ -17,6 +17,9 @@
 </head>
 <?php 
 	session_start();
+	$_SESSION['visitante'] = "0";
+	$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
+
 ?>
 
 <body>
@@ -63,10 +66,10 @@
 						//Vínculos y enlaces de las imágenes
 						var leftrightslide=new Array()
 						var finalslide=''
-						leftrightslide[1]='<a href="login.php" target="blank" title="Google"><img border="1" src="pictures/Kiokay.png" height="200"></a>'
-						leftrightslide[2]='<a href="login.php" target="blank" title="Youtube"><img border="1" src="pictures/Ulquiorra.png" height="200"></a>'
-						leftrightslide[3]='<a href="login.php" target="blank" title="Home"><img border="1" src="pictures/Rukia.png" height="200"></a>'
-						leftrightslide[4]='<a href="login.php" target="blank" title="Belzec"><img border="1" src="pictures/Adlet.png" height="200"></a>'
+						leftrightslide[0]='<a href="https://google.com" title="Google"><img class="rounded-circle" border="1" src="pictures/Kiokay.png" height="200" width="200"></a>'
+						leftrightslide[1]='<a href="https://youtube.com" title="Youtube"><img class="rounded-circle" border="1" src="pictures/Ulquiorra.png" height="200" width="200"></a>'
+						leftrightslide[2]='<a href="http://cuceineerbd.byethost17.com/Home.html" title="Home"><img class="rounded-circle" border="1" src="pictures/Rukia.png" height="200" width="200"></a>'
+						leftrightslide[3]='<a href="ver_produccion.php" title="Producción Academica"><img border="1" class="rounded-circle" src="pictures/Adlet.png" height="200" width="200"></a>'
 						
 						var imagegap=""
 						var slideshowgap=4
@@ -153,12 +156,9 @@
 
 			<br><br><br>
 			<!--Vista rapida-->
-			<h1 align="center">Lo más Reciente</h1>
+			<h1 align="center">Lo más Reciente <br> Producción Academica</h1>
 			<br>
 			<?php  
-				$_SESSION['visitante'] = "0";
-				$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
-
 				function nombre($codigo){
 					$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
 					$sql = "SELECT * FROM persona WHERE codigo = $codigo";
@@ -179,7 +179,7 @@
 
 			        <div class="col-md-6">
 			          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-				          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Ulquiorra.png" alt="Card image cap" width="200" height="200">
+				          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
 				            <div class="card-body d-flex flex-column align-items-start">
 				              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
 				              	<h3 class="mb-0">
@@ -200,7 +200,7 @@
 
 			        <div class="col-md-6">
 			          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-				          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Kiokay.png" alt="Card image cap" width="200" height="200">
+				          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
 				            <div class="card-body d-flex flex-column align-items-start">
 				              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
 				              	<h3 class="mb-0">
