@@ -98,6 +98,9 @@
 			}else{
 				$escolaridad = $_POST['escolaridad'];
 			}
+			$sql = "SELECT * FROM persona WHERE codigo = '$codigo";
+			$resultado = mysqli_query($conexion, $sql);
+			$existe = mysqli_fetch_array($resultado);
 
 			$sql = "UPDATE persona SET nombre='$nombre', apellidoP='$apep', apellidoM='$apem', email='$correo', telefono='$telefono', division='$division', escolaridad='$escolaridad' WHERE codigo='$codigo'";
 			$resultado = mysqli_query($conexion, $sql);

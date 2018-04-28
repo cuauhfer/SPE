@@ -94,6 +94,7 @@
 									$nombre = $_POST['nombre'];
 									$autor = $persona['codigo'];
 									$fecha = $_POST['fecha'];
+									$descripcion = $_POST['descripcion'];
 									if($_POST['borrador']){
 										$borrador = true;
 									}
@@ -102,7 +103,7 @@
 									}
 									$aprobacion = false;
 									$publicacion = $tipo;
-									$sql = "INSERT INTO produccion(nombre, autor, fecha, borrador, aprobacion, tipoPublicacion) VALUES('$nombre', '$autor', '$fecha', '$borrador', '$aprobacion', '$publicacion')";
+									$sql = "INSERT INTO produccion(nombre, autor, fecha, borrador, aprobacion, tipoPublicacion, rechazo, descripcion) VALUES('$nombre', '$autor', '$fecha', '$borrador', '$aprobacion', '$publicacion', false, '$descripcion')";
 									$resultado = mysqli_query($conexion, $sql);
 
 									$sql = "SELECT *  FROM produccion WHERE nombre LIKE '$nombre' AND autor = '$autor'";
@@ -117,7 +118,13 @@
 
 									$sql = "INSERT INTO articulo(revista, paginas, linea, issn, idProduccion) VALUES('$revista', '$paginas', '$linea', '$issn', '$idProduccion')";
 									$resultado = mysqli_query($conexion, $sql);
-									echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+									if(isset($_SESSION['integrante'])){
+										header('Location: integrante.php');
+									}
+									else if(isset($_SESSION['administrador'])){
+										header('Location: administrador.php');
+									}
+									
 								}
 								?>
 									<div class="container"></div>
@@ -182,12 +189,19 @@
 												<td colspan="1">ISSN</td><td colspan="3"><input class="form-control" type="text" name="issn"></td>
 											</tr>
 											<tr>
+												<td colspan="1">Descripcion</td><td colspan="3"><textarea type="text" id="descripcion" name="descripcion" class="form-control" rows="5"></textarea></td>
+											</tr>
+											<tr>
 												<td colspan="4"></td>
 											</tr>
 											<tr>
-												<td colspan="1"><input class="btn btn-warning" type="reset" name=""></td>
-												<td colspan="1"><input class="btn btn-success" type="submit" name="agregar"></td>
-												<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar" formnovalidate></td>
+												<td colspan="4" align="center">
+													<div class="btn-group d-inline-block">
+														<input class="btn btn-light" type="reset" name="" value="Limpiar">
+														<input class="btn btn-light" type="submit" name="agregar" value="Agregar">
+														<input class="btn btn-light" type="submit" name="cancelar" value="Cancelar" formnovalidate>
+													</div>
+												</td>
 											</tr>
 										</table>
 								<?php
@@ -200,6 +214,7 @@
 									$nombre = $_POST['nombre'];
 									$autor = $persona['codigo'];
 									$fecha = $_POST['fecha'];
+									$descripcion = $_POST['descripcion'];
 									if($_POST['borrador']){
 										$borrador = true;
 									}
@@ -208,7 +223,7 @@
 									}
 									$aprobacion = false;
 									$publicacion = $tipo;
-									$sql = "INSERT INTO produccion(nombre, autor, fecha, borrador, aprobacion, tipoPublicacion) VALUES('$nombre', '$autor', '$fecha', '$borrador', '$aprobacion', '$publicacion')";
+									$sql = "INSERT INTO produccion(nombre, autor, fecha, borrador, aprobacion, tipoPublicacion, rechazo, descripcion) VALUES('$nombre', '$autor', '$fecha', '$borrador', '$aprobacion', '$publicacion', false, '$descripcion')";
 									$resultado = mysqli_query($conexion, $sql);
 
 									$sql = "SELECT *  FROM produccion WHERE nombre LIKE '$nombre' AND autor = '$autor'";
@@ -220,7 +235,12 @@
 
 									$sql = "INSERT INTO informetec(dependencia, idProduccion) VALUES('$dependencia', '$idProduccion')";
 									$resultado = mysqli_query($conexion, $sql);
-									echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+									if(isset($_SESSION['integrante'])){
+										header('Location: integrante.php');
+									}
+									else if(isset($_SESSION['administrador'])){
+										header('Location: administrador.php');
+									}
 								}
 								?>
 									<form method="post">
@@ -250,13 +270,20 @@
 													<td colspan="1">Dependencia</td><td colspan="3"><input class="form-control" type="text" name="dependencia" required></td>
 												</tr>
 												<tr>
-													<td colspan="4"></td>
-												</tr>
-												<tr>
-													<td colspan="1"><input class="btn btn-warning" type="reset" name=""></td>
-													<td colspan="1"><input class="btn btn-success" type="submit" name="agregar"></td>
-													<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar" formnovalidate></td>
-												</tr>
+												<td colspan="1">Descripcion</td><td colspan="3"><textarea id="descripcion" name="descripcion" class="form-control" rows="5"></textarea></td>
+											</tr>
+											<tr>
+												<td colspan="4"></td>
+											</tr>
+											<tr>
+												<td colspan="4" align="center">
+													<div class="btn-group d-inline-block">
+														<input class="btn btn-light" type="reset" name="" value="Limpiar">
+														<input class="btn btn-light" type="submit" name="agregar" value="Agregar">
+														<input class="btn btn-light" type="submit" name="cancelar" value="Cancelar" formnovalidate>
+													</div>
+												</td>
+											</tr>
 											</table>
 										</form>
 									<?php
@@ -269,6 +296,7 @@
 									$nombre = $_POST['nombre'];
 									$autor = $persona['codigo'];
 									$fecha = $_POST['fecha'];
+									$descripcion = $_POST['descripcion'];
 									if($_POST['borrador']){
 										$borrador = true;
 									}
@@ -277,9 +305,9 @@
 									}
 									$aprobacion = false;
 									$publicacion = $tipo;
-									$sql = "INSERT INTO produccion(nombre, autor, fecha, borrador, aprobacion, tipoPublicacion) VALUES('$nombre', '$autor', '$fecha', '$borrador', '$aprobacion', '$publicacion')";
+									$sql = "INSERT INTO produccion(nombre, autor, fecha, borrador, aprobacion, tipoPublicacion, rechazo, descripcion) VALUES('$nombre', '$autor', '$fecha', '$borrador', '$aprobacion', '$publicacion', false, '$descripcion')";
 									$resultado = mysqli_query($conexion, $sql);
-
+									
 									$sql = "SELECT *  FROM produccion WHERE nombre LIKE '$nombre' AND autor = '$autor'";
 									$resultado = mysqli_query($conexion, $sql);
 									$reg = mysqli_fetch_array($resultado);
@@ -289,7 +317,12 @@
 
 									$sql = "INSERT INTO manual(registro, idProduccion) VALUES('$registro', '$idProduccion')";
 									$resultado = mysqli_query($conexion, $sql);
-									echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+									if(isset($_SESSION['integrante'])){
+										header('Location: integrante.php');
+									}
+									else if(isset($_SESSION['administrador'])){
+										header('Location: administrador.php');
+									}
 								}
 								?>
 									<form method="post">
@@ -319,12 +352,19 @@
 													<td colspan="1">Registro</td><td colspan="3"><input class="form-control" type="text" name="registro"></td>
 												</tr>
 												<tr>
+												<td colspan="1">Descripcion</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
+												</tr>
+												<tr>
 													<td colspan="4"></td>
 												</tr>
 												<tr>
-													<td colspan="1"><input class="btn btn-warning" type="reset" name=""></td>
-													<td colspan="1"><input class="btn btn-success" type="submit" name="agregar"></td>
-													<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar" formnovalidate></td>
+													<td colspan="4" align="center">
+														<div class="btn-group d-inline-block">
+															<input class="btn btn-light" type="reset" name="" value="Limpiar">
+															<input class="btn btn-light" type="submit" name="agregar" value="Agregar">
+															<input class="btn btn-light" type="submit" name="cancelar" value="Cancelar" formnovalidate>
+														</div>
+													</td>
 												</tr>
 											</table>
 										</form>
@@ -338,6 +378,7 @@
 									$nombre = $_POST['nombre'];
 									$autor = $persona['codigo'];
 									$fecha = $_POST['fecha'];
+									$descripcion = $_POST['descripcion'];
 									if($_POST['borrador']){
 										$borrador = true;
 									}
@@ -346,7 +387,7 @@
 									}
 									$aprobacion = false;
 									$publicacion = $tipo;
-									$sql = "INSERT INTO produccion(nombre, autor, fecha, borrador, aprobacion, tipoPublicacion) VALUES('$nombre', '$autor', '$fecha', '$borrador', '$aprobacion', '$publicacion')";
+									$sql = "INSERT INTO produccion(nombre, autor, fecha, borrador, aprobacion, tipoPublicacion, rechazo, descripcion) VALUES('$nombre', '$autor', '$fecha', '$borrador', '$aprobacion', '$publicacion', false, '$descripcion')";
 									$resultado = mysqli_query($conexion, $sql);
 
 									$sql = "SELECT *  FROM produccion WHERE nombre LIKE '$nombre' AND autor = '$autor'";
@@ -361,7 +402,12 @@
 
 									$sql = "INSERT INTO libro(paginas, editorial, linea, isbn, idProduccion) VALUES('$paginas', '$editorial', '$linea', '$isbn', '$idProduccion')";
 									$resultado = mysqli_query($conexion, $sql);
-									echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+									if(isset($_SESSION['integrante'])){
+										header('Location: integrante.php');
+									}
+									else if(isset($_SESSION['administrador'])){
+										header('Location: administrador.php');
+									}
 								}
 								?>
 									<form method="post">
@@ -426,12 +472,19 @@
 													<td colspan="1">Editorial</td><td colspan="3"><input class="form-control" type="text" name="editorial" required></td>
 												</tr>
 												<tr>
+												<td colspan="1">Descripcion</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
+												</tr>
+												<tr>
 													<td colspan="4"></td>
 												</tr>
 												<tr>
-													<td colspan="1"><input class="btn btn-warning" type="reset" name=""></td>
-													<td colspan="1"><input class="btn btn-success" type="submit" name="agregar"></td>
-													<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar" formnovalidate></td>
+													<td colspan="4" align="center">
+														<div class="btn-group d-inline-block">
+															<input class="btn btn-light" type="reset" name="" value="Limpiar">
+															<input class="btn btn-light" type="submit" name="agregar" value="Agregar">
+															<input class="btn btn-light" type="submit" name="cancelar" value="Cancelar" formnovalidate>
+														</div>
+													</td>
 												</tr>
 											</table>
 										</form>
@@ -450,7 +503,12 @@
 									$sql = "INSERT INTO lineainn(nombre, codigoPersona, campo) VALUES('$nombre', '$autor', '$campo')";
 									$resultado = mysqli_query($conexion, $sql);
 
-									echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+									if(isset($_SESSION['integrante'])){
+										header('Location: integrante.php');
+									}
+									else if(isset($_SESSION['administrador'])){
+										header('Location: administrador.php');
+									}
 								}
 								?>
 									<div class="container"></div>
@@ -472,9 +530,13 @@
 												<td colspan="4"></td>
 											</tr>
 											<tr>
-												<td colspan="1"><input class="btn btn-warning" type="reset" name=""></td>
-												<td colspan="1"><input class="btn btn-success" type="submit" name="agregar"></td>
-												<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar" formnovalidate></td>
+												<td colspan="4" align="center">
+													<div class="btn-group d-inline-block">
+														<input class="btn btn-light" type="reset" name="" value="Limpiar">
+														<input class="btn btn-light" type="submit" name="agregar" value="Agregar">
+														<input class="btn btn-light" type="submit" name="cancelar" value="Cancelar" formnovalidate>
+													</div>
+												</td>
 											</tr>
 										</table>
 								<?php
@@ -482,7 +544,12 @@
 						}
 						else if(isset($_POST['cancelar'])){
 							//Funcion del boton de cancelar
-							echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+							if(isset($_SESSION['integrante'])){
+								header('Location: integrante.php');
+							}
+							else if(isset($_SESSION['administrador'])){
+								header('Location: administrador.php');
+							}
 						}
 					?>
 					</form>

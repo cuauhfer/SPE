@@ -86,17 +86,19 @@
 
 		<?php  
 		
-
 		$id = $_GET['id'];
 		$tipo = $_GET['tipo']; 
 
-		$sql = "SELECT * FROM produccion WHERE nombre='$var1'";
+		$sql = "SELECT * FROM produccion WHERE id='$id'";
 		$resultado = mysqli_query($conexion, $sql);
-		while($reg = mysqli_fetch_array($resultado)){}
+		while($reg = mysqli_fetch_array($resultado)){
+			
+		}
 	?>
 
 	</div>
-
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </body>
 <?php 
 	}else{

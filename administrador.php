@@ -30,10 +30,10 @@
 					<a href='admin_usuario.php'><li>Usuarios</li></a>
 					<a href='notificacion.php'><li>Pendientes
 						<?php  
-							$sql = "SELECT * FROM produccion WHERE aprobacion = false AND borrador = false";
+							$sql = "SELECT * FROM produccion WHERE aprobacion = false AND borrador = false AND rechazo = false";
 							$resultado = mysqli_query($conexion, $sql);
 							$pendiente = $resultado -> num_rows;
-							$sql = "SELECT * FROM proyecto WHERE aprobacion = false AND borrador = false";
+							$sql = "SELECT * FROM proyecto WHERE aprobacion = false AND borrador = false AND rechazo = false";
 							$resultado = mysqli_query($conexion, $sql);
 							$pendiente = $pendiente + ($resultado -> num_rows);
 						?><span class="badge badge-light"><?php echo $pendiente; ?></span></li></a>
