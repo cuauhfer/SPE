@@ -22,9 +22,6 @@
 		//Conexion a BD
 		$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
 		$usuario = $_SESSION['username'];
-		$sql = "SELECT * FROM `log` ORDER BY `fecha` DESC";
-		$resultado = mysqli_query($conexion, $sql);
-		$reg = mysqli_fetch_array($resultado);
 ?>
 
 	<body>
@@ -56,7 +53,7 @@
 					echo $persona['nombre']." ".$persona['apellidoP']." ".$persona['apellidoM'];
 				}
 
-				$sql = "SELECT * FROM produccion WHERE aprobacion = false AND borrador = false";
+				$sql = "SELECT * FROM produccion WHERE aprobacion = false AND borrador = false AND rechazo = false";
 				$resultado = mysqli_query($conexion, $sql);
 				while($reg = mysqli_fetch_array($resultado)){
 					if(!$reg){
@@ -64,6 +61,61 @@
 					}
 					?>
 						<!--Vistas rapidas-->
+					<div class="row mb-2">
+
+				        <div class="col-md-6">
+				          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
+					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
+					            <div class="card-body d-flex flex-column align-items-start">
+					              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
+					              	<h3 class="mb-0">
+					                	<?php echo $reg['nombre']; ?>
+					              	</h3>
+					              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
+					              	<div class="d-inline-block btn-group">
+						              	<?php 
+						              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver mas</a>";
+						              	echo "<a href='status_aprobar.php/?nombre=".$reg['id']."' class='btn btn-success'>Aprobar</a>";
+						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=2' class='btn btn-danger'>Rechazar</a>";
+						              	?>
+					              	</div>
+					            </div>
+				            
+				          	</div>
+				        </div>
+					<?php
+						$reg2 = mysqli_fetch_array($resultado);
+						if($reg2){
+					?>
+
+				        <div class="col-md-6">
+				          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
+					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
+					            <div class="card-body d-flex flex-column align-items-start">
+					              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
+					              	<h3 class="mb-0">
+					                	<?php echo $reg2['nombre']; ?>
+					              	</h3>
+					              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
+					              	<div class="d-inline-block btn-group">
+						              	<?php 
+						              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver mas</a>";
+						              	echo "<a href='status_aprobar.php/?nombre=".$reg2['id']."' class='btn btn-success'>Aprobar</a>";
+						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=2' class='btn btn-danger'>Rechazar</a>";
+						              	?>
+					              	</div>
+					            </div>
+				          	</div>
+				        </div>
+				    </div>
+					<?php
+					}
+				}
+
+				$sql = "SELECT * FROM proyecto WHERE aprobacion = false AND borrador = false AND rechazo = false";
+				$resultado = mysqli_query($conexion, $sql);
+				while($penpd = mysqli_fetch_array($resultado)){
+					?>
 					<div class="row mb-2">
 
 				        <div class="col-md-6">
@@ -115,12 +167,6 @@
 				    </div>
 					<?php
 					}
-				}
-
-				$sql = "SELECT * FROM proyecto WHERE aprobacion = false";
-				$resultado = mysqli_query($conexion, $sql);
-				while($penpd = mysqli_fetch_array($resultado)){
-
 				}
 			?>
 			</div>

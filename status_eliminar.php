@@ -18,6 +18,8 @@
 			$sql = "UPDATE produccion SET borrador = true, aprobacion = false WHERE id='$idpd'";
 			$resultado = mysqli_query($conexion, $sql);
 		}
+
+		header('Location: ../mis_publicaciones.php');
 	}
 	else if($accion == "0"){
 		$sql = "SELECT * FROM produccion WHERE id = '$id'";
@@ -45,9 +47,18 @@
 			$sql = "DELETE FROM produccion WHERE id='$idpd'";
 			$resultado = mysqli_query($conexion, $sql);
 
-			
+			header('Location: ../mis_publicaciones.php');
 		}
 	}
+	else if($accion == "2"){
+		$sql = "SELECT * FROM produccion WHERE id = '$id'";
+		$resultado = mysqli_query($conexion, $sql);
 
-	header('Location: ../mis_publicaciones.php');
+		while($reg = mysqli_fetch_array($resultado)){
+			$idpd = $reg['id'];
+			$sql = "UPDATE produccion SET rechazo = true, aprobacion = false WHERE id='$idpd'";
+			$resultado = mysqli_query($conexion, $sql);
+		}
+		header('Location: ../notificacion.php');
+	}
 ?>
