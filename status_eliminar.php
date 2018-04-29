@@ -44,6 +44,9 @@
 				$resultado = mysqli_query($conexion, $sql);
 			}
 
+			$sql = "DELETE FROM personaproduccion WHERE idProduccion = '$idpd'";
+			$resultado = mysqli_query($conexion, $sql);
+
 			$sql = "DELETE FROM produccion WHERE id='$idpd'";
 			$resultado = mysqli_query($conexion, $sql);
 
