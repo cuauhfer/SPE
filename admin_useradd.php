@@ -35,11 +35,13 @@
 			$telefono =  $_POST['telefono'];
 			$division =  $_POST['division'];
 			$escolaridad = $_POST['escolaridad'];
+			$sql = "INSERT INTO usuario(codigo, username, password, nivel) VALUES('$codigo', '$username', '$password', '$nivel')";
+			$resultado = mysqli_query($conexion, $sql);
+			
 			$sql = "INSERT INTO persona(codigo, nombre, apellidoP, apellidoM, email, telefono, division, escolaridad) VALUES('$codigo', '$nombre', '$apep', '$apem', '$correo', '$telefono', '$division', '$escolaridad')";
 			$resultado = mysqli_query($conexion, $sql);
 
-			$sql = "INSERT INTO usuario(codigo, username, password, nivel) VALUES('$codigo', '$username', '$password', '$nivel')";
-			$resultado = mysqli_query($conexion, $sql);
+			
 			header('Location: admin_usuario.php');
 
 		}

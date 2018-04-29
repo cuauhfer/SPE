@@ -133,6 +133,7 @@
 			        <?php
 				        if($reg['tipoPublicacion'] == "1"){
 				        	$idpu = $reg['id'];
+				        	$autorpu = $reg['autor'];
 				        	$sql = "SELECT * FROM articulo WHERE idProduccion='$idpu'";
 							$resultado = mysqli_query($conexion, $sql);
 							$art = mysqli_fetch_array($resultado);
@@ -150,6 +151,7 @@
 							<?php	
 						}else if($reg['tipoPublicacion'] == "2"){
 							$idpu = $reg['id'];
+							$autorpu = $reg['autor'];
 				        	$sql = "SELECT * FROM informetec WHERE idProduccion='$idpu'";
 							$resultado = mysqli_query($conexion, $sql);
 							$inf = mysqli_fetch_array($resultado);
@@ -160,6 +162,7 @@
 							<?php
 						}else if($reg['tipoPublicacion'] == "3"){
 							$idpu = $reg['id'];
+							$autorpu = $reg['autor'];
 				        	$sql = "SELECT * FROM manual WHERE idProduccion='$idpu'";
 							$resultado = mysqli_query($conexion, $sql);
 							$man = mysqli_fetch_array($resultado);
@@ -170,6 +173,7 @@
 							<?php
 						}else if($reg['tipoPublicacion'] == "4"){
 							$idpu = $reg['id'];
+							$autorpu = $reg['autor'];
 				        	$sql = "SELECT * FROM libro WHERE idProduccion='$idpu'";
 							$resultado = mysqli_query($conexion, $sql);
 							$lib = mysqli_fetch_array($resultado);
@@ -188,7 +192,19 @@
 						} 
 						?>
 						<div class="mb-1 text-muted">Descripción: <?php echo $reg['descripcion'] ?></div>
+						<br>
+						<div class="mb-1 text-primary text-center">Colaboradores</div>
 						<?php
+							$sql = "SELECT * FROM personaproduccion WHERE idProduccion = '$idpu'";
+							$resultado = mysqli_query($conexion, $sql);
+
+							while($reg = mysqli_fetch_array($resultado)){
+								if($reg['codigoPersona'] != $autorpu){
+									?>
+										<div class="mb-1 text-muted"><?php echo nombre($reg['codigoPersona']); ?></div>
+									<?php
+								}
+							}
 					?>
 		        </div>
 	      	</div>

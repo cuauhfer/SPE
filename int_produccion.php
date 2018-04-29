@@ -118,12 +118,8 @@
 
 									$sql = "INSERT INTO articulo(revista, paginas, linea, issn, idProduccion) VALUES('$revista', '$paginas', '$linea', '$issn', '$idProduccion')";
 									$resultado = mysqli_query($conexion, $sql);
-									if(isset($_SESSION['integrante'])){
-										header('Location: integrante.php');
-									}
-									else if(isset($_SESSION['administrador'])){
-										header('Location: administrador.php');
-									}
+									
+									header('Location: int_colaborador.php/?produccion='.$reg['id']);
 									
 								}
 								?>
@@ -235,12 +231,7 @@
 
 									$sql = "INSERT INTO informetec(dependencia, idProduccion) VALUES('$dependencia', '$idProduccion')";
 									$resultado = mysqli_query($conexion, $sql);
-									if(isset($_SESSION['integrante'])){
-										header('Location: integrante.php');
-									}
-									else if(isset($_SESSION['administrador'])){
-										header('Location: administrador.php');
-									}
+									header('Location: int_colaborador.php/?produccion='.$reg['id']);
 								}
 								?>
 									<form method="post">
@@ -317,12 +308,7 @@
 
 									$sql = "INSERT INTO manual(registro, idProduccion) VALUES('$registro', '$idProduccion')";
 									$resultado = mysqli_query($conexion, $sql);
-									if(isset($_SESSION['integrante'])){
-										header('Location: integrante.php');
-									}
-									else if(isset($_SESSION['administrador'])){
-										header('Location: administrador.php');
-									}
+									header('Location: int_colaborador.php/?produccion='.$reg['id']);
 								}
 								?>
 									<form method="post">
@@ -402,12 +388,7 @@
 
 									$sql = "INSERT INTO libro(paginas, editorial, linea, isbn, idProduccion) VALUES('$paginas', '$editorial', '$linea', '$isbn', '$idProduccion')";
 									$resultado = mysqli_query($conexion, $sql);
-									if(isset($_SESSION['integrante'])){
-										header('Location: integrante.php');
-									}
-									else if(isset($_SESSION['administrador'])){
-										header('Location: administrador.php');
-									}
+									header('Location: int_colaborador.php/?produccion='.$reg['id']);
 								}
 								?>
 									<form method="post">
