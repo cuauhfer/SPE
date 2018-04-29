@@ -546,13 +546,15 @@
 							else if($_POST['tipo'] == "6"){
 								$persona = $_SESSION['persona'];
 								$tipo = $_POST['tipo'];
+								$borrador = false;
 
 								if(isset($_POST['agregar'])){
-									//$nombre = $_POST['nombre'];
 									$fecha = $_POST['fecha'];
 									$autor = $persona['codigo'];
 									$empresa = $_POST['empresa'];
 									$proyecto = $_POST['proyecto'];
+									$descripcion = $_POST['descripcion'];
+									$borrador = false;
 									if($_POST['borrador']){
 										$borrador = true;
 									}
@@ -561,10 +563,24 @@
 									}
 
 									$publicacion = $tipo;
-									$sql = "INSERT INTO direccionind(codigoUsuario, nombreEmpresa, fecha, nombreProyecto, borrador) VALUES('$autor', '$empresa', '$fecha', '$proyecto', '$borrador')";
+									$sql = "INSERT INTO direccionind(codigoPersona, nombreEmpresa, fecha, nombreProyecto, borrador, descripcion) VALUES('$autor', '$empresa', '$fecha', '$proyecto', '$borrador', '$descripcion')";
 									$resultado = mysqli_query($conexion, $sql);
+									$codigo = mysqli_insert_id($conexion); 
 
-									echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+									if(!empty($_POST['check_list'])){
+										// Simpre que la lista tenga cuando menos una selección
+										foreach($_POST['check_list'] as $selected){
+											echo $selected;
+											$sql = "INSERT INTO alumnodireccion(idAlumno, idDireccion) VALUES('$selected', '$codigo')";
+											$resultado = mysqli_query($conexion, $sql);
+										}
+									}
+									if(isset($_SESSION['integrante'])){
+										header('Location: integrante.php');
+									}
+									else if(isset($_SESSION['administrador'])){
+										header('Location: administrador.php');
+									}
 								}
 								?>
 									<div class="container"></div>
@@ -575,14 +591,14 @@
 											</tr>	
 											<tr>
 												<td>Fecha</td>
-													<td><input class="form-control" type="date" name="fecha" required></td>
-													<td colspan="2">
-														<div class="checkbox input-group-text">
-															<label>
-																<input type="checkbox" aria-label="Checkbox for following text input" name="borrador"> Borrador
-															</label>
-														</div>
-													</td>
+												<td><input class="form-control" type="date" name="fecha" required></td>
+												<td colspan="2">
+													<div class="checkbox input-group-text">
+														<label>
+															<input type="checkbox" aria-label="Checkbox for following text input" name="borrador"> Borrador
+														</label>
+													</div>
+												</td>
 											</tr>
 											<tr>
 												<td colspan="1">Nombre Proyecto</td>
@@ -594,7 +610,25 @@
 												<td colspan="3"><?php 
 													 echo $persona['nombre'];?></td>
 											</tr>
-											
+
+											<tr>
+												<td colspan="1"> Alumnos </td>
+												<td colspan="3">
+												<?php 
+												$sql = "SELECT * FROM alumno";
+												$resultado = mysqli_query($conexion, $sql);
+												while( $row = mysqli_fetch_array($resultado) ){
+													echo "<input type=checkbox name='check_list[]' value='$row[idAlumno]'><label> $row[nombreAlumno] $row[apellidoP] $row[apellidoM]</label> <br/> ";
+												}//Llave del while
+												?>
+												</td>
+
+											</tr>
+
+											<tr>
+												<td colspan="1">Descripción</td>
+												<td colspan="3"><input class="form-control" type="text" name="descripcion" required></td>
+											</tr>
 											<tr>
 												<td colspan="4"></td>
 											</tr>
@@ -613,6 +647,8 @@
 								if(isset($_POST['agregar'])){
 									$autor = $persona['codigo'];
 									$empresa = $_POST['empresa'];
+									$descripcion = $_POST['descripcion'];
+									$borrador = false;
 									if($_POST['borrador']){
 										$borrador = true;
 									}
@@ -621,32 +657,62 @@
 									}
 
 									$publicacion = $tipo;
-									$sql = "INSERT INTO estadia(codigoUsuario, nombreEmpresa, borrador) VALUES('$autor', '$empresa', '$borrador')";
+									$sql = "INSERT INTO estadia(codigoPersona, nombreEmpresa, borrador, descripcion) VALUES('$autor', '$empresa', '$borrador', '$descripcion')";
 									$resultado = mysqli_query($conexion, $sql);
+									$codigo = mysqli_insert_id($conexion); 
 
-									echo "<script languaje='javascript' type='text/javascript'>window.close();</script>";
+									if(!empty($_POST['check_list'])){
+										// Simpre que la lista tenga cuando menos una selección
+										foreach($_POST['check_list'] as $selected){
+											echo $selected;
+											$sql = "INSERT INTO alumnoestadia(idAlumno, idEstadia) VALUES('$selected', '$codigo')";
+											$resultado = mysqli_query($conexion, $sql);
+										}
+									}
+									if(isset($_SESSION['integrante'])){
+										header('Location: integrante.php');
+									}
+									else if(isset($_SESSION['administrador'])){
+										header('Location: administrador.php');
+									}
 								}
 								?>
 									<div class="container"></div>
 										<table class="table table-dark table-bordered table-striped table-hover">
 											<tr>
-												<td colspan="1">Nombre Empresa</td>
-												<td colspan="3"><input class="form-control" type="text" name="empresa" required></td>
+												<td>Nombre Empresa</td>
+												<td><input class="form-control" type="text" name="empresa" required></td>
 												<td colspan="2">
-														<div class="checkbox input-group-text">
-															<label>
-																<input type="checkbox" aria-label="Checkbox for following text input" name="borrador"> Borrador
-															</label>
-														</div>
-													</td>
-											</tr>	
+													<div class="checkbox input-group-text">
+														<label>
+															<input type="checkbox" aria-label="Checkbox for following text input" name="borrador"> Borrador
+														</label>
+													</div>
+												</td>
+											</tr>
 											
 											<tr>
 												<td colspan="1">Registra: </td>
 												<td colspan="3"><?php 
 													 echo $persona['nombre'];?></td>
 											</tr>
-											
+											<tr>
+												<td colspan="1"> Alumnos </td>
+												<td colspan="3">
+												<?php 
+												$sql = "SELECT * FROM alumno";
+												$resultado = mysqli_query($conexion, $sql);
+												while( $row = mysqli_fetch_array($resultado) ){
+													echo "<input type=checkbox name='check_list[]' value='$row[idAlumno]'> <label> $row[nombreAlumno] $row[apellidoP] $row[apellidoM] </label> <br/> ";
+												}//Llave del while
+												?>
+												</td>
+
+											</tr>
+											<tr>
+												<td colspan="1">Descripción</td>
+												<td colspan="3"><input class="form-control" type="text" name="descripcion" required></td>
+											</tr>
 											<tr>
 												<td colspan="4"></td>
 											</tr>

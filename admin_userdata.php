@@ -15,7 +15,7 @@
 	<!--Titulo-->
 	<title>Modifical Usuario</title>
 </head>
-<?php 
+<?php
 	//Inicio de secion
 	session_start();
 

@@ -13,7 +13,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src='js/script-form.js'></script>
 	<!--Titulo-->
-	<title>Modificar Usuario</title>
+	<title>Modificar Alumno</title>
 </head>
 <?php 
 	//Inicio de secion
@@ -24,26 +24,15 @@
 		$usuario = $_SESSION['username'];
 
 		if(isset($_POST['agregar'])){
-			$codigo = $_POST['codigo'];
-			$username =  $_POST['username'];
-			$password =  $_POST['password'];
-			$nivel =  $_POST['nivel'];
 			$nombre =  $_POST['nombre'];
 			$apep =  $_POST['apellidop'];
 			$apem =  $_POST['apellidom'];
-			$correo =  $_POST['correo'];
-			$telefono =  $_POST['telefono'];
-			$division =  $_POST['division'];
-			$escolaridad = $_POST['escolaridad'];
+			$carrera =  $_POST['carrera'];
 
-			$sql = "INSERT INTO usuario(codigo, username, password, nivel) VALUES('$codigo', '$username', '$password', '$nivel')";
+			$sql = "INSERT INTO alumno(nombreAlumno, apellidoP, apellidoM, carrera) VALUES('$nombre', '$apep', '$apem', '$carrera')";
 			$resultado = mysqli_query($conexion, $sql);
-
-			$sql = "INSERT INTO persona(codigo, nombre, apellidoP, apellidoM, email, telefono, division, escolaridad) VALUES('$codigo', '$nombre', '$apep', '$apem', '$correo', '$telefono', '$division', '$escolaridad')";
-			$resultado = mysqli_query($conexion, $sql);
-
-			
-			header('Location: admin_usuario.php');
+		
+			header('Location: int_alumno.php');
 
 		}
 ?>
@@ -67,21 +56,11 @@
 				<div class="container">
 				<form method="post">
 					<table class="table table-dark table-bordered table-striped table-hover">
-						<tr><td>Codigo</td><td><input class="form-control" type="text" name="codigo" required></td></tr>
-						<tr><td>Nombre de usuario</td><td><input class="form-control" type="text" name="username" required></td></tr>
-						<tr><td>Contraseña</td><td><input class="form-control" type="password" name="password" required></td></tr>
-						<tr><td>Nivel</td><td><select class="form-control" name="nivel" size="1">
-												<option value = "1"> Colaborador </option>
-												<option value = "2"> Integrante </option>
-												<option value = "3"> Administrador </option>
-						</select></td></tr>
 						<tr><td>Nombre</td><td><input class="form-control" type="text" name="nombre" required></td></tr>
 						<tr><td>Apellido Paterno</td><td><input class="form-control" type="text" name="apellidop" required></td></tr>
 						<tr><td>Apellido Materno</td><td><input class="form-control" type="text" name="apellidom" required></td></tr>
-						<tr><td>Correo</td><td><input class="form-control" type="text" name="correo" required></td></tr>
-						<tr><td>Telefono</td><td><input class="form-control" type="text" name="telefono"></td></tr>
-						<tr><td>Division</td><td><input class="form-control" type="text" name="division"></td></tr>
-						<tr><td>Escolaridad</td><td><input class="form-control" type="text" name="escolaridad"></td></tr>
+						<tr><td>Carrera</td><td><input class="form-control" type="text" name="carrera" required></td></tr>
+						
 						<tr><td><input class="btn btn-warning" type="reset" name=""></td><td><input class="btn btn-success" type="submit" name="agregar"></td></tr>
 					</table>
 				</form>

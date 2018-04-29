@@ -82,9 +82,10 @@
 							var finalslide=''
 							leftrightslide[0]='<a href="int_produccion.php" title="Nueva Produccion Academica"><img class="rounded-circle" border="1" src="pictures/Albedo.png" height="200" width="200"></a>'
 							leftrightslide[1]='<a href="https://google.com" title="Google"><img class="rounded-circle" border="1" src="pictures/Kiokay.png" height="200" width="200"></a>'
-							leftrightslide[2]='<a href="https://youtube.com" title="Youtube"><img class="rounded-circle" border="1" src="pictures/Ulquiorra.png" height="200" width="200"></a>'
-							leftrightslide[3]='<a href="http://cuceineerbd.byethost17.com/Home.html" title="Home"><img class="rounded-circle" border="1" src="pictures/Rukia.png" height="200" width="200"></a>'
+							leftrightslide[2]='<a href="ver_direccion.php" title="Direcciones Individualizadas"><img class="rounded-circle" border="1" src="pictures/Ulquiorra.png" height="200" width="200"></a>'
+							leftrightslide[3]='<a href="ver_estadia.php" title="Estadías en Empresas"><img class="rounded-circle" border="1" src="pictures/Rukia.png" height="200" width="200"></a>'
 							leftrightslide[4]='<a href="ver_produccion.php" title="Producción Academica"><img border="1" class="rounded-circle" src="pictures/Adlet.png" height="200" width="200"></a>'
+							leftrightslide[5]='<a href="int_alumno.php" title="Administración de Aumnos"><img border="1" class="rounded-circle" src="pictures/Alumnos.png" height="200" width="200"></a>'
 							
 							var imagegap=""
 							var slideshowgap=5
