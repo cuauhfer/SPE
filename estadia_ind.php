@@ -20,6 +20,14 @@
 				echo $persona['nombre']." ".$persona['apellidoP']." ".$persona['apellidoM'];
 			}
 
+			function alumno($codigo){
+				$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
+				$sql = "SELECT * FROM alumno WHERE idAlumno = $codigo";
+				$resultado = mysqli_query($conexion, $sql);
+				$alumno = mysqli_fetch_array($resultado);
+				echo $alumno['nombreAlumno']." ".$alumno['apellidoP']." ".$alumno['apellidoM'];
+			}
+
 			if(isset($_SESSION['integrante'])){
 				?>
 				<link rel="stylesheet" href="../css/index_style_integrante.css">
@@ -122,33 +130,22 @@
 			        <div class="mb-1 text-muted"><?php echo nombre($reg['codigoPersona']); ?></div>
 
 			        <div class="mb-1 text-muted">Estadía en Empresas</div>
-					<div class="mb-1">Codigo de Estadía: <?php echo $reg['id'] ?></div>
 					<div class="mb-1">Nombre de Empresa: <?php echo $reg['nombreEmpresa'] ?></div>
-					<div class="mb-1">Descripción: <?php echo $reg['descripcion'] ?></div>
-					<div class="mb-1">Alumnos Participantes:
-					<div class="row">
-						<table class="table table-dark table-bordered table-striped table-hover">
-							<tr><th>Nombre Alumno</th><th>Carrera</th></tr>
-					        <?php
-					        $sql = "SELECT * FROM alumnoestadia";
-							$alumDir = mysqli_query($conexion, $sql);
-							
-							while( $actual = mysqli_fetch_array($alumDir)  ){
-								if( $actual['idEstadia'] == $reg['id'] ){
-									$idAlu = $actual['idAlumno'];
-									$sql = "SELECT * FROM alumno WHERE idAlumno = '$idAlu'";
-						    		$resultado3 = mysqli_query($conexion, $sql);
-									
-									while( $row = mysqli_fetch_array($resultado3) ){
-										echo "<tr><td>".$row['nombreAlumno']." ".$row['apellidoP']." ".$row['apellidoM']."</td><td>". $row['carrera']."</td></tr>"; 
-									}
-								}
-							}//Llave del while
-							?>
-						</table>
-					</div>
-		        </div>
-	      	</div>
+					<div class="mb-1 text-muted">Descripción: <?php echo $reg['descripcion'] ?></div>
+					
+		        	<div class="mb-1 text-primary text-center">Alumnos</div>
+						<?php
+							$sql = "SELECT * FROM alumnoestadia WHERE idEstadia = '$var1'";
+							$resultado = mysqli_query($conexion, $sql);
+
+							while($reg = mysqli_fetch_array($resultado)){
+								?>
+									<div class="mb-1 text-muted"><?php echo alumno($reg['idAlumno']); ?></div>
+								<?php
+							}
+						?>
+	      		</div>
+      		</div>
       	</div>
 	</section>
 	<?php 

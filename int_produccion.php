@@ -607,17 +607,20 @@
 											</tr>
 
 											<tr>
-												<td colspan="1">Descripción</td>
-												<td colspan="3"><input class="form-control" type="text" name="descripcion" required></td>
-											</tr>
-											<tr>
-												<td colspan="4"></td>
-											</tr>
-											<tr>
-												<td colspan="1"><input class="btn btn-warning" type="reset" name=""></td>
-												<td colspan="1"><input class="btn btn-success" type="submit" name="agregar"></td>
-												<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar" formnovalidate></td>
-											</tr>
+												<td colspan="1">Descripcion</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
+												</tr>
+												<tr>
+													<td colspan="4"></td>
+												</tr>
+												<tr>
+													<td colspan="4" align="center">
+														<div class="btn-group d-inline-block">
+															<input class="btn btn-light" type="reset" name="" value="Limpiar">
+															<input class="btn btn-light" type="submit" name="agregar" value="Agregar">
+															<input class="btn btn-light" type="submit" name="cancelar" value="Cancelar" formnovalidate>
+														</div>
+													</td>
+												</tr>
 										</table>
 								<?php
 							}
@@ -691,17 +694,20 @@
 
 											</tr>
 											<tr>
-												<td colspan="1">Descripción</td>
-												<td colspan="3"><input class="form-control" type="text" name="descripcion" required></td>
-											</tr>
-											<tr>
-												<td colspan="4"></td>
-											</tr>
-											<tr>
-												<td colspan="1"><input class="btn btn-warning" type="reset" name=""></td>
-												<td colspan="1"><input class="btn btn-success" type="submit" name="agregar"></td>
-												<td colspan="2"><input class="btn btn-success" type="submit" name="cancelar" value="Cancelar" formnovalidate></td>
-											</tr>
+												<td colspan="1">Descripcion</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
+												</tr>
+												<tr>
+													<td colspan="4"></td>
+												</tr>
+												<tr>
+													<td colspan="4" align="center">
+														<div class="btn-group d-inline-block">
+															<input class="btn btn-light" type="reset" name="" value="Limpiar">
+															<input class="btn btn-light" type="submit" name="agregar" value="Agregar">
+															<input class="btn btn-light" type="submit" name="cancelar" value="Cancelar" formnovalidate>
+														</div>
+													</td>
+												</tr>
 										</table>
 								<?php
 							}

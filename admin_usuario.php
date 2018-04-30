@@ -75,7 +75,7 @@
 
 		<section id='banner'>
 			<br><br><br><br>
-			<div class="row">
+			<div class="row container-fluid">
 				<div class="container col-xs-12 col-sm-12 col-md-8 col-lg-9">
 					<table class="table table-dark table-bordered table-striped table-hover">
 						<tr><th>Codigo</th><th>Nombre</th><th>Nombre Usuario</th><th>Contraseña</th><th>Nivel</th></tr>

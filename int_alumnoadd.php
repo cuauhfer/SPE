@@ -6,7 +6,20 @@
 	<meta name="" ="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimum-scale=1.0">
 	<!--Estilos-->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/index_style_administrador.css">
+	<?php  
+		//Inicio de secion
+		session_start();
+		if(isset($_SESSION['integrante'])){
+			?>
+			<link rel="stylesheet" href="css/index_style_integrante.css">
+			<?php  
+		}
+		else if(isset($_SESSION['administrador'])){
+			?>
+			<link rel="stylesheet" href="css/index_style_administrador.css">
+			<?php
+		}
+	?>
 	<!--Favicon-->
 	<link rel="icon" type="image/png" href="pictures/logo.png" />
 	<!--Script-->
@@ -40,7 +53,7 @@
 		<header class="fixed-top">
 			<nav>
 				<ul>
-					<a href='admin_usuario.php'><li>Atras</li></a>
+					<a href='int_alumno.php'><li>Atras</li></a>
 				</ul>
 					
 					<img id='logo' src='pictures/logo.png'>

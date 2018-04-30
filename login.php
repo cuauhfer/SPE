@@ -77,11 +77,11 @@
 
 <body>
     <form method="post">
-    	<div align="center"><a href="index.php"><img src="pictures/logo.png" width="100" height="100"></a></div>
+    	<div align="center"><a href="index.php" title="Pagina Principal"><img src="pictures/logo.png" width="100" height="100"></a></div>
 		<h3>Acceder al Sistema</h3>
-		<input class="form-control" type="text" name="username" placeholder="Username" required>
-		<input class="form-control" type="Password" name="password" placeholder="&#128272; Password" required>
-		<input class="btn btn-outline-primary my-2 my-sm-0" type="submit" name="Buscar" value="Login">
+		<input class="form-control" type="text" name="username" placeholder="Nombre de usuario" required>
+		<input class="form-control" type="Password" name="password" placeholder="&#128272; Contraseña" required>
+		<input class="btn btn-outline-primary my-2 my-sm-0" type="submit" name="Buscar" value="Ingresar">
 	</form>
 
 	<script src="js/jquery.js"></script>

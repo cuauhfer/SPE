@@ -94,7 +94,7 @@
 
 		<section id='banner'>
 			<br><br><br><br>
-			<div class="row">
+			<div class=" container-fluid row">
 				<div class="container col-xs-12 col-sm-12 col-md-8 col-lg-9">
 					<table class="table table-dark table-bordered table-striped table-hover">
 						<tr><th>Código</th><th>Nombre de Alumno</th><th>Carrera</th></tr>

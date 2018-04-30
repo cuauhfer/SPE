@@ -45,13 +45,6 @@
 <?php 
 	//Conexion a BD
 	$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
-	$usuario = $_SESSION['username'];
-	$sql = "SELECT * FROM usuario WHERE username='$usuario'";
-	$resultado = mysqli_query($conexion, $sql);
-	$reg = mysqli_fetch_array($resultado);
-
-	$codigo = $reg['codigo'];
-
 ?>
 
 <body>
@@ -85,7 +78,17 @@
 				<img id='logo' src='pictures/logo.png'>
 
 			<ul>
-				<a href='logout.php'><li>Salir</li></a>
+				<section align="right">
+						<form class="form-inline my-2 my-lg-0" method="post">
+      						<input class="form-control mr-sm-2" type="search" name="busca" id="busca" laceholder="Buscar" aria-label="Buscar">
+      						<button class="btn btn-outline-primary my-2 my-sm-0"  name="buscar" id="buscar" type="submit">Buscar</button>
+      						<?php 
+      							if(isset($_SESSION['administrador']) || isset($_SESSION['integrante']) || isset($_SESSION['colaborador'])){
+      								echo "<a href='logout.php'><li>Salir</li></a>";
+      							}
+      						?>
+   						</form>
+   				</section>
 			</ul>
 		</nav>
 	</header>
@@ -103,15 +106,29 @@
 					echo $persona['nombre']." ".$persona['apellidoP']." ".$persona['apellidoM'];
 				}
 
-				$sql = "SELECT * FROM direccionind WHERE borrador = false ORDER BY `direccionind`.`id`";
-				//$sql = "SELECT * FROM produccion ORDER BY `produccion`.`id` DESC LIMIT 0, 4";
-				$resultado = mysqli_query($conexion, $sql);
+				if(isset($_POST['buscar'])){
+					$bus = $_POST['busca'];
+					$sql = "SELECT * FROM persona WHERE nombre LIKE '%$bus%' OR apellidoP LIKE '%$bus%' OR apellidoM LIKE '%$bus%'";
+					$resultadoautor = mysqli_query($conexion, $sql);
 
+					$sql = "SELECT * FROM direccionind WHERE `nombreEmpresa` LIKE '%$bus%' OR `nombreProyecto` LIKE '%$bus%' ORDER BY `direccionind`.`id`";
+					$resultado = mysqli_query($conexion, $sql);
+
+					while($reg = mysqli_fetch_array($resultadoautor)){
+						$codigo = $reg['codigo'];
+						$sql = "SELECT * FROM direccionind WHERE `codigoPersona` LIKE '%$codigo%' OR `nombreEmpresa` LIKE '%$bus%' OR `nombreProyecto` LIKE '%$bus%' ORDER BY `direccionind`.`id`";
+						$resultado = mysqli_query($conexion, $sql);
+					}
+				}
+				else{
+					$sql = "SELECT * FROM direccionind WHERE borrador = false ORDER BY `direccionind`.`id`";
+					$resultado = mysqli_query($conexion, $sql);
+				}
 
 				while ($reg = mysqli_fetch_array($resultado)){
 			?>
 			<!--Vistas rapidas-->
-				<div class="row mb-2">
+				<div class="row container-fluid mb-2">
 
 			        <div class="col-md-6">
 			          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
@@ -123,7 +140,7 @@
 				              	</h3>
 				              	<div class="mb-1 text-muted"><?php echo nombre($reg['codigoPersona']); ?></div>
 				              	<?php 
-					              	echo "<a href='direccion_ind.php/?nombre=".$reg['nombreProyecto']."&autor=".$reg['codigoPersona']."' class='btn btn-primary'>Ver mas</a>";
+					              	echo "<a href='direccion_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-primary'>Ver mas</a>";
 					            ?>
 				            </div>
 			            

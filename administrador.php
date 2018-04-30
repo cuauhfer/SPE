@@ -28,6 +28,13 @@
 				<ul>
 					<a href='persona.php'><li>Perfil</li></a>
 					<a href='admin_usuario.php'><li>Usuarios</li></a>
+					<a href='mis_publicaciones.php'><li>Publicaciones</li></a>
+					
+				</ul>
+					
+					<img id='logo' src='pictures/logo.png'>
+
+				<ul>
 					<a href='notificacion.php'><li>Pendientes
 						<?php  
 							$sql = "SELECT * FROM produccion WHERE aprobacion = false AND borrador = false AND rechazo = false";
@@ -37,21 +44,8 @@
 							$resultado = mysqli_query($conexion, $sql);
 							$pendiente = $pendiente + ($resultado -> num_rows);
 						?><span class="badge badge-light"><?php echo $pendiente; ?></span></li></a>
-					<a href='mis_publicaciones.php'><li>Publicaciones</li></a>
 					<a href='log.php'><li>Logs</li></a>
-				</ul>
-					
-					<img id='logo' src='pictures/logo.png'>
-
-				<ul>
-					
-					<section align="right">
-						<form class="form-inline my-2 my-lg-0">
-      						<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
-      						<button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Buscar</button>
-      						<a href='logout.php'><li>Salir</li></a>
-   						</form>
-   					</section>
+   					<a href='logout.php'><li>Salir</li></a>
 				</ul>
 			</nav>
 		</header>
@@ -85,10 +79,10 @@
 							leftrightslide[2]='<a href="ver_direccion.php" title="Direcciones Individualizadas"><img class="rounded-circle" border="1" src="pictures/Ulquiorra.png" height="200" width="200"></a>'
 							leftrightslide[3]='<a href="ver_estadia.php" title="Estadías en Empresas"><img class="rounded-circle" border="1" src="pictures/Rukia.png" height="200" width="200"></a>'
 							leftrightslide[4]='<a href="ver_produccion.php" title="Producción Academica"><img border="1" class="rounded-circle" src="pictures/Adlet.png" height="200" width="200"></a>'
-							leftrightslide[5]='<a href="int_alumno.php" title="Administración de Aumnos"><img border="1" class="rounded-circle" src="pictures/Alumnos.png" height="200" width="200"></a>'
+							leftrightslide[5]='<a href="int_alumno.php" title="Administración de Alumnos"><img border="1" class="rounded-circle" src="pictures/Alumnos.png" height="200" width="200"></a>'
 							
 							var imagegap=""
-							var slideshowgap=5
+							var slideshowgap=6
 
 
 							var copyspeed=slidespeed
@@ -232,9 +226,139 @@
 				    </div>
 
 			    <?php 
-			    		}
+			    				    		}
+		    		else{
+		    			?>
+		    				</div>
+		    			<?php
+		    		}
 			    	}//Llave del while
 			    ?>
+
+
+			    <br><br>
+				<!--Vista rapida Estadias en empresas-->
+				<h1 align="center">Estadia en Empresas</h1>
+				<br>
+				<?php  
+					$sql = "SELECT * FROM estadia WHERE borrador = false ORDER BY `estadia`.`id` DESC LIMIT 0, 4";
+					$resultado = mysqli_query($conexion, $sql);
+
+					while ($reg = mysqli_fetch_array($resultado)){
+			?>
+				<div class="row container-fluid mb-2">
+
+			        <div class="col-md-6">
+			          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
+				          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Rukia.png" alt="Card image cap" width="200" height="200">
+				            <div class="card-body d-flex flex-column align-items-start">
+				              	<strong class="d-inline-block mb-2 text-primary">Estadía</strong>
+				              	<h3 class="mb-0">
+				                	<?php echo $reg['nombreEmpresa']; ?>
+				              	</h3>
+				              	<div class="mb-1 text-muted"><?php echo nombre($reg['codigoPersona']); ?></div>
+				              	<?php 
+					              	echo "<a href='estadia_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-danger'>Ver mas</a>";
+					            ?>
+				            </div>
+			            
+			          	</div>
+			        </div>
+				<?php
+					$reg2 = mysqli_fetch_array($resultado);
+					if($reg2){
+				?>
+
+			        <div class="col-md-6">
+			          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
+				          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Ulquiorra.png" alt="Card image cap" width="200" height="200">
+				            <div class="card-body d-flex flex-column align-items-start">
+				              <strong class="d-inline-block mb-2 text-primary">Estadía</strong>
+				              	<h3 class="mb-0">
+				                	<?php echo $reg2['nombreEmpresa']; ?>
+				              	</h3>
+				              	<div class="mb-1 text-muted"><?php echo nombre($reg2['codigoPersona']); ?></div>
+				              	<?php 
+					              	echo "<a href='estadia_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn btn-danger'>Ver mas</a>";
+					            ?>
+				            </div>
+			          	</div>
+			        </div>
+			    </div>
+
+		    <?php 
+		    		}
+	    		else{
+	    			?>
+	    				</div>
+	    			<?php
+	    		}
+		    	}//Llave del while
+		    ?>
+
+
+		    <br><br>
+			<!--Vista rapida direccion individualizada-->
+			<h1 align="center">Dirección Individualizada</h1>
+			<br>
+			<?php  
+				$sql = "SELECT * FROM direccionind WHERE borrador = false ORDER BY `direccionind`.`id` DESC LIMIT 0, 4";
+				//$sql = "SELECT * FROM produccion ORDER BY `produccion`.`id` DESC LIMIT 0, 4";
+				$resultado = mysqli_query($conexion, $sql);
+
+
+				while ($reg = mysqli_fetch_array($resultado)){
+			?>
+			<!--Vistas rapidas-->
+				<div class="row container-fluid mb-2">
+
+			        <div class="col-md-6">
+			          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
+				          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Ulquiorra.png" alt="Card image cap" width="200" height="200">
+				            <div class="card-body d-flex flex-column align-items-start">
+				              	<strong class="d-inline-block mb-2 text-primary">Dirección</strong>
+				              	<h3 class="mb-0">
+				                	<?php echo $reg['nombreProyecto']; ?>
+				              	</h3>
+				              	<div class="mb-1 text-muted"><?php echo nombre($reg['codigoPersona']); ?></div>
+				              	<?php 
+					              	echo "<a href='direccion_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-danger'>Ver mas</a>";
+					            ?>
+				            </div>
+			            
+			          	</div>
+			        </div>
+				<?php
+					$reg2 = mysqli_fetch_array($resultado);
+					if($reg2){
+				?>
+
+			        <div class="col-md-6">
+			          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
+				          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Ulquiorra.png" alt="Card image cap" width="200" height="200">
+				            <div class="card-body d-flex flex-column align-items-start">
+				              <strong class="d-inline-block mb-2 text-primary">Dirección</strong>
+				              	<h3 class="mb-0">
+				                	<?php echo $reg2['nombreProyecto']; ?>
+				              	</h3>
+				              	<div class="mb-1 text-muted"><?php echo nombre($reg2['codigoPersona']); ?></div>
+				              	<?php 
+					              	echo "<a href='direccion_ind.php/?nombre=".$reg2['nombreProyecto']."&autor=".$reg2['codigoPersona']."' class='btn btn-danger'>Ver mas</a>";
+					            ?>
+				            </div>
+			          	</div>
+			        </div>
+			    </div>
+
+		    <?php 
+		    		}
+	    		else{
+	    			?>
+	    				</div>
+	    			<?php
+	    		}
+		    	}//Llave del while
+		    ?>
 			</div>
 		</section>
 
