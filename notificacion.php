@@ -74,7 +74,7 @@
 					              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
 					              	<div class="d-inline-block btn-group">
 						              	<?php 
-						              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver mas</a>";
+						              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver más</a>";
 						              	echo "<a href='status_aprobar.php/?nombre=".$reg['id']."' class='btn btn-success'>Aprobar</a>";
 						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=2' class='btn btn-danger'>Rechazar</a>";
 						              	?>
@@ -99,7 +99,7 @@
 					              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
 					              	<div class="d-inline-block btn-group">
 						              	<?php 
-						              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver mas</a>";
+						              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver más</a>";
 						              	echo "<a href='status_aprobar.php/?nombre=".$reg2['id']."' class='btn btn-success'>Aprobar</a>";
 						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=2' class='btn btn-danger'>Rechazar</a>";
 						              	?>
@@ -129,7 +129,7 @@
 					              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
 					              	<div class="d-inline-block">
 						              	<?php 
-						              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver mas</a>";
+						              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver más</a>";
 						              	?>
 						              	<?php 
 						              	echo "<a href='status_aprobar.php/?nombre=".$reg['id']."' class='btn btn-success'>Aprobar</a>";
@@ -155,7 +155,7 @@
 					              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
 					              	<div class="d-inline-block">
 						              	<?php 
-						              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver mas</a>";
+						              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver más</a>";
 						              	?>
 						              	<?php 
 						              	echo "<a href='status_aprobar.php/?nombre=".$reg2['id']."' class='btn btn-success'>Aprobar</a>";

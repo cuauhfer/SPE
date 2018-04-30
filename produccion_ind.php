@@ -116,7 +116,7 @@
 			        <h3 class="text-primary display-4 font-italic"><?php echo $reg['nombre'];?></h3>
 			        <?php  
 			        	if($reg['aprobacion'] == true){
-			        		echo '<span class="badge badge-success">Publico</span>';
+			        		echo '<span class="badge badge-success">Público</span>';
 			        	}
 			        	else if($reg['borrador'] == true){
 			        		echo '<span class="badge badge-warning">Borrador</span>';

@@ -68,7 +68,7 @@
 	<div class="container-fluid">
 		<br><br><br><br>
 		<!--Vista rapida-->
-		<h1 align="center">Mis Publicaciones</h1>
+		<h1 align="center">Mis publicaciones</h1>
 		<br>
 		<?php  
 
@@ -101,7 +101,7 @@
 			              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
 			              	<?php  
 					        	if($reg['aprobacion'] == true){
-					        		echo '<span class="badge badge-success">Publico</span>';
+					        		echo '<span class="badge badge-success">Público</span>';
 					        	}
 					        	else if($reg['borrador'] == true){
 					        		echo '<span class="badge badge-warning">Borrador</span>';
@@ -119,7 +119,7 @@
 			              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
 			              	<div class="d-inline-block btn-group">
 			              	<?php 
-			              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-success'>Ver mas</a> "; 
+			              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-success'>Ver más</a> "; 
 			              	echo "<a href='status_modificar.php/?id=".$reg['id']."&tipo=".$reg['tipoPublicacion']."' class='btn btn-primary'>Modificar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=1' class='btn btn-warning'>Ocultar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=0' class='btn btn-danger'>Eliminar</a>";
@@ -141,7 +141,7 @@
 			              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
 			              <?php  
 					        	if($reg2['aprobacion'] == true){
-					        		echo '<span class="badge badge-success">Publico</span>';
+					        		echo '<span class="badge badge-success">Público</span>';
 					        	}
 					        	else if($reg2['borrador'] == true){
 					        		echo '<span class="badge badge-warning">Borrador</span>';
@@ -159,7 +159,7 @@
 			              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
 			              	<div class="d-inline-block btn-group">
 			              	<?php 
-			              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-success'>Ver mas</a> ";
+			              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-success'>Ver más</a> ";
 			              	echo "<a href='status_modificar.php/?id=".$reg2['id']."&tipo=".$reg2['tipoPublicacion']."' class='btn btn-primary'>Modificar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=1' class='btn btn-warning'>Ocultar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=0' class='btn btn-danger'>Eliminar</a>";
@@ -207,7 +207,7 @@
 			              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
 			              	<?php  
 					        	if($reg['aprobacion'] == true){
-					        		echo '<span class="badge badge-success">Publico</span>';
+					        		echo '<span class="badge badge-success">Público</span>';
 					        	}
 					        	else if($reg['borrador'] == true){
 					        		echo '<span class="badge badge-warning">Borrador</span>';
@@ -225,7 +225,7 @@
 			              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
 			              	<div class="d-inline-block btn-group">
 			              	<?php 
-			              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-success'>Ver mas</a> "; 
+			              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-success'>Ver más</a> "; 
 			              	echo "<a href='status_modificar.php/?id=".$reg['id']."&tipo=".$reg['tipoPublicacion']."' class='btn btn-primary'>Modificar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=1' class='btn btn-warning'>Ocultar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=0' class='btn btn-danger'>Eliminar</a>";
@@ -247,7 +247,7 @@
 			              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
 			              <?php  
 					        	if($reg2['aprobacion'] == true){
-					        		echo '<span class="badge badge-success">Publico</span>';
+					        		echo '<span class="badge badge-success">Público</span>';
 					        	}
 					        	else if($reg2['borrador'] == true){
 					        		echo '<span class="badge badge-warning">Borrador</span>';
@@ -265,7 +265,7 @@
 			              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
 			              	<div class="d-inline-block btn-group">
 			              	<?php 
-			              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-success'>Ver mas</a> ";
+			              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-success'>Ver más</a> ";
 			              	echo "<a href='status_modificar.php/?id=".$reg2['id']."&tipo=".$reg2['tipoPublicacion']."' class='btn btn-primary'>Modificar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=1' class='btn btn-warning'>Ocultar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=0' class='btn btn-danger'>Eliminar</a>";

@@ -13,7 +13,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src='js/script.js'></script>
 	<!--Titulo-->
-	<title>Home SPE</title>
+	<title>SPE</title>
 </head>
 <?php 
 	session_start();
@@ -150,9 +150,9 @@
 
 			<br><br><br>
 			<!--Vista rapida-->
-			<h1 class="bg-primary text-white">Lo más reciente </h1>
-			<br> 
-			<h2 align="center">Producción académica</h2>
+			<h1 class="bg-primary text-white" align="center">Lo más reciente </h1>
+			<br> <br>
+			<h3 align="center">Producción académica</h3>
 			<br>
 			<?php  
 				function nombre($codigo){
@@ -183,7 +183,7 @@
 					              	</h3>
 					              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
 					              	<?php 
-					              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver mas</a>";
+					              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver más</a>";
 					              	?>
 					            </div>
 				            
@@ -204,7 +204,7 @@
 					              	</h3>
 					              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
 					              	<?php 
-					              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver mas</a>";
+					              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver más</a>";
 					              	?>
 					            </div>
 				          	</div>
@@ -224,7 +224,7 @@
 
 			    <br><br>
 				<!--Vista rapida Estadias en empresas-->
-				<h1 align="center">Estadía en empresas</h1>
+				<h3 align="center">Estadía en empresas</h3>
 				<br>
 				<?php  
 					$sql = "SELECT * FROM estadia WHERE borrador = false ORDER BY `estadia`.`id` DESC LIMIT 0, 4";
@@ -244,7 +244,7 @@
 				              	</h3>
 				              	<div class="mb-1 text-muted"><?php echo nombre($reg['codigoPersona']); ?></div>
 				              	<?php 
-					              	echo "<a href='estadia_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-primary'>Ver mas</a>";
+					              	echo "<a href='estadia_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-primary'>Ver más</a>";
 					            ?>
 				            </div>
 			            
@@ -265,7 +265,7 @@
 				              	</h3>
 				              	<div class="mb-1 text-muted"><?php echo nombre($reg2['codigoPersona']); ?></div>
 				              	<?php 
-					              	echo "<a href='estadia_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn btn-primary'>Ver mas</a>";
+					              	echo "<a href='estadia_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn btn-primary'>Ver más</a>";
 					            ?>
 				            </div>
 			          	</div>
@@ -285,7 +285,7 @@
 
 		    <br><br>
 			<!--Vista rapida direccion individualizada-->
-			<h1 align="center">Dirección individualizada</h1>
+			<h3 align="center">Dirección individualizada</h3>
 			<br>
 			<?php  
 				$sql = "SELECT * FROM direccionind WHERE borrador = false ORDER BY `direccionind`.`id` DESC LIMIT 0, 4";
@@ -308,7 +308,7 @@
 				              	</h3>
 				              	<div class="mb-1 text-muted"><?php echo nombre($reg['codigoPersona']); ?></div>
 				              	<?php 
-					              	echo "<a href='direccion_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-primary'>Ver mas</a>";
+					              	echo "<a href='direccion_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-primary'>Ver más</a>";
 					            ?>
 				            </div>
 			            
@@ -329,7 +329,7 @@
 				              	</h3>
 				              	<div class="mb-1 text-muted"><?php echo nombre($reg2['codigoPersona']); ?></div>
 				              	<?php 
-					              	echo "<a href='direccion_ind.php/?nombre=".$reg2['nombreProyecto']."&autor=".$reg2['codigoPersona']."' class='btn btn-primary'>Ver mas</a>";
+					              	echo "<a href='direccion_ind.php/?nombre=".$reg2['nombreProyecto']."&autor=".$reg2['codigoPersona']."' class='btn btn-primary'>Ver más</a>";
 					            ?>
 				            </div>
 			          	</div>
