@@ -96,7 +96,7 @@
 
 	<br><br><br>
 			<!--Vista rapida-->
-			<h1 align="center">Producción Academica</h1>
+			<h1 align="center">Producción Académica</h1>
 			<br>
 			<?php  
 				function nombre($codigo){
@@ -109,7 +109,7 @@
 
 				if(isset($_POST['buscar'])){
 					$bus = $_POST['busca'];
-					$sql = "SELECT * FROM persona WHERE nombre LIKE '%$bus%' OR apellidoP LIKE '%$bus%' OR apellidoM LIKE '%$bus%'";
+					$sql = "SELECT * FROM persona WHERE `nombre` LIKE '%$bus%' OR (`apellidoP` LIKE '%$bus%' OR `apellidoM` LIKE '%$bus%') ORDER BY `persona`.`codigo`";
 					$resultadoautor = mysqli_query($conexion, $sql);
 
 					$sql = "SELECT * FROM produccion WHERE aprobacion = true AND `nombre` LIKE '%$bus%' ORDER BY `produccion`.`id`";

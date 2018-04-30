@@ -95,7 +95,7 @@
 
 	<br><br><br>
 			<!--Vista rapida-->
-			<h1 align="center">Estadías en Empresas</h1>
+			<h1 align="center">Estadía en Empresas</h1>
 			<br>
 			<?php  
 				function nombre($codigo){

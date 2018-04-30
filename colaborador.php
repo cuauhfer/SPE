@@ -59,10 +59,10 @@
 								//Vínculos y enlaces de las imágenes
 								var leftrightslide=new Array()
 								var finalslide=''
-								leftrightslide[0]='<a href="https://google.com" title="Google"><img class="rounded-circle" border="1" src="pictures/Kiokay.png" height="200" width="200"></a>'
-								leftrightslide[1]='<a href="https://youtube.com" title="Youtube"><img class="rounded-circle" border="1" src="pictures/Ulquiorra.png" height="200" width="200"></a>'
-								leftrightslide[2]='<a href="http://cuceineerbd.byethost17.com/Home.html" title="Home"><img class="rounded-circle" border="1" src="pictures/Rukia.png" height="200" width="200"></a>'
-								leftrightslide[3]='<a href="ver_produccion.php" title="Producción Academica"><img border="1" class="rounded-circle" src="pictures/Adlet.png" height="200" width="200"></a>'
+							leftrightslide[0]='<a href="https://google.com" title="Google"><img class="rounded-circle" border="1" src="pictures/Kiokay.png" height="200" width="200"></a>'
+							leftrightslide[1]='<a href="ver_direccion.php" title="Dirección Individualizada"><img class="rounded-circle" border="1" src="pictures/Ulquiorra.png" height="200" width="200"></a>'
+							leftrightslide[2]='<a href="ver_estadia.php" title="Estadía en Empresas"><img class="rounded-circle" border="1" src="pictures/Rukia.png" height="200" width="200"></a>'
+							leftrightslide[3]='<a href="ver_produccion.php" title="Producción Académica"><img border="1" class="rounded-circle" src="pictures/Adlet.png" height="200" width="200"></a>'
 								
 								var imagegap=""
 								var slideshowgap=4
@@ -149,8 +149,10 @@
 
 					<br><br><br>
 					<!--Vista rapida-->
-					<h1 align="center">Lo más Reciente <br> Producción Academica</h1>
-					<br>
+					<h1 class="bg-primary text-white">Lo más reciente </h1>
+				<br> 
+				<h2 align="center">Producción académica</h2>
+				<br>
 					<?php  
 
 						$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
@@ -224,7 +226,7 @@
 
 			    <br><br>
 				<!--Vista rapida Estadias en empresas-->
-				<h1 align="center">Estadia en Empresas</h1>
+				<h1 align="center">Estadía en empresas</h1>
 				<br>
 				<?php  
 					$sql = "SELECT * FROM estadia WHERE borrador = false ORDER BY `estadia`.`id` DESC LIMIT 0, 4";
@@ -285,7 +287,7 @@
 
 		    <br><br>
 			<!--Vista rapida direccion individualizada-->
-			<h1 align="center">Dirección Individualizada</h1>
+			<h1 align="center">Dirección individualizada</h1>
 			<br>
 			<?php  
 				$sql = "SELECT * FROM direccionind WHERE borrador = false ORDER BY `direccionind`.`id` DESC LIMIT 0, 4";

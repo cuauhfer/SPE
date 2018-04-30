@@ -74,11 +74,11 @@
 							//Vínculos y enlaces de las imágenes
 							var leftrightslide=new Array()
 							var finalslide=''
-							leftrightslide[0]='<a href="int_produccion.php" title="Nueva Produccion Academica"><img class="rounded-circle" border="1" src="pictures/Albedo.png" height="200" width="200"></a>'
+							leftrightslide[0]='<a href="int_produccion.php" title="Nueva Producción Académica"><img class="rounded-circle" border="1" src="pictures/Albedo.png" height="200" width="200"></a>'
 							leftrightslide[1]='<a href="https://google.com" title="Google"><img class="rounded-circle" border="1" src="pictures/Kiokay.png" height="200" width="200"></a>'
-							leftrightslide[2]='<a href="ver_direccion.php" title="Direcciones Individualizadas"><img class="rounded-circle" border="1" src="pictures/Ulquiorra.png" height="200" width="200"></a>'
-							leftrightslide[3]='<a href="ver_estadia.php" title="Estadías en Empresas"><img class="rounded-circle" border="1" src="pictures/Rukia.png" height="200" width="200"></a>'
-							leftrightslide[4]='<a href="ver_produccion.php" title="Producción Academica"><img border="1" class="rounded-circle" src="pictures/Adlet.png" height="200" width="200"></a>'
+							leftrightslide[2]='<a href="ver_direccion.php" title="Dirección Individualizada"><img class="rounded-circle" border="1" src="pictures/Ulquiorra.png" height="200" width="200"></a>'
+							leftrightslide[3]='<a href="ver_estadia.php" title="Estadía en Empresas"><img class="rounded-circle" border="1" src="pictures/Rukia.png" height="200" width="200"></a>'
+							leftrightslide[4]='<a href="ver_produccion.php" title="Producción Académica"><img border="1" class="rounded-circle" src="pictures/Adlet.png" height="200" width="200"></a>'
 							leftrightslide[5]='<a href="int_alumno.php" title="Administración de Alumnos"><img border="1" class="rounded-circle" src="pictures/Alumnos.png" height="200" width="200"></a>'
 							
 							var imagegap=""
@@ -166,7 +166,9 @@
 
 				<br><br><br>
 				<!--Vista rapida-->
-				<h1 align="center">Lo más Reciente <br> Producción Academica</h1>
+				<h1 class="bg-danger text-white">Lo más reciente </h1>
+				<br> 
+				<h2 align="center">Producción académica</h2>
 				<br>
 				<?php  
 					function nombre($codigo){
@@ -238,7 +240,7 @@
 
 			    <br><br>
 				<!--Vista rapida Estadias en empresas-->
-				<h1 align="center">Estadia en Empresas</h1>
+				<h1 align="center">Estadía en empresas</h1>
 				<br>
 				<?php  
 					$sql = "SELECT * FROM estadia WHERE borrador = false ORDER BY `estadia`.`id` DESC LIMIT 0, 4";
@@ -299,7 +301,7 @@
 
 		    <br><br>
 			<!--Vista rapida direccion individualizada-->
-			<h1 align="center">Dirección Individualizada</h1>
+			<h1 align="center">Dirección individualizada</h1>
 			<br>
 			<?php  
 				$sql = "SELECT * FROM direccionind WHERE borrador = false ORDER BY `direccionind`.`id` DESC LIMIT 0, 4";
