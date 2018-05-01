@@ -68,8 +68,9 @@
 
 		<?php  
 			$var1 = $_GET['produccion'];
+			$var2 = $_GET['tipo'];
 
-			if(isset($_POST['adicional'])){
+			if(isset($_POST['adicional']) && $var2 == 1){
 				$per = $_POST['persona'];
 
 				$sql = "SELECT * FROM personaproduccion WHERE codigoPersona = '$per' AND idProduccion = '$var1'";
@@ -78,6 +79,18 @@
 
 				if($existe == 0){
 					$sql = "INSERT INTO personaproduccion (codigoPersona, idProduccion) VALUES ('$per', '$var1')";
+					$resultado = mysqli_query($conexion, $sql);
+				}
+			}
+			else if(isset($_POST['adicional']) && $var2 == 2){
+				$per = $_POST['persona'];
+
+				$sql = "SELECT * FROM personaproyecto WHERE codigoPersona = '$per' AND idProyecto = '$var1'";
+				$resultado = mysqli_query($conexion, $sql);
+				$existe = ($resultado -> num_rows);
+
+				if($existe == 0){
+					$sql = "INSERT INTO personaproyecto (codigoPersona, idProyecto) VALUES ('$per', '$var1')";
 					$resultado = mysqli_query($conexion, $sql);
 				}
 			}
@@ -125,16 +138,30 @@
 				</table>
 			</form>
 			<table class="table-dark table table-hover table-stripped">
-				<?php  
-					$sql = "SELECT * FROM personaproduccion WHERE idProduccion = '$var1'";
-					$resultado = mysqli_query($conexion, $sql);
+				<?php
+					if($var2 == 1){
+						$sql = "SELECT * FROM personaproduccion WHERE idProduccion = '$var1'";
+						$resultado = mysqli_query($conexion, $sql);
 
-					while($col = mysqli_fetch_array($resultado)){
-						$codigo = $col['codigoPersona'];
-						$sql = "SELECT * FROM persona WHERE codigo = '$codigo'";
-						$res = mysqli_query($conexion, $sql);
-						$per = mysqli_fetch_array($res);
-						echo "<tr><td>Colaborador</td><td>".$per['nombre']." ".$per['apellidoP']." ".$per['apellidoM']."</td></tr>";
+						while($col = mysqli_fetch_array($resultado)){
+							$codigo = $col['codigoPersona'];
+							$sql = "SELECT * FROM persona WHERE codigo = '$codigo'";
+							$res = mysqli_query($conexion, $sql);
+							$per = mysqli_fetch_array($res);
+							echo "<tr><td>Colaborador</td><td>".$per['nombre']." ".$per['apellidoP']." ".$per['apellidoM']."</td></tr>";
+						}
+					}
+					else if($var2 == 2){
+						$sql = "SELECT * FROM personaproyecto WHERE idProyecto = '$var1'";
+						$resultado = mysqli_query($conexion, $sql);
+
+						while($col = mysqli_fetch_array($resultado)){
+							$codigo = $col['codigoPersona'];
+							$sql = "SELECT * FROM persona WHERE codigo = '$codigo'";
+							$res = mysqli_query($conexion, $sql);
+							$per = mysqli_fetch_array($res);
+							echo "<tr><td>Colaborador</td><td>".$per['nombre']." ".$per['apellidoP']." ".$per['apellidoM']."</td></tr>";
+						}
 					}
 				?>
 			</table>

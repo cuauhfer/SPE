@@ -79,6 +79,7 @@
 									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="5"){echo "selected";}?> value="5">Linea de Innovación</option>
 									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="6"){echo "selected";}?> value="6">Direccion Individualizada </option>
 									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="7"){echo "selected";}?> value="7">Estadía en Empresa</option>
+									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="8"){echo "selected";}?> value="8">Proyecto</option>
 								</select></td>
 								<td><input class="btn btn-success" type="submit" name="comenzar" value="Comenzar" formnovalidate></td>
 							</tr>
@@ -121,7 +122,7 @@
 									$sql = "INSERT INTO articulo(revista, paginas, linea, issn, idProduccion) VALUES('$revista', '$paginas', '$linea', '$issn', '$idProduccion')";
 									$resultado = mysqli_query($conexion, $sql);
 									
-									header('Location: int_colaborador.php/?produccion='.$reg['id']);
+									header('Location: int_colaborador.php/?produccion='.$reg['id'].'&tipo=1');
 									
 								}
 								?>
@@ -233,7 +234,7 @@
 
 									$sql = "INSERT INTO informetec(dependencia, idProduccion) VALUES('$dependencia', '$idProduccion')";
 									$resultado = mysqli_query($conexion, $sql);
-									header('Location: int_colaborador.php/?produccion='.$reg['id']);
+									header('Location: int_colaborador.php/?produccion='.$reg['id'].'&tipo=1');
 								}
 								?>
 									<form method="post">
@@ -310,7 +311,7 @@
 
 									$sql = "INSERT INTO manual(registro, idProduccion) VALUES('$registro', '$idProduccion')";
 									$resultado = mysqli_query($conexion, $sql);
-									header('Location: int_colaborador.php/?produccion='.$reg['id']);
+									header('Location: int_colaborador.php/?produccion='.$reg['id'].'&tipo=1');
 								}
 								?>
 									<form method="post">
@@ -390,7 +391,7 @@
 
 									$sql = "INSERT INTO libro(paginas, editorial, linea, isbn, idProduccion) VALUES('$paginas', '$editorial', '$linea', '$isbn', '$idProduccion')";
 									$resultado = mysqli_query($conexion, $sql);
-									header('Location: int_colaborador.php/?produccion='.$reg['id']);
+									header('Location: int_colaborador.php/?produccion='.$reg['id'].'&tipo=1');
 								}
 								?>
 									<form method="post">
@@ -710,6 +711,81 @@
 												</tr>
 										</table>
 								<?php
+							}
+							else if($_POST['tipo'] == "8"){
+								$persona = $_SESSION['persona'];
+								$tipo = $_POST['tipo'];
+
+								if(isset($_POST['agregar'])){
+									$nombre = $_POST['nombre'];
+									$autor = $persona['codigo'];
+									$fechaini = $_POST['fechaini'];
+									$fechafin = $_POST['fechafin'];
+									$institucion = $_POST['institucion'];
+									$descripcion = $_POST['descripcion'];
+									if($_POST['borrador']){
+										$borrador = true;
+									}
+									else{
+										$borrador = false;
+									}
+									$aprobacion = false;
+									$sql = "INSERT INTO proyecto(nombre, autor, fechaInicio, fechaFin, institucion, borrador, aprobacion, rechazo, descripcion) VALUES('$nombre', '$autor', '$fechaini', '$fechafin', '$institucion', '$borrador', '$aprobacion', false, '$descripcion')";
+									$resultado = mysqli_query($conexion, $sql);
+
+									$sql = "SELECT * FROM proyecto WHERE nombre = '$nombre' AND autor = '$autor'";
+									$resultado = mysqli_query($conexion, $sql);
+									$reg = mysqli_fetch_array($resultado);
+
+									header('Location: int_colaborador.php/?produccion='.$reg['id'].'&tipo=2');
+								}
+								?>
+									<form method="post">
+											<table class="table table-dark table-bordered table-striped table-hover">
+												
+												<tr>
+													<td colspan="1">Nombre</td>
+													<td colspan="3"><input class="form-control" type="text" name="nombre" required></td>
+												</tr>
+												<tr>
+													<td colspan="1">Autor</td>
+													<td colspan="3"><?php 
+														$persona = $_SESSION['persona']; echo $persona['nombre'];?></td>
+												</tr>
+												<tr>
+												<td>Fecha Inicio</td>
+												<td><input class="form-control" type="date" name="fechaini" required></td>
+												<td>Fecha Fin</td>
+												<td><input class="form-control" type="date" name="fechafin" required></td>
+												</tr>
+												<tr>
+													<td colspan="1">Institución</td><td colspan="2"><input class="form-control" type="text" name="institucion" required></td>
+												<td colspan="1">
+													<div class="checkbox input-group-text">
+														<label>
+															<input type="checkbox" aria-label="Checkbox for following text input" name="borrador"> Borrador
+														</label>
+													</div>
+												</td>
+												</tr>
+												<tr>
+												<td colspan="1">Descripcion</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
+												</tr>
+												<tr>
+													<td colspan="4"></td>
+												</tr>
+												<tr>
+													<td colspan="4" align="center">
+														<div class="btn-group d-inline-block">
+															<input class="btn btn-light" type="reset" name="" value="Limpiar">
+															<input class="btn btn-light" type="submit" name="agregar" value="Agregar">
+															<input class="btn btn-light" type="submit" name="cancelar" value="Cancelar" formnovalidate>
+														</div>
+													</td>
+												</tr>
+											</table>
+										</form>
+									<?php
 							}
 						}
 						else if(isset($_POST['cancelar'])){

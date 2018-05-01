@@ -6,7 +6,7 @@
 	<meta name="" ="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimum-scale=1.0">
 	<!--Estilos-->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	//<link rel="stylesheet" href="css/index_style_administrador.css">
+	<link rel="stylesheet" href="css/index_style_administrador.css">
 	<!--Favicon-->
 	<link rel="icon" type="image/png" href="pictures/logo.png" />
 	<!--Script-->

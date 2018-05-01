@@ -26,7 +26,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src='js/script-form.js'></script>
 	<!--Titulo-->
-	<title>Modificar Alumno</title>
+	<title>Agregar Alumno</title>
 </head>
 <?php 
 	//Inicio de secion
