@@ -50,7 +50,7 @@
 		}
 	</script>
 	<!--Titulo-->
-	<title>Producción</title>
+	<title>Proyecto</title>
 </head>
 <body>
 	<header class="fixed-top">
@@ -99,7 +99,7 @@
 		$var1 = $_GET['nombre'];
 		$var2 = $_GET['autor']; 
 
-		$sql = "SELECT * FROM produccion WHERE nombre='$var1'";
+		$sql = "SELECT * FROM proyecto WHERE nombre='$var1'";
 		$resultado = mysqli_query($conexion, $sql);
 		while($reg = mysqli_fetch_array($resultado)){
 	?>
@@ -110,7 +110,7 @@
 
 			<div class="row jumbotron p-3 p-md-5 rounded bg-ligth rounded">
 				<div class="col-md-4">
-					<img class="card-img-right flex-auto d-none d-md-block" src="../pictures/Adlet.png" alt="Card image cap" width="200" height="200">
+					<img class="card-img-right flex-auto d-none d-md-block" src="../pictures/kiokay.png" alt="Card image cap" width="200" height="200">
 				</div>
 	        	<div class="col-md-8 px-0">
 			        <h3 class="text-primary display-4 font-italic"><?php echo $reg['nombre'];?></h3>
@@ -129,77 +129,22 @@
 			        	}
 			        ?>
 			        <div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
-			        <div class="mb-1 text-muted"><?php echo $reg['fecha'] ?></div>
-			        <?php
-				        if($reg['tipoPublicacion'] == "1"){
-				        	$idpu = $reg['id'];
-				        	$autorpu = $reg['autor'];
-				        	$sql = "SELECT * FROM articulo WHERE idProduccion='$idpu'";
-							$resultado = mysqli_query($conexion, $sql);
-							$art = mysqli_fetch_array($resultado);
-
-							$idli = $art['linea'];
-							$sql = "SELECT * FROM lineainn WHERE id='$idli'";
-							$resultado = mysqli_query($conexion, $sql);
-							$lin = mysqli_fetch_array($resultado);
-							?>
-								<div class="mb-1 text-muted">Articulo</div>
-								<div class="mb-1">Revista: <?php echo $art['revista'] ?></div>
-								<div class="mb-1"><?php echo $art['paginas'] ?></div>
-								<div class="mb-1">ISSN: <?php echo $art['issn'] ?></div>
-								<div class="mb-1">Campo: <?php echo $lin['nombre'] ?></div>
-							<?php	
-						}else if($reg['tipoPublicacion'] == "2"){
-							$idpu = $reg['id'];
-							$autorpu = $reg['autor'];
-				        	$sql = "SELECT * FROM informetec WHERE idProduccion='$idpu'";
-							$resultado = mysqli_query($conexion, $sql);
-							$inf = mysqli_fetch_array($resultado);
-
-							?>
-								<div class="mb-1 text-muted">Informe Técnico</div>
-								<div class="mb-1">Dependencia: <?php echo $inf['dependencia'] ?></div>
-							<?php
-						}else if($reg['tipoPublicacion'] == "3"){
-							$idpu = $reg['id'];
-							$autorpu = $reg['autor'];
-				        	$sql = "SELECT * FROM manual WHERE idProduccion='$idpu'";
-							$resultado = mysqli_query($conexion, $sql);
-							$man = mysqli_fetch_array($resultado);
-
-							?>
-								<div class="mb-1 text-muted">Manual</div>
-								<div class="mb-1">Registro: <?php echo $man['registro'] ?></div>
-							<?php
-						}else if($reg['tipoPublicacion'] == "4"){
-							$idpu = $reg['id'];
-							$autorpu = $reg['autor'];
-				        	$sql = "SELECT * FROM libro WHERE idProduccion='$idpu'";
-							$resultado = mysqli_query($conexion, $sql);
-							$lib = mysqli_fetch_array($resultado);
-
-							$idli = $lib['linea'];
-							$sql = "SELECT * FROM lineainn WHERE id='$idli'";
-							$resultado = mysqli_query($conexion, $sql);
-							$lin = mysqli_fetch_array($resultado);
-							?>
-								<div class="mb-1 text-muted">Libro</div>
-								<div class="mb-1">Editorial: <?php echo $lib['editorial'] ?></div>
-								<div class="mb-1"><?php echo $lib['paginas'] ?></div>
-								<div class="mb-1">ISSN: <?php echo $lib['isbn'] ?></div>
-								<div class="mb-1">Campo: <?php echo $lin['nombre'] ?></div>
-							<?php
-						} 
-						?>
-						<div class="mb-1 text-muted">Descripción: <?php echo $reg['descripcion'] ?></div>
-						<br>
-						<div class="mb-1 text-primary text-center">Colaboradores</div>
+			        <div class="mb-1 text-muted">Fecha de inicio: <?php echo $reg['fechaInicio'] ?></div>
+			        <div class="mb-1 text-muted">Fecha de termino: <?php echo $reg['fechaFin'] ?></div>
+			        <div class="mb-1">Institución: <?php echo $reg['institucion']; ?></div>
+			        <br>
+					<div class="mb-1 text-muted">Descripción: <?php echo $reg['descripcion'] ?></div>
+					<br>
+					<div class="mb-1 text-primary text-center">Colaboradores</div>
+					<br>
 						<?php
-							$sql = "SELECT * FROM personaproduccion WHERE idProduccion = '$idpu'";
+							$idpr = $reg['id'];
+							$autorpr = $reg['autor'];
+							$sql = "SELECT * FROM personaproyecto WHERE idProyecto = '$idpr'";
 							$resultado = mysqli_query($conexion, $sql);
 
 							while($reg = mysqli_fetch_array($resultado)){
-								if($reg['codigoPersona'] != $autorpu){
+								if($reg['codigoPersona'] != $autorpr){
 									?>
 										<div class="mb-1 text-muted"><?php echo nombre($reg['codigoPersona']); ?></div>
 									<?php
@@ -213,8 +158,6 @@
 	<?php 
 		}
 	?>
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-</body>
 
+</body>
 </html>

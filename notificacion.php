@@ -44,6 +44,7 @@
 			<br><br><br><br>
 			<div class="container-fluid">
 				<h1 align="center">Pendientes</h1>
+				<br>
 			<?php
 				function nombre($codigo){
 					$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
@@ -75,8 +76,8 @@
 					              	<div class="d-inline-block btn-group">
 						              	<?php 
 						              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver más</a>";
-						              	echo "<a href='status_aprobar.php/?nombre=".$reg['id']."' class='btn btn-success'>Aprobar</a>";
-						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=2' class='btn btn-danger'>Rechazar</a>";
+						              	echo "<a href='status_aprobar.php/?nombre=".$reg['id']."&tipo=1' class='btn btn-success'>Aprobar</a>";
+						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=2&subaccion=1' class='btn btn-danger'>Rechazar</a>";
 						              	?>
 					              	</div>
 					            </div>
@@ -100,17 +101,22 @@
 					              	<div class="d-inline-block btn-group">
 						              	<?php 
 						              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver más</a>";
-						              	echo "<a href='status_aprobar.php/?nombre=".$reg2['id']."' class='btn btn-success'>Aprobar</a>";
-						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=2' class='btn btn-danger'>Rechazar</a>";
+						              	echo "<a href='status_aprobar.php/?nombre=".$reg2['id']."&tipo=1' class='btn btn-success'>Aprobar</a>";
+						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=2&subaccion=1' class='btn btn-danger'>Rechazar</a>";
 						              	?>
 					              	</div>
 					            </div>
 				          	</div>
 				        </div>
 				    </div>
-					<?php
-					}
-				}
+				<?php
+				    }
+	    		else{ 
+	    			?>	
+	    		</div>
+	    			<?php
+	    		}
+		    	}//Llave del while
 
 				$sql = "SELECT * FROM proyecto WHERE aprobacion = false AND borrador = false AND rechazo = false";
 				$resultado = mysqli_query($conexion, $sql);
@@ -120,19 +126,18 @@
 
 				        <div class="col-md-6">
 				          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
+					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/kiokay.png" alt="Card image cap" width="200" height="200">
 					            <div class="card-body d-flex flex-column align-items-start">
-					              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
+					              	<strong class="d-inline-block mb-2 text-primary">Proyecto</strong>
 					              	<h3 class="mb-0">
-					                	<?php echo $reg['nombre']; ?>
+					                	<?php echo $penpd['nombre']; ?>
 					              	</h3>
-					              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
-					              	<div class="d-inline-block">
+					              	<div class="mb-1 text-muted"><?php echo nombre($penpd['autor']); ?></div>
+					              	<div class="d-inline-block btn-group">
 						              	<?php 
-						              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver más</a>";
-						              	?>
-						              	<?php 
-						              	echo "<a href='status_aprobar.php/?nombre=".$reg['id']."' class='btn btn-success'>Aprobar</a>";
+						              	echo "<a href='proyecto_ind.php/?nombre=".$penpd['nombre']."&autor=".$penpd['autor']."' class='btn btn-primary'>Ver más</a>";
+						              	echo "<a href='status_aprobar.php/?nombre=".$penpd['id']."&tipo=2' class='btn btn-success'>Aprobar</a>";
+						              	echo "<a href='status_eliminar.php/?id=".$penpd['id']."&accion=2&subaccion=2' class='btn btn-danger'>Rechazar</a>";
 						              	?>
 					              	</div>
 					            </div>
@@ -146,19 +151,18 @@
 
 				        <div class="col-md-6">
 				          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
+					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/liokay.png" alt="Card image cap" width="200" height="200">
 					            <div class="card-body d-flex flex-column align-items-start">
-					              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
+					              <strong class="d-inline-block mb-2 text-primary">Proyecto</strong>
 					              	<h3 class="mb-0">
 					                	<?php echo $reg2['nombre']; ?>
 					              	</h3>
 					              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
-					              	<div class="d-inline-block">
+					              	<div class="d-inline-block btn-group">
 						              	<?php 
-						              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver más</a>";
-						              	?>
-						              	<?php 
-						              	echo "<a href='status_aprobar.php/?nombre=".$reg2['id']."' class='btn btn-success'>Aprobar</a>";
+						              	echo "<a href='proyecto_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver más</a>";
+						              	echo "<a href='status_aprobar.php/?nombre=".$reg2['id']."&tipo=2' class='btn btn-success'>Aprobar</a>";
+						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=2&subaccion=2' class='btn btn-danger'>Rechazar</a>";
 						              	?>
 					              	</div>
 					            </div>
@@ -167,8 +171,12 @@
 				    </div>
 					<?php
 					}
-				}
-			?>
+				else{
+	    			?>
+	    				</div>
+	    			<?php
+	    		}
+		    	}?>
 			</div>
 		</section>
 		<script src="js/jquery.js"></script>

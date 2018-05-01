@@ -60,10 +60,10 @@
 						//Vínculos y enlaces de las imágenes
 						var leftrightslide=new Array()
 						var finalslide=''
-						leftrightslide[0]='<a href="https://google.com" title="Google"><img class="rounded-circle" border="1" src="pictures/Kiokay.png" height="200" width="200"></a>'
-							leftrightslide[1]='<a href="ver_direccion.php" title="Dirección Individualizada"><img class="rounded-circle" border="1" src="pictures/Ulquiorra.png" height="200" width="200"></a>'
-							leftrightslide[2]='<a href="ver_estadia.php" title="Estadía en Empresas"><img class="rounded-circle" border="1" src="pictures/Rukia.png" height="200" width="200"></a>'
-							leftrightslide[3]='<a href="ver_produccion.php" title="Producción Académica"><img border="1" class="rounded-circle" src="pictures/Adlet.png" height="200" width="200"></a>'
+						leftrightslide[0]='<a href="ver_proyecto.php" title="Proyecto"><img class="rounded-circle" border="1" src="pictures/Kiokay.png" height="200" width="200"></a>'
+						leftrightslide[1]='<a href="ver_direccion.php" title="Dirección Individualizada"><img class="rounded-circle" border="1" src="pictures/Ulquiorra.png" height="200" width="200"></a>'
+						leftrightslide[2]='<a href="ver_estadia.php" title="Estadía en Empresas"><img class="rounded-circle" border="1" src="pictures/Rukia.png" height="200" width="200"></a>'
+						leftrightslide[3]='<a href="ver_produccion.php" title="Producción Académica"><img border="1" class="rounded-circle" src="pictures/Adlet.png" height="200" width="200"></a>'
 						
 						var imagegap=""
 						var slideshowgap=4
@@ -345,7 +345,69 @@
 	    		}
 		    	}//Llave del while
 		    ?>
-		</div>
+		<br><br>
+				<!--Vista rapida Estadias en empresas-->
+				<h3 align="center">Proyectos</h3>
+				<br>
+				<?php  
+					$sql = "SELECT * FROM proyecto WHERE aprobacion = true ORDER BY `proyecto`.`id` DESC LIMIT 0, 4";
+					$resultado = mysqli_query($conexion, $sql);
+
+					while ($reg = mysqli_fetch_array($resultado)){
+			?>
+				<div class="row container-fluid mb-2">
+
+			        <div class="col-md-6">
+				          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
+					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Kiokay.png" alt="Card image cap" width="200" height="200">
+					            <div class="card-body d-flex flex-column align-items-start">
+					              <strong class="d-inline-block mb-2 text-primary">Proyecto</strong>
+					              	<h3 class="mb-0">
+					                	<?php echo $reg['nombre']; ?>
+					              	</h3>
+					              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
+					              	<div class="d-inline-block btn-group">
+						              	<?php 
+						              	echo "<a href='proyecto_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver más</a>";
+						              	?>
+					              	</div>
+					            </div>
+				          	</div>
+				        </div>
+				<?php
+					$reg2 = mysqli_fetch_array($resultado);
+					if($reg2){
+				?>
+
+			        <div class="col-md-6">
+				          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
+					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Kiokay.png" alt="Card image cap" width="200" height="200">
+					            <div class="card-body d-flex flex-column align-items-start">
+					              <strong class="d-inline-block mb-2 text-primary">Proyecto</strong>
+					              	<h3 class="mb-0">
+					                	<?php echo $reg2['nombre']; ?>
+					              	</h3>
+					              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
+					              	<div class="d-inline-block btn-group">
+						              	<?php 
+						              	echo "<a href='proyecto_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver más</a>";
+						              	?>
+					              	</div>
+					            </div>
+				          	</div>
+				        </div>
+			    </div>
+
+		    <?php 
+		    		}
+	    		else{
+	    			?>
+	    				</div>
+	    			<?php
+	    		}
+		    	}//Llave del while
+		    ?>
+			</div>
 	</section>
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>

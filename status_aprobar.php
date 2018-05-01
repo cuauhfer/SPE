@@ -14,16 +14,29 @@
 
 	//variables por URL
 	$id = $_GET['nombre'];
+	$tipo = $_GET['tipo'];
 
-	$sql = "SELECT * FROM produccion WHERE id='$id'";
-	$resultado = mysqli_query($conexion, $sql);
-
-	while($reg = mysqli_fetch_array($resultado)){
-		$idpd = $reg['id'];
-		$sql = "UPDATE produccion SET aprobacion = true WHERE id='$idpd'";
+	if($tipo == 1){
+		$sql = "SELECT * FROM produccion WHERE id='$id'";
 		$resultado = mysqli_query($conexion, $sql);
-	}
 
+		while($reg = mysqli_fetch_array($resultado)){
+			$idpd = $reg['id'];
+			$sql = "UPDATE produccion SET aprobacion = true WHERE id='$idpd'";
+			$resultado = mysqli_query($conexion, $sql);
+		}
+	}
+	if($tipo == 2){
+		$sql = "SELECT * FROM proyecto WHERE id='$id'";
+		$resultado = mysqli_query($conexion, $sql);
+
+		while($reg = mysqli_fetch_array($resultado)){
+			$idpd = $reg['id'];
+			$sql = "UPDATE proyecto SET aprobacion = true WHERE id='$idpd'";
+			$resultado = mysqli_query($conexion, $sql);
+		}
+	}
+	
 	header('Location: ../notificacion.php');
 ?>
 

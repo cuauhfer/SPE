@@ -39,7 +39,7 @@
 		}
 	</script>
 	<!--Titulo-->
-	<title>Producción</title>
+	<title>Proyecto</title>
 </head>
 
 <?php 
@@ -93,10 +93,9 @@
 			</ul>
 		</nav>
 	</header>
-
-	<br><br><br>
+	<br><br><br><br>
 			<!--Vista rapida-->
-			<h1 align="center">Producción Académica</h1>
+			<h1 align="center">Proyectos</h1>
 			<br>
 			<?php  
 				function nombre($codigo){
@@ -112,17 +111,17 @@
 					$sql = "SELECT * FROM persona WHERE `nombre` LIKE '%$bus%' OR (`apellidoP` LIKE '%$bus%' OR `apellidoM` LIKE '%$bus%') ORDER BY `persona`.`codigo`";
 					$resultadoautor = mysqli_query($conexion, $sql);
 
-					$sql = "SELECT * FROM produccion WHERE aprobacion = true AND `nombre` LIKE '%$bus%' ORDER BY `produccion`.`id`";
+					$sql = "SELECT * FROM proyecto WHERE aprobacion = true AND `nombre` LIKE '%$bus%' ORDER BY `proyecto`.`id`";
 					$resultado = mysqli_query($conexion, $sql);
 
 					while($reg = mysqli_fetch_array($resultadoautor)){
 						$codigo = $reg['codigo'];
-						$sql = "SELECT * FROM produccion WHERE aprobacion = true AND (`autor` LIKE '%$codigo%' OR `nombre` LIKE '%$bus%') ORDER BY `produccion`.`id`";
+						$sql = "SELECT * FROM proyecto WHERE aprobacion = true AND (`autor` LIKE '%$codigo%' OR `nombre` LIKE '%$bus%') ORDER BY `proyecto`.`id`";
 						$resultado = mysqli_query($conexion, $sql);
 					}
 				}
 				else{
-					$sql = "SELECT * FROM produccion WHERE aprobacion = true ORDER BY `produccion`.`id`";
+					$sql = "SELECT * FROM proyecto WHERE aprobacion = true ORDER BY `proyecto`.`id`";
 					$resultado = mysqli_query($conexion, $sql);
 				}
 
@@ -133,15 +132,15 @@
 
 			        <div class="col-md-6">
 			          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-				          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
+				          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/kiokay.png" alt="Card image cap" width="200" height="200">
 				            <div class="card-body d-flex flex-column align-items-start">
-				              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
+				              	<strong class="d-inline-block mb-2 text-primary">Proyecto</strong>
 				              	<h3 class="mb-0">
 				                	<?php echo $reg['nombre']; ?>
 				              	</h3>
 				              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
 				              	<?php 
-					              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver mas</a>";
+					              	echo "<a href='proyecto_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver mas</a>";
 					            ?>
 				            </div>
 			            
@@ -154,15 +153,15 @@
 
 			        <div class="col-md-6">
 			          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-				          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
+				          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/kiokay.png" alt="Card image cap" width="200" height="200">
 				            <div class="card-body d-flex flex-column align-items-start">
-				              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
+				              <strong class="d-inline-block mb-2 text-primary">Proyecto</strong>
 				              	<h3 class="mb-0">
 				                	<?php echo $reg2['nombre']; ?>
 				              	</h3>
 				              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
 				              	<?php 
-					              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver mas</a>";
+					              	echo "<a href='proyecto_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver mas</a>";
 					            ?>
 				            </div>
 			          	</div>
@@ -178,5 +177,4 @@
 	<script src="js/bootstrap.min.js"></script>
 	<br>
 </body>
-
 </html>
