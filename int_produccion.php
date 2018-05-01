@@ -484,7 +484,7 @@
 									$campo = $_POST['campo'];
 
 									$publicacion = $tipo;
-									$sql = "INSERT INTO lineainn(nombre, codigoPersona, campo) VALUES('$nombre', '$autor', '$campo')";
+									$sql = "INSERT INTO lineainn(nombre, codigoPersona, campo, borrador) VALUES('$nombre', '$autor', '$campo', false)";
 									$resultado = mysqli_query($conexion, $sql);
 
 									if(isset($_SESSION['integrante'])){
