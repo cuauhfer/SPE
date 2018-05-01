@@ -161,7 +161,7 @@
 				              	</h3>
 				              	<div class="mb-1 text-muted"><?php echo nombre($reg2['codigoPersona']); ?></div>
 				              	<?php 
-					              	echo "<a href='direccion_ind.php/?nombre=".$reg2['nombreProyecto']."&autor=".$reg2['codigoPersona']."' class='btn btn-primary'>Ver mas</a>";
+					              	echo "<a href='direccion_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn btn-primary'>Ver mas</a>";
 					            ?>
 				            </div>
 			          	</div>
