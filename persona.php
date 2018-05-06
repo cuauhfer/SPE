@@ -84,7 +84,7 @@
 			</nav>
 		</header>
 	
-	<section id='banner'>
+	<section>
 		<br><br><br><br>
 		<div class="container-fluid">
 			<div class="row">
@@ -119,18 +119,18 @@
 						?>
 							<form method="post" enctype="multipart/form-data">
 								<br>
-								<input class="form-control-file" type="file" name="foto" required><br>
-								<input class="btn btn-success" type="submit" name="upload" value="Subir">
+								<input class="form-control-file btn-outline-success" type="file" name="foto" required><br>
+								<input class="btn btn-outline-success" type="submit" name="upload" value="Subir">
 							</form><br>
 							<form method="post">
-								<input class="btn btn-success" type="submit" name="cancelarimg" value="Cancelar">
+								<input class="btn btn-outline-success" type="submit" name="cancelarimg" value="Cancelar">
 							</form>	
 						<?php
 						}else{
 						?>
 						<form method="post" enctype="multipart/form-data"><br>
-							<input class="btn btn-success" type="submit" name="actualizarimg" value="Cambiar">
-							<input class="btn btn-success" type="submit" name="borrarimg" value="Eliminar">
+							<input class="btn btn-outline-success" type="submit" name="actualizarimg" value="Cambiar">
+							<input class="btn btn-outline-success" type="submit" name="borrarimg" value="Eliminar">
 						</form>
 					<?php 
 					}
@@ -138,7 +138,7 @@
 				</div>
 
 				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
-					<table class="table table-dark table-bordered table-striped table-hover">
+					<table class="table table-success table-bordered table-striped table-hover">
 						<?php 
 							//If para mostrar el perfil
 							if(!isset($_POST['modificar'])){
@@ -170,7 +170,7 @@
 						if(!isset($_POST['modificar'])){
 					?>
 						<form method="post">
-							<input class="btn btn-success" type="submit" name="modificar" value="Modificar">
+							<input class="btn btn-outline-success" type="submit" name="modificar" value="Modificar">
 						</form>
 					<?php
 						}else{

@@ -41,11 +41,11 @@
 				</ul>
 			</nav>
 		</header>
-		<section id="banner">
+		<section>
 			<br><br><br><br>
 			<div class="row">
 				<div class="container col-xs-12 col-sm-12 col-md-10 col-lg-10">
-					<table class="table table-dark table-bordered table-striped table-hover">
+					<table class="table table-success table-bordered table-striped table-hover">
 						<tr><th colspan="5"><center><h2>Logs</h2></center></th></tr>
 						<tr><th>Codigo</th><th>Actividad</th><th>Fecha</th><th>Hora</th></tr>
 						<?php

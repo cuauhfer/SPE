@@ -6,7 +6,8 @@
 	<meta name="" ="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimum-scale=1.0">
 	<!--Estilos-->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/index_style_administrador.css">
+	<link rel="stylesheet" href="css/index_style_integrante.css">
+
 	<!--Favicon-->
 	<link rel="icon" type="image/png" href="pictures/logo.png" />
 	<!--Script-->
@@ -20,28 +21,7 @@
 	//Inicio de secion
 	session_start();
 	
-	if(isset($_SESSION['integrante'])){
-		?>
-		<link rel="stylesheet" href="css/index_style_integrante.css">
-		<?php  
-	}
-	else if(isset($_SESSION['administrador'])){
-		?>
-		<link rel="stylesheet" href="css/index_style_administrador.css">
-		<?php
-	}
-	else if(isset($_SESSION['colaborador'])){
-		header('Location: index.php');
-	}
-	else if(isset($_SESSION['visitante'])){
-		header('Location: index.php');
-	}
-		?>
-		<?php  
-	if(!isset($_SESSION['visitante'])){
-		header('Location: index.php');
-	}
-	if(isset($_SESSION['username']) ){ 
+	if(isset($_SESSION['username']) && (isset($_SESSION['administrador']) || isset($_SESSION['integrante']))){ 
 		//Conexion a BD
 		$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
 		$sql = "SELECT * FROM `alumno`";
@@ -92,11 +72,11 @@
 			</nav>
 		</header>
 
-		<section id='banner'>
+		<section>
 			<br><br><br><br>
 			<div class=" container-fluid row">
 				<div class="container col-xs-12 col-sm-12 col-md-8 col-lg-9">
-					<table class="table table-dark table-bordered table-striped table-hover">
+					<table class="table table-success table-bordered table-striped table-hover">
 						<tr><th>Código</th><th>Nombre de Alumno</th><th>Carrera</th></tr>
 						<?php 
 							while($reg = mysqli_fetch_array($resultado)){
@@ -113,12 +93,12 @@
 				</div>
 				<div class="container col-xs-12 col-sm-12 col-md-4 col-lg-3">
 					<form method="post">
-						<input class="btn btn-success" type="submit" name="crear" value="Agregar"><br><br><br><br>
+						<input class="btn btn-outline-success" type="submit" name="crear" value="Agregar"><br><br><br><br>
 					</form>
 					<form method="post">
 						<input class="form" type="text" name="codigo" required>
-						<input class="btn btn-success" type="submit" name="seleccionar" value="Buscar">
-						<p class="text-warning">Seleccione un codigo para operar con ese alumno</p>
+						<input class="btn btn-outline-success" type="submit" name="seleccionar" value="Buscar">
+						<p class="text-dark">Seleccione un codigo para operar con ese alumno</p>
 					</form>
 				</div>
 			</div>

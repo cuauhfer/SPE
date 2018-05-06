@@ -64,18 +64,20 @@
 				</ul>
 			</nav>
 		</header>
-		<section id="banner">
+		<section>
 			<br><br><br>
 				<div class="container">
 				<form method="post">
-					<table class="table table-dark table-bordered table-striped table-hover">
+					<table class="table table-success table-bordered table-striped table-hover">
 						<tr><td>Nombre</td><td><input class="form-control" type="text" name="nombre" required></td></tr>
 						<tr><td>Apellido Paterno</td><td><input class="form-control" type="text" name="apellidop" required></td></tr>
 						<tr><td>Apellido Materno</td><td><input class="form-control" type="text" name="apellidom" required></td></tr>
 						<tr><td>Carrera</td><td><input class="form-control" type="text" name="carrera" required></td></tr>
-						
-						<tr><td><input class="btn btn-warning" type="reset" name=""></td><td><input class="btn btn-success" type="submit" name="agregar"></td></tr>
 					</table>
+
+						<input class="btn btn-outline-secondary" type="reset" name="" value="Limpiar"> 
+						<input class="btn btn-outline-success" type="submit" name="agregar">
+					
 				</form>
 				</div>
 		</section>

@@ -63,7 +63,7 @@
 		</nav>
 	</header>
 
-	<section id="banner">
+	<section>
 		<br><br><br><br>
 
 		<?php  
@@ -96,9 +96,9 @@
 			}
 		?>
 
-		<div class="container-fluid">
+		<div class="container">
 			<form method="post">
-				<table class="table-dark table table-hover table-stripped">
+				<table class="table-success table table-hover table-stripped">
 					<th><td colspan="2">Agregar Nuevo Colaborador</td> 
 						<td colspan="4">
 							<select class="form-control custom-select" type="select" name="persona" id="persona" required>
@@ -119,17 +119,17 @@
 						</td>
 						<td colspan="1">
 							<div class="btn-group d-inline-block">
-								<input type="submit" id="adicional" name="adicional" class="btn btn-info" value="Agregar">
+								<input type="submit" id="adicional" name="adicional" class="btn btn-outline-info" value="Agregar">
 							</div>
 							<?php
 								if(isset($_SESSION['integrante'])){
 									?>
-										<a class="btn btn-warning" href='../integrante.php'>Finalizar</a>
+										<a class="btn btn-outline-info" href='../integrante.php'>Finalizar</a>
 									<?php  
 								}
 								else if(isset($_SESSION['administrador'])){
 									?>
-										<a class="btn btn-warning" href='../administrador.php'>Finalizar</a>
+										<a class="btn btn-outline-info" href='../administrador.php'>Finalizar</a>
 									<?php
 								}
 							?>
@@ -137,7 +137,7 @@
 					</th>
 				</table>
 			</form>
-			<table class="table-dark table table-hover table-stripped">
+			<table class="table-success table table-hover table-stripped">
 				<?php
 					if($var2 == 1){
 						$sql = "SELECT * FROM personaproduccion WHERE idProduccion = '$var1'";

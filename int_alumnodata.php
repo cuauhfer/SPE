@@ -108,14 +108,14 @@
 				</ul>
 			</nav>
 		</header>
-		<section id='banner'>
+		<section>
 		<br><br><br><br>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<!--Formulario de modificacion-->
 					<form method="post">
-						<table class="table table-dark table-bordered table-striped table-hover">
+						<table class="table table-success table-bordered table-striped table-hover">
 							<?php  
 							echo "<tr><td><label>Nombre</label></td><td><input class='form-control type='text' name='nombreAlumno' value='$nombre' placeholder='Nuevo Nombre'></td></tr>";
 							echo "<tr><td><label>Apellido Paterno</label></td><td><input class='form-control type='text' name='apellidop' value='$apep' placeholder='Nuevo Apellido Paterno'></td></tr>";
@@ -124,9 +124,15 @@
 							
 
 							?>
-							<tr><td class="text-warning">Se cambiaran los datos del alumno</td><td><input class="btn btn-success" type="submit" name="guardar" value="Guardar"> <input class="btn btn-success" type="submit" name="eliminar" value="Eliminar">   
-							<input class="btn btn-success" type="submit" name="cancelar" value="Cancelar"></td></tr>
 						</table>
+						<div class="row">
+							<div class="col-sm-12 col-md-6 col-lg-6 text-dark">Se cambiaran los datos del alumno</div>
+							<div class="col-sm-12 col-md-6 col-lg-6">
+								<input class="btn btn-outline-success" type="submit" name="guardar" value="Guardar"> 
+								<input class="btn btn-outline-success" type="submit" name="eliminar" value="Eliminar">   
+								<input class="btn btn-outline-success" type="submit" name="cancelar" value="Cancelar">
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>

@@ -73,19 +73,19 @@
 			</nav>
 		</header>
 
-		<section id='banner'>
+		<section>
 			<br><br><br><br>
 			<div class="row container-fluid">
 				<div class="container col-xs-12 col-sm-12 col-md-8 col-lg-9">
-					<table class="table table-dark table-bordered table-striped table-hover">
-						<tr><th>Codigo</th><th>Nombre</th><th>Nombre Usuario</th><th>Contraseña</th><th>Nivel</th></tr>
+					<table class="table table-success table-bordered table-striped table-hover">
+						<tr><th>Codigo</th><th>Nombre</th><th>Nombre Usuario</th><th>Nivel</th></tr>
 						<?php 
 							while($reg = mysqli_fetch_array($resultado)){
 								$sql = "SELECT * FROM `persona`";
 								$resultado_p = mysqli_query($conexion, $sql);
 								while ($persona = mysqli_fetch_array($resultado_p)) {
 									if($reg['codigo'] == $persona['codigo']){
-										echo "<tr><td>".$reg['codigo']."</td><td>".$persona['nombre']." ".$persona['apellidoP']." ".$persona['apellidoM']."</td><td>".$reg['username']."</td><td>".$reg['password']."</td><td>".nivel($reg['nivel'])."</td></tr>";
+										echo "<tr><td>".$reg['codigo']."</td><td>".$persona['nombre']." ".$persona['apellidoP']." ".$persona['apellidoM']."</td><td>".$reg['username']."</td><td>".nivel($reg['nivel'])."</td></tr>";
 									}
 								}
 							}//Llave del while
@@ -94,12 +94,12 @@
 				</div>
 				<div class="container col-xs-12 col-sm-12 col-md-4 col-lg-3">
 					<form method="post">
-						<input class="btn btn-success" type="submit" name="crear" value="Agregar"><br><br><br><br>
+						<input class="btn btn-outline-success" type="submit" name="crear" value="Agregar"><br><br><br><br>
 					</form>
 					<form method="post">
 						<input class="form" type="text" name="codigo" required>
-						<input class="btn btn-success" type="submit" name="seleccionar" value="Buscar">
-						<p class="text-warning">Seleccione un codigo para operar con ese usuario</p>
+						<input class="btn btn-outline-success" type="submit" name="seleccionar" value="Buscar">
+						<h5 class="text-dark">Seleccione un codigo para operar con ese usuario</h5>
 					</form>
 				</div>
 			</div>

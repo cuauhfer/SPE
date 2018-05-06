@@ -62,13 +62,13 @@
 				</ul>
 			</nav>
 		</header>
-		<section id="banner">
+		<section>
 			<br><br><br><br>
 				<div class="container">
 					<form method="post">
 
 						<!-- Tabla para ver el tipo de publicacion o registro-->
-						<table class="table table-dark table-bordered table-striped table-hover">
+						<table class="table table-success table-bordered table-striped table-hover">
 							<tr>
 								<td colspan="1">Tipo de Publicacion</td>
 								<td colspan="2"><select class="form-control custom-select" type="select" name="tipo" id="tipo">
@@ -127,7 +127,7 @@
 								}
 								?>
 									<div class="container"></div>
-										<table class="table table-dark table-bordered table-striped table-hover">
+										<table class="table table-success table-bordered table-striped table-hover">
 											
 											<tr>
 												<td colspan="1">Nombre</td>
@@ -238,7 +238,7 @@
 								}
 								?>
 									<form method="post">
-											<table class="table table-dark table-bordered table-striped table-hover">
+											<table class="table table-success table-bordered table-striped table-hover">
 												
 												<tr>
 													<td colspan="1">Nombre</td>
@@ -315,7 +315,7 @@
 								}
 								?>
 									<form method="post">
-											<table class="table table-dark table-bordered table-striped table-hover">
+											<table class="table table-success table-bordered table-striped table-hover">
 												
 												<tr>
 													<td colspan="1">Nombre</td>
@@ -395,7 +395,7 @@
 								}
 								?>
 									<form method="post">
-											<table class="table table-dark table-bordered table-striped table-hover">
+											<table class="table table-success table-bordered table-striped table-hover">
 												
 												<tr>
 													<td colspan="1">Nombre</td>
@@ -496,7 +496,7 @@
 								}
 								?>
 									<div class="container"></div>
-										<table class="table table-dark table-bordered table-striped table-hover">
+										<table class="table table-success table-bordered table-striped table-hover">
 											
 											<tr>
 												<td colspan="1">Nombre</td>
@@ -566,7 +566,7 @@
 								}
 								?>
 									<div class="container"></div>
-										<table class="table table-dark table-bordered table-striped table-hover">
+										<table class="table table-success table-bordered table-striped table-hover">
 											<tr>
 												<td colspan="1">Nombre Empresa</td>
 												<td colspan="3"><input class="form-control" type="text" name="empresa" required></td>
@@ -663,7 +663,7 @@
 								}
 								?>
 									<div class="container"></div>
-										<table class="table table-dark table-bordered table-striped table-hover">
+										<table class="table table-success table-bordered table-striped table-hover">
 											<tr>
 												<td>Nombre Empresa</td>
 												<td><input class="form-control" type="text" name="empresa" required></td>
@@ -688,7 +688,7 @@
 												$sql = "SELECT * FROM alumno";
 												$resultado = mysqli_query($conexion, $sql);
 												while( $row = mysqli_fetch_array($resultado) ){
-													echo "<input type=checkbox name='check_list[]' value='$row[idAlumno]'> <label> $row[nombreAlumno] $row[apellidoP] $row[apellidoM] </label> <br/> ";
+													echo "<input type='checkbox' name='check_list[]' value='$row[idAlumno]'> <label> $row[nombreAlumno] $row[apellidoP] $row[apellidoM] </label> <br/> ";
 												}//Llave del while
 												?>
 												</td>
@@ -741,7 +741,7 @@
 								}
 								?>
 									<form method="post">
-											<table class="table table-dark table-bordered table-striped table-hover">
+											<table class="table table-success table-bordered table-striped table-hover">
 												
 												<tr>
 													<td colspan="1">Nombre</td>

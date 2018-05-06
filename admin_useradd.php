@@ -61,11 +61,11 @@
 				</ul>
 			</nav>
 		</header>
-		<section id="banner">
-			<br><br><br>
+		<section>
+			<br><br><br><br>
 				<div class="container">
 				<form method="post">
-					<table class="table table-dark table-bordered table-striped table-hover">
+					<table class="table table-success table-bordered table-striped table-hover">
 						<tr><td>Codigo</td><td><input class="form-control" type="text" name="codigo" required></td></tr>
 						<tr><td>Nombre de usuario</td><td><input class="form-control" type="text" name="username" required></td></tr>
 						<tr><td>Contraseña</td><td><input class="form-control" type="password" name="password" required></td></tr>
@@ -81,8 +81,10 @@
 						<tr><td>Telefono</td><td><input class="form-control" type="text" name="telefono"></td></tr>
 						<tr><td>Division</td><td><input class="form-control" type="text" name="division"></td></tr>
 						<tr><td>Escolaridad</td><td><input class="form-control" type="text" name="escolaridad"></td></tr>
-						<tr><td><input class="btn btn-warning" type="reset" name=""></td><td><input class="btn btn-success" type="submit" name="agregar"></td></tr>
 					</table>
+						<div class="container" align="left"><input class="btn btn-outline-secondary" type="reset" name="" value="Limpiar"> <input class="btn btn-outline-success" type="submit" name="agregar"></div>
+					
+					<br><br>
 				</form>
 				</div>
 		</section>

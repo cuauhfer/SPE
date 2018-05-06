@@ -75,9 +75,9 @@
 					              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
 					              	<div class="d-inline-block btn-group">
 						              	<?php 
-						              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver más</a>";
-						              	echo "<a href='status_aprobar.php/?nombre=".$reg['id']."&tipo=1' class='btn btn-success'>Aprobar</a>";
-						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=2&subaccion=1' class='btn btn-danger'>Rechazar</a>";
+						              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-outline-primary'>Ver más</a>";
+						              	echo "<a href='status_aprobar.php/?nombre=".$reg['id']."&tipo=1' class='btn btn-outline-success'>Aprobar</a>";
+						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=2&subaccion=1' class='btn btn-outline-danger'>Rechazar</a>";
 						              	?>
 					              	</div>
 					            </div>
@@ -100,9 +100,9 @@
 					              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
 					              	<div class="d-inline-block btn-group">
 						              	<?php 
-						              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver más</a>";
-						              	echo "<a href='status_aprobar.php/?nombre=".$reg2['id']."&tipo=1' class='btn btn-success'>Aprobar</a>";
-						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=2&subaccion=1' class='btn btn-danger'>Rechazar</a>";
+						              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-outline-primary'>Ver más</a>";
+						              	echo "<a href='status_aprobar.php/?nombre=".$reg2['id']."&tipo=1' class='btn btn-outline-success'>Aprobar</a>";
+						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=2&subaccion=1' class='btn btn-outline-danger'>Rechazar</a>";
 						              	?>
 					              	</div>
 					            </div>
@@ -126,7 +126,7 @@
 
 				        <div class="col-md-6">
 				          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/kiokay.png" alt="Card image cap" width="200" height="200">
+					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Kiokay.png" alt="Card image cap" width="200" height="200">
 					            <div class="card-body d-flex flex-column align-items-start">
 					              	<strong class="d-inline-block mb-2 text-primary">Proyecto</strong>
 					              	<h3 class="mb-0">
@@ -135,9 +135,9 @@
 					              	<div class="mb-1 text-muted"><?php echo nombre($penpd['autor']); ?></div>
 					              	<div class="d-inline-block btn-group">
 						              	<?php 
-						              	echo "<a href='proyecto_ind.php/?nombre=".$penpd['nombre']."&autor=".$penpd['autor']."' class='btn btn-primary'>Ver más</a>";
-						              	echo "<a href='status_aprobar.php/?nombre=".$penpd['id']."&tipo=2' class='btn btn-success'>Aprobar</a>";
-						              	echo "<a href='status_eliminar.php/?id=".$penpd['id']."&accion=2&subaccion=2' class='btn btn-danger'>Rechazar</a>";
+						              	echo "<a href='proyecto_ind.php/?nombre=".$penpd['nombre']."&autor=".$penpd['autor']."' class='btn btn-outline-primary'>Ver más</a>";
+						              	echo "<a href='status_aprobar.php/?nombre=".$penpd['id']."&tipo=2' class='btn btn-outline-success'>Aprobar</a>";
+						              	echo "<a href='status_eliminar.php/?id=".$penpd['id']."&accion=2&subaccion=2' class='btn btn-outline-danger'>Rechazar</a>";
 						              	?>
 					              	</div>
 					            </div>
@@ -151,7 +151,7 @@
 
 				        <div class="col-md-6">
 				          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/kiokay.png" alt="Card image cap" width="200" height="200">
+					          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Kiokay.png" alt="Card image cap" width="200" height="200">
 					            <div class="card-body d-flex flex-column align-items-start">
 					              <strong class="d-inline-block mb-2 text-primary">Proyecto</strong>
 					              	<h3 class="mb-0">
@@ -160,9 +160,9 @@
 					              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
 					              	<div class="d-inline-block btn-group">
 						              	<?php 
-						              	echo "<a href='proyecto_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver más</a>";
-						              	echo "<a href='status_aprobar.php/?nombre=".$reg2['id']."&tipo=2' class='btn btn-success'>Aprobar</a>";
-						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=2&subaccion=2' class='btn btn-danger'>Rechazar</a>";
+						              	echo "<a href='proyecto_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-outline-primary'>Ver más</a>";
+						              	echo "<a href='status_aprobar.php/?nombre=".$reg2['id']."&tipo=2' class='btn btn-outline-success'>Aprobar</a>";
+						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=2&subaccion=2' class='btn btn-outline-danger'>Rechazar</a>";
 						              	?>
 					              	</div>
 					            </div>

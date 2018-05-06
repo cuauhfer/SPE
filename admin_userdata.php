@@ -98,7 +98,7 @@
 				$username = $_POST['username'];
 			}
 			//password
-			if($_POST['password']==""){
+			if($_POST['password']=="" || $_POST['password'] == " "){
 				$password= $reg['password'];
 			}else{
 				$password = $_POST['password'];
@@ -165,17 +165,17 @@
 				</ul>
 			</nav>
 		</header>
-		<section id='banner'>
+		<section>
 		<br><br><br><br>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<!--Formulario de modificacion-->
 					<form method="post">
-						<table class="table table-dark table-bordered table-striped table-hover">
+						<table class="table table-success table-bordered table-striped table-hover">
 							<?php  
 							echo "<tr><td><label>Nombre usuario</label></td><td><input class='form-control type='text' name='username' value='$username' placeholder='Nuevo Usuario'></td></tr>";
-							echo "<tr><td><label>Contraseña</label></td><td><input class='form-control type='password' name='password' value='$password' placeholder='Nueva Contraseña'></td></tr>";
+							echo "<tr><td><label>Contraseña</label></td><td><input class='form-control' type='password' name='password' placeholder='Nueva Contraseña' value='$password'></td></tr>";
 							echo "<tr><td>Nivel</td><td><select class='form-control' name='nivel' size='1'>
 												<option value = '1' "; if($nivel == "1"){echo "selected";} echo "> Colaborador </option>
 												<option value = '2' "; if($nivel == "2"){echo "selected";} echo "> Integrante </option>
@@ -190,10 +190,17 @@
 							echo "<tr><td><label>Escolaridad</label></td><td><input class='form-control type='text' name='escolaridad' value='$escolaridad' placeholder='Nuevo Grado'></td></tr>";
 
 							?>
-							<tr><td class="text-warning">Se cambiaran los datos del usuario</td><td><input class="btn btn-success" type="submit" name="guardar" value="Guardar"> <input class="btn btn-success" type="submit" name="eliminar" value="Eliminar">   
-							<input class="btn btn-success" type="submit" name="cancelar" value="Cancelar"></td></tr>
-						</table>
+							</table>
+						<div class="row">
+							<div class="col-sm-12 col-md-6 col-lg-6 text-danger">Se cambiaran los datos del usuario</div>
+							<div class="col-sm-12 col-md-6 col-lg-6">
+								<input class="btn btn-outline-success" type="submit" name="guardar" value="Guardar"> 
+								<input class="btn btn-outline-success" type="submit" name="eliminar" value="Eliminar">   
+								<input class="btn btn-outline-success" type="submit" name="cancelar" value="Cancelar">
+							</div>
+						</div>
 					</form>
+					<br><br>
 				</div>
 			</div>
 		</div>

@@ -17,7 +17,7 @@ $(document).ready(function(){
 			}
 		}else{
 			if(flag){
-				$("#logo").css({"margin-top": "150px", "width": "250px","height":"250px"});
+				$("#logo").css({"margin-top": "80px", "width": "200px","height":"200px"});
 
 				$("header").css({"background-color": "transparent"});
 				flag = false;
