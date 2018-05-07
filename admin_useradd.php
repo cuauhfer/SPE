@@ -36,14 +36,22 @@
 			$division =  $_POST['division'];
 			$escolaridad = $_POST['escolaridad'];
 
-			$sql = "INSERT INTO usuario(codigo, username, password, nivel) VALUES('$codigo', '$username', '$password', '$nivel')";
+			$sql = "SELECT * FROM usuario WHERE username = '$username'";
 			$resultado = mysqli_query($conexion, $sql);
-			
-			$sql = "INSERT INTO persona(codigo, nombre, apellidoP, apellidoM, email, telefono, division, escolaridad) VALUES('$codigo', '$nombre', '$apep', '$apem', '$correo', '$telefono', '$division', '$escolaridad')";
-			$resultado = mysqli_query($conexion, $sql);
-			
-			header('Location: admin_usuario.php');
+			$usuariosreg = $resultado -> num_rows;
 
+			if($usuariosreg == 0){
+				$sql = "INSERT INTO usuario(codigo, username, password, nivel) VALUES('$codigo', '$username', '$password', '$nivel')";
+				$resultado = mysqli_query($conexion, $sql);
+				
+				$sql = "INSERT INTO persona(codigo, nombre, apellidoP, apellidoM, email, telefono, division, escolaridad) VALUES('$codigo', '$nombre', '$apep', '$apem', '$correo', '$telefono', '$division', '$escolaridad')";
+				$resultado = mysqli_query($conexion, $sql);
+				
+				header('Location: admin_usuario.php');
+			}
+			else{
+				echo '<script language="JavaScript"> alert("Usuario ya existente, cambie el nombre de usuario"); </script>';
+			}
 		}
 ?>
 	<body>
@@ -66,7 +74,7 @@
 				<div class="container">
 				<form method="post">
 					<table class="table table-success table-bordered table-striped table-hover">
-						<tr><td>Codigo</td><td><input class="form-control" type="text" name="codigo" required></td></tr>
+						<tr><td>Código</td><td><input class="form-control" type="number" name="codigo" required></td></tr>
 						<tr><td>Nombre de usuario</td><td><input class="form-control" type="text" name="username" required></td></tr>
 						<tr><td>Contraseña</td><td><input class="form-control" type="password" name="password" required></td></tr>
 						<tr><td>Nivel</td><td><select class="form-control" name="nivel" size="1">
@@ -78,8 +86,8 @@
 						<tr><td>Apellido Paterno</td><td><input class="form-control" type="text" name="apellidop" required></td></tr>
 						<tr><td>Apellido Materno</td><td><input class="form-control" type="text" name="apellidom" required></td></tr>
 						<tr><td>Correo</td><td><input class="form-control" type="text" name="correo" required></td></tr>
-						<tr><td>Telefono</td><td><input class="form-control" type="text" name="telefono"></td></tr>
-						<tr><td>Division</td><td><input class="form-control" type="text" name="division"></td></tr>
+						<tr><td>Teléfono</td><td><input class="form-control" type="number" name="telefono"></td></tr>
+						<tr><td>División</td><td><input class="form-control" type="text" name="division"></td></tr>
 						<tr><td>Escolaridad</td><td><input class="form-control" type="text" name="escolaridad"></td></tr>
 					</table>
 						<div class="container" align="left"><input class="btn btn-outline-secondary" type="reset" name="" value="Limpiar"> <input class="btn btn-outline-success" type="submit" name="agregar"></div>

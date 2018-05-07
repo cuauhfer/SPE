@@ -112,23 +112,33 @@
 			$persona = $_SESSION['persona'];
 			$codigoadmin = $persona['codigo'];
 
-			$sql = "UPDATE persona SET nombre='$nombre', apellidoP='$apep', apellidoM='$apem', email='$correo', telefono='$telefono', division='$division', escolaridad='$escolaridad' WHERE codigo='$codigo'";
+			$sql = "SELECT * FROM usuario WHERE username = '$username'";
 			$resultado = mysqli_query($conexion, $sql);
+			$usuariosreg = mysqli_fetch_array($resultado);
 
-			$sql = "UPDATE usuario SET username='$username', password='$password', nivel='$nivel' WHERE codigo='$codigo'";
-			$resultado = mysqli_query($conexion, $sql);
+			if($usuariosreg['codigo'] == $codigo || $usuariosreg['codigo'] == 0){
+				$sql = "UPDATE persona SET nombre='$nombre', apellidoP='$apep', apellidoM='$apem', email='$correo', telefono='$telefono', division='$division', escolaridad='$escolaridad' WHERE codigo='$codigo'";
+				$resultado = mysqli_query($conexion, $sql);
 
-			//Logs
-			$cod = $codigo;
-			$sql = "INSERT INTO logs (codigo_usuario, actividad, fecha) VALUES ('$cod', 'Se modifico su perfil por medio del administrador $codigoadmin', NOW())";
-			$resultado = mysqli_query($conexion, $sql);
+				$sql = "UPDATE usuario SET username='$username', password='$password', nivel='$nivel' WHERE codigo='$codigo'";
+				$resultado = mysqli_query($conexion, $sql);
 
-			if(($reg['nivel'] != $_POST['nivel']) && ($_POST['username'] == $_SESSION['username'])){
-				header('Location: logout.php');
+				//Logs
+				$cod = $codigo;
+				$sql = "INSERT INTO logs (codigo_usuario, actividad, fecha) VALUES ('$cod', 'Se modifico su perfil por medio del administrador $codigoadmin', NOW())";
+				$resultado = mysqli_query($conexion, $sql);
+
+				if(($reg['nivel'] != $_POST['nivel']) && ($_POST['username'] == $_SESSION['username'])){
+					header('Location: logout.php');
+				}
+				else{
+					header('Location: admin_usuario.php');
+				}
 			}
 			else{
-				header('Location: admin_usuario.php');
+				echo '<script language="JavaScript"> alert("Usuario ya existente, cambie el nombre de usuario"); </script>';
 			}
+			
 
 
 		}//llave del if guardar
@@ -185,8 +195,8 @@
 							echo "<tr><td><label>Apellido Paterno</label></td><td><input class='form-control type='text' name='apellidop' value='$apep' placeholder='Nuevo Apellido Paterno'></td></tr>";
 							echo "<tr><td><label>Apellido Materno</label></td><td><input class='form-control type='text' name='apellidom' value='$apem' placeholder='Nuevo Apellido Materno'></td></tr>";
 							echo "<tr><td><label>Correo</label></td><td><input class='form-control type='text' name='correo' value='$correo' placeholder='Nuevo Correo'></td></tr>";
-							echo "<tr><td><label>Telefono</label></td><td><input class='form-control type='text' name='telefono' value='$telefono' placeholder='Nuevo Telefono'></td></tr>";
-							echo "<tr><td><label>Division</label></td><td><input class='form-control type='text' name='division' value='$division' placeholder='Nueva Division'></td></tr>";
+							echo "<tr><td><label>Teléfono</label></td><td><input class='form-control type='number' name='telefono' value='$telefono'></td></tr>";
+							echo "<tr><td><label>División</label></td><td><input class='form-control type='text' name='division' value='$division' placeholder='Nueva División'></td></tr>";
 							echo "<tr><td><label>Escolaridad</label></td><td><input class='form-control type='text' name='escolaridad' value='$escolaridad' placeholder='Nuevo Grado'></td></tr>";
 
 							?>

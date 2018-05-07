@@ -233,7 +233,7 @@
 		                  			<p class="card-text">Agrega al sistema los datos de tus alumnos.</p>
 		                  			<div class="d-flex justify-content-between align-items-center">
 		                    			<div class="btn-group">
-		                      				<a href="int_alumno.php"><button type="button" class="btn btn-sm btn-outline-success">Agregar</button></a>
+		                      				<a href="int_alumno.php"><button type="button" class="btn btn-sm btn-outline-success">Ver</button></a>
 		                    			</div>
 		                    			<small class="text-muted">
 		                    				<?php  
