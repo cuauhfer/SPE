@@ -83,105 +83,303 @@
 
 	<div class="container">
 		<br><br><br><br>
-
+		<form method="post">
 		<?php 
 
 			$persona = $_SESSION['persona'];
 			$id = $_GET['id'];
 			$tipo = $_GET['tipo']; 
 
+			//Producciones
 			if($tipo == 1 || $tipo == 2 || $tipo == 3 || $tipo == 4){
+
+				$sql = "SELECT * FROM produccion WHERE id='$id'";
+				$resultado = mysqli_query($conexion, $sql);
+				$resul = mysqli_fetch_array($resultado);
+
+				if(isset($_POST['modificar'])){
+					$nombre = $_POST['nombre'];
+					$fecha = $_POST['fecha'];
+					$descripcion = $_POST['descripcion'];
+					if($_POST['borrador']){
+						$borrador = true;
+					}else{
+						$borrador = false;
+					}
+					
+					$sql = "UPDATE produccion SET nombre = '$nombre', fecha = '$fecha', descripcion = '$descripcion', borrador = '$borrador', aprobacion = false, rechazo = false WHERE id = '$id'";
+					$resultado = mysqli_query($conexion, $sql);
+
+					if($tipo == 1){
+						$sql = "SELECT * FROM articulo WHERE idProduccion='$id'";
+						$resultado = mysqli_query($conexion, $sql);
+						$resart = mysqli_fetch_array($resultado);
+
+						$revista = $_POST['revista'];
+						if($_POST['pag1'] != "" && $_POST['pag2'] != ""){
+							$paginas = "Página ".$_POST['pag1']." hasta la página ".$_POST['pag2'];
+						}
+						else{
+							$paginas = $resart['paginas'];
+						}
+						$linea = $_POST['linea'];
+						$issn = $_POST['issn'];
+
+						$sql = "UPDATE articulo SET revista = '$revista', paginas = '$paginas', linea = '$linea', issn = '$issn' WHERE idProduccion = '$id'";
+						$resultado = mysqli_query($conexion, $sql);
+					}
+					else if($tipo == 2){
+						$dependencia = $_POST['dependencia'];
+						$sql = "UPDATE informetec SET dependencia = '$dependencia' WHERE idProduccion = '$id'";
+						$resultado = mysqli_query($conexion, $sql);
+					}
+					else if($tipo == 3){
+						$registro = $_POST['registro'];
+						$sql = "UPDATE manual SET registro= '$registro' WHERE idProduccion = '$id'";
+						$resultado = mysqli_query($conexion, $sql);
+					}
+					else if($tipo == 4){
+						$sql = "SELECT * FROM libro WHERE idProduccion='$id'";
+						$resultado = mysqli_query($conexion, $sql);
+						$reslib = mysqli_fetch_array($resultado);
+
+						$editorial = $_POST['editorial'];
+						if($_POST['pag1'] != "" && $_POST['pag2'] != ""){
+							$paginas = "Página ".$_POST['pag1']." hasta la página ".$_POST['pag2'];
+						}
+						else{
+							$paginas = $resart['paginas'];
+						}
+						$linea = $_POST['linea'];
+						$isbn = $_POST['isbn'];	
+
+						$sql = "UPDATE libro SET editorial = '$editorial', paginas = '$paginas', linea = '$linea', isbn = '$isbn' WHERE idProduccion = '$id'";
+						$resultado = mysqli_query($conexion, $sql);
+
+					}
+					header('Location: ../mis_publicaciones.php');
+				}
+
 				$sql = "SELECT * FROM produccion WHERE id='$id'";
 				$resultado = mysqli_query($conexion, $sql);
 				while($reg = mysqli_fetch_array($resultado)){
 					?>
-						<table class="table table-success table-bordered table-striped table-hover">
-							
+						
+							<table class="table table-success table-bordered table-striped table-hover">
+								
+								<tr>
+									<td colspan="1">Nombre</td>
+									<td colspan="3"><input class="form-control" type="text" name="nombre" required value="<?php echo $reg['nombre'] ?>"></td>
+								</tr>
+								<tr>
+									<td colspan="1">Autor</td>
+									<td colspan="3"><?php 
+										 echo nombre($reg['autor']);?></td>
+								</tr>
+								<tr>
+									<td>Fecha</td>
+									<td><input class="form-control" type="date" name="fecha" value="<?php echo $reg['fecha'] ?>"></td>
+									<td colspan="2">
+										<div class="checkbox input-group-text">
+											<label>
+												<input type="checkbox" aria-label="Checkbox for following text input" name="borrador"> Borrador
+											</label>
+										</div>
+									</td>
+								</tr>
+								<?php  
+									if($tipo == 1){
+										$sql = "SELECT * FROM articulo WHERE idProduccion = '$id'";
+										$resultado = mysqli_query($conexion, $sql);
+										$art = mysqli_fetch_array($resultado);
+										?>
+											<tr>
+												<td colspan="1">Revista</td><td colspan="3"><input class="form-control" type="text" name="revista" value="<?php echo $art['revista'] ?>"></td>
+											</tr>
+											<tr>
+												<td colspan="1">Paginas</td>
+												<td colspan="3">
+													<div class="input-group">
+														<div class="input-group-prepend">
+															<span class="input-group-text" id="">Desde</span>
+														</div>
+													  	<input type="number" class="form-control" name="pag1">
+													  	<div class="input-group-prepend">
+															<span class="input-group-text" id="">Hasta</span>
+														</div>
+													  	<input type="number" class="form-control" name="pag2">
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="1">Linea de pertenencia</td>
+												<td colspan="3"><select class="form-control custom-select" type="select" name="linea" id="linea" required>
+													<?php 
+														$sql = "SELECT * FROM lineainn";
+														$resultado = mysqli_query($conexion, $sql);
+														while ($lineas = mysqli_fetch_array($resultado)){
+															$nombrelinea = $lineas['nombre'];
+															$idlinea = $lineas['id'];
+															?>
+																<option <?php echo "value = '$idlinea'";
+																			if($idlinea == $art['linea']){
+																				echo " selected ";
+																			}
+																		?> > 
+																		<?php echo $nombrelinea; ?></option>
+															<?php
+														}
+
+													?>
+												</select></td>
+											</tr>
+											<tr>
+												<td colspan="1">ISSN</td><td colspan="3"><input class="form-control" type="text" name="issn" value="<?php echo $art['issn']; ?>"></td>
+											</tr>
+										<?php
+									}
+									else if($tipo == 2){
+										$sql = "SELECT * FROM informetec WHERE idProduccion = '$id'";
+										$resultado = mysqli_query($conexion, $sql);
+										$inf = mysqli_fetch_array($resultado);
+										?>
+											<tr>
+												<td colspan="1">Dependencia</td><td colspan="3"><input class="form-control" type="text" name="dependencia" value="<?php echo $inf['dependencia']; ?>" required></td>
+											</tr>
+										<?php
+									}
+									else if($tipo == 3){
+										$sql = "SELECT * FROM manual WHERE idProduccion = '$id'";
+										$resultado = mysqli_query($conexion, $sql);
+										$man = mysqli_fetch_array($resultado);
+										?>
+											<tr>
+												<td colspan="1">Registro</td><td colspan="3"><input class="form-control" type="text" name="registro" value="<?php echo $man['registro']; ?>"></td>
+											</tr>
+										<?php
+									}
+									else if($tipo == 4){
+										$sql = "SELECT * FROM libro WHERE idProduccion = '$id'";
+										$resultado = mysqli_query($conexion, $sql);
+										$lib = mysqli_fetch_array($resultado);
+										?>
+											<tr>
+													<td colspan="1">ISBN</td><td colspan="3"><input class="form-control" type="text" name="isbn" value=" <?php echo $lib['isbn']; ?>" required></td>
+													</tr>
+													<tr>
+														<td colspan="1">Paginas</td>
+														<td colspan="3">
+															<div class="input-group">
+																<div class="input-group-prepend">
+																	<span class="input-group-text" id="">Desde</span>
+																</div>
+															  	<input type="number" class="form-control" name="pag1">
+															  	<div class="input-group-prepend">
+																	<span class="input-group-text" id="">Hasta</span>
+																</div>
+															  	<input type="number" class="form-control" name="pag2">
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="1">Linea de pertenencia</td>
+														<td colspan="3"><select class="form-control custom-select" type="select" name="linea" id="linea" required>
+															<?php 
+																$sql = "SELECT * FROM lineainn";
+																$resultado = mysqli_query($conexion, $sql);
+																while ($lineas = mysqli_fetch_array($resultado)){
+																	$nombrelinea = $lineas['nombre'];
+																	$idlinea = $lineas['id'];
+																	?>
+																		<option <?php echo "value = '$idlinea'";
+																					if($idlinea == $lib['linea']){
+																						echo " selected ";
+																					}
+																				?> > 
+																				<?php echo $nombrelinea; ?></option>
+																	<?php
+																}
+
+															?>
+														</select></td>
+													</tr>
+													<tr>
+														<td colspan="1">Editorial</td><td colspan="3"><input class="form-control" type="text" name="editorial" value="<?php echo $lib['editorial']; ?>" required></td>
+													</tr>
+										<?php
+									}
+								?>
+								<tr>
+									<td colspan="1">Descripcion</td><td colspan="3"><textarea type="text" id="descripcion" name="descripcion" class="form-control" rows="5"><?php echo $reg['descripcion'] ?></textarea></td>
+								</tr>
+								<tr>
+									<td colspan="4"></td>
+								</tr>
+								<tr>
+									<td colspan="4" align="center">
+										<div class="btn-group d-inline-block">
+											<input class="btn btn-light" type="reset" name="" value="Restablecer">
+											<input class="btn btn-light" type="submit" name="modificar" value="Modificar">
+											<input class="btn btn-light" type="submit" name="cancelar" value="Cancelar" formnovalidate>
+										</div>
+									</td>
+								</tr>
+							</table>
+						
+					<?php
+				}
+			}
+			//Linea
+			else if($tipo == 5){
+
+			}
+			//Direcciones
+			else if($tipo == 6){
+
+			}
+			//Estadias
+			else if($tipo == 7){
+
+			}
+			//Proyectos
+			else if($tipo == 8){
+				$sql = "SELECT * FROM proyecto WHERE id='$id'";
+				$resultado = mysqli_query($conexion, $sql);
+				$resul = mysqli_fetch_array($resultado);
+
+
+				$sql = "SELECT * FROM produccion WHERE id='$id'";
+				$resultado = mysqli_query($conexion, $sql);
+				while($reg = mysqli_fetch_array($resultado)){
+					?>
+						<table class="table table-success table-bordered table-striped table-hover">					
 							<tr>
 								<td colspan="1">Nombre</td>
-								<td colspan="3"><input class="form-control" type="text" name="nombre" required value="<?php echo $reg['nombre'] ?>"></td>
+								<td colspan="3"><input class="form-control" type="text" name="nombre" required></td>
 							</tr>
 							<tr>
 								<td colspan="1">Autor</td>
 								<td colspan="3"><?php 
-									 echo $persona['nombre']." ".$persona['apellidoP']." ".$persona['apellidoM'];?></td>
+									$persona = $_SESSION['persona']; echo $persona['nombre'];?></td>
 							</tr>
 							<tr>
-								<td>Fecha</td>
-								<td><input class="form-control" type="date" name="fecha" value="<?php echo $reg['fecha'] ?>"></td>
-								<td colspan="2">
-									<div class="checkbox input-group-text">
-										<label>
-											<input type="checkbox" aria-label="Checkbox for following text input" name="borrador" value="<?php echo $reg['borrador'] ?>"> Borrador
-										</label>
-									</div>
-								</td>
+							<td>Fecha Inicio</td>
+							<td><input class="form-control" type="date" name="fechaini" required></td>
+							<td>Fecha Fin</td>
+							<td><input class="form-control" type="date" name="fechafin" required></td>
 							</tr>
-							<?php  
-								if($tipo == 1){
-									$sql = "SELECT * FROM articulo WHERE idProduccion = '$id'";
-									$resultado = mysqli_query($conexion, $sql);
-									$art = mysqli_fetch_array($resultado);
-									?>
-										<tr>
-											<td colspan="1">Revista</td><td colspan="3"><input class="form-control" type="text" name="revista" value="<?php echo $art['revista'] ?>"></td>
-										</tr>
-										<tr>
-											<td colspan="1">Paginas</td>
-											<td colspan="3">
-												<div class="input-group">
-													<div class="input-group-prepend">
-														<span class="input-group-text" id="">Desde</span>
-													</div>
-												  	<input type="number" class="form-control" name="pag1">
-												  	<div class="input-group-prepend">
-														<span class="input-group-text" id="">Hasta</span>
-													</div>
-												  	<input type="number" class="form-control" name="pag2">
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td colspan="1">Linea de pertenencia</td>
-											<td colspan="3"><select class="form-control custom-select" type="select" name="linea" id="linea" required>
-												<?php 
-													$sql = "SELECT * FROM lineainn";
-													$resultado = mysqli_query($conexion, $sql);
-													while ($lineas = mysqli_fetch_array($resultado)){
-														$nombrelinea = $lineas['nombre'];
-														$idlinea = $lineas['id'];
-														?>
-															<option <?php echo "value = '$idlinea'";?> > <?php echo $nombrelinea; ?></option>
-														<?php
-													}
-
-												?>
-											</select></td>
-										</tr>
-										<tr>
-											<td colspan="1">ISSN</td><td colspan="3"><input class="form-control" type="text" name="issn" value="<?php echo $art['issn'] ?>"></td>
-										</tr>
-									<?php
-								}
-								else if($tipo == 2){
-
-								}
-								else if($tipo == 3){
-									$sql = "SELECT * FROM manual WHERE idProduccion = '$id'";
-									$resultado = mysqli_query($conexion, $sql);
-									$man = mysqli_fetch_array($resultado);
-									?>
-										<tr>
-											<td colspan="1">Registro</td><td colspan="3"><input class="form-control" type="text" name="registro" value="<?php echo $man['registro'] ?>"></td>
-										</tr>
-									<?php
-								}
-								else if($tipo == 4){
-
-								}
-							?>
 							<tr>
-								<td colspan="1">Descripcion</td><td colspan="3"><textarea type="text" id="descripcion" name="descripcion" class="form-control" rows="5"><?php echo $reg['descripcion'] ?></textarea></td>
+								<td colspan="1">Institución</td><td colspan="2"><input class="form-control" type="text" name="institucion" required></td>
+							<td colspan="1">
+								<div class="checkbox input-group-text">
+									<label>
+										<input type="checkbox" aria-label="Checkbox for following text input" name="borrador"> Borrador
+									</label>
+								</div>
+							</td>
+							</tr>
+							<tr>
+							<td colspan="1">Descripcion</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
 							</tr>
 							<tr>
 								<td colspan="4"></td>
@@ -200,6 +398,7 @@
 				}
 			}
 		?>
+		</form>
 	</div>
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
