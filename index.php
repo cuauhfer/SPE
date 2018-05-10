@@ -56,7 +56,7 @@
 	          		<img class="first-slide" src="pictures/diagrama-ca.png" width="1360" height="500" alt="First slide">
             		<div class="container">
 	              		<div class="carousel-caption text-left">
-	                		<h1>Sistema de Producciones educativas SPE</h1>
+	                		<h1>Sistema de Producciones Educativas SPE</h1>
 	                		<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
 	              		</div>
 	            	</div>
