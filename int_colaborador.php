@@ -94,6 +94,19 @@
 					$resultado = mysqli_query($conexion, $sql);
 				}
 			}
+
+			if(isset($_POST['quitar']) && $var2 == 2){
+				$per = $_POST['persona'];
+
+				$sql = "DELETE FROM personaproyecto WHERE codigoPersona = '$per' AND idProyecto = '$var1'";
+				$resultado = mysqli_query($conexion, $sql);
+			}
+			else if(isset($_POST['quitar']) && $var2 == 1){
+				$per = $_POST['persona'];
+
+				$sql = "DELETE FROM personaproduccion WHERE codigoPersona = '$per' AND idProduccion = '$var1'";
+				$resultado = mysqli_query($conexion, $sql);
+			}
 		?>
 
 		<div class="container">
@@ -120,6 +133,7 @@
 						<td colspan="1">
 							<div class="btn-group d-inline-block">
 								<input type="submit" id="adicional" name="adicional" class="btn btn-outline-info" value="Agregar">
+								<input type="submit" id="quitar"    name="quitar" 	 class="btn btn-outline-info" value="Eliminar">
 							</div>
 							<?php
 								if(isset($_SESSION['integrante'])){
@@ -137,6 +151,7 @@
 					</th>
 				</table>
 			</form>
+
 			<table class="table-success table table-hover table-stripped">
 				<?php
 					if($var2 == 1){

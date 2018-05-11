@@ -268,7 +268,7 @@
 			              	<div class="d-inline-block btn-group">
 			              	<?php 
 			              	echo "<a href='proyecto_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-outline-success'>Ver más</a> ";
-			              	echo "<a href='status_modificar.php/?id=".$reg2['id']."' class='btn btn-outline-primary'>Modificar</a> ";
+			              	echo "<a href='status_modificar.php/?id=".$reg2['id']."&tipo=8' class='btn btn-outline-primary'>Modificar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=1&subaccion=2' class='btn btn-outline-secondary'>Ocultar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=0&subaccion=2' class='btn btn-outline-danger'>Eliminar</a>";
 			              	?>
@@ -597,7 +597,7 @@
 			              	<div class="d-inline-block btn-group">
 			              	<?php 
 			              	echo "<a href='proyecto_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-outline-success'>Ver más</a> "; 
-			              	echo "<a href='status_modificar.php/?id=".$reg['id']."' class='btn btn-outline-primary'>Modificar</a> ";
+			              	echo "<a href='status_modificar.php/?id=".$reg['id']."&tipo=8' class='btn btn-outline-primary'>Modificar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=1&subaccion=2' class='btn btn-outline-secondary'>Ocultar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=0&subaccion=2' class='btn btn-outline-danger'>Eliminar</a>";
 			              	?>
@@ -637,7 +637,7 @@
 			              	<div class="d-inline-block btn-group">
 			              	<?php 
 			              	echo "<a href='proyecto_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-outline-success'>Ver más</a> ";
-			              	echo "<a href='status_modificar.php/?id=".$reg2['id']."' class='btn btn-outline-primary'>Modificar</a> ";
+			              	echo "<a href='status_modificar.php/?id=".$reg2['id']."&tipo=8' class='btn btn-outline-primary'>Modificar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=1&subaccion=2' class='btn btn-outline-secondary'>Ocultar</a> ";
 			              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=0&subaccion=2' class='btn btn-outline-danger'>Eliminar</a>";
 			              	?>

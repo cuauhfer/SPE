@@ -320,6 +320,7 @@
 										<div class="btn-group d-inline-block">
 											<input class="btn btn-light" type="reset" name="" value="Restablecer">
 											<input class="btn btn-light" type="submit" name="modificar" value="Modificar">
+											<a href="../int_colaborador.php/?produccion=<?php echo $id ?>&tipo=1" class="btn btn-light">Colaboradores</a>
 											<input class="btn btn-light" type="submit" name="cancelar" value="Cancelar" formnovalidate>
 										</div>
 									</td>
@@ -347,29 +348,46 @@
 				$resultado = mysqli_query($conexion, $sql);
 				$resul = mysqli_fetch_array($resultado);
 
+				if(isset($_POST['agregar'])){
+					$nombre = $_POST['nombre'];
+					$fechaini = $_POST['fechaini'];
+					$fechafin = $_POST['fechafin'];
+					$institucion = $_POST['institucion'];
+					$descripcion = $_POST['descripcion'];
+					if($_POST['borrador']){
+						$borrador = true;
+					}
+					else{
+						$borrador = false;
+					}
+					$aprobacion = false;
+					$sql = "UPDATE proyecto SET nombre = '$nombre', fechaInicio = '$fechaini', fechaFin = '$fechafin', institucion = '$institucion', descripcion = '$descripcion', borrador = '$borrador', aprobacion = false, rechazo = false";
+					$resultado = mysqli_query($conexion, $sql);
+					header('Location: ../mis_publicaciones.php');
+				}
 
-				$sql = "SELECT * FROM produccion WHERE id='$id'";
+
+				$sql = "SELECT * FROM proyecto WHERE id='$id'";
 				$resultado = mysqli_query($conexion, $sql);
 				while($reg = mysqli_fetch_array($resultado)){
 					?>
 						<table class="table table-success table-bordered table-striped table-hover">					
 							<tr>
 								<td colspan="1">Nombre</td>
-								<td colspan="3"><input class="form-control" type="text" name="nombre" required></td>
+								<td colspan="3"><input class="form-control" type="text" name="nombre" value="<?php echo $reg['nombre']; ?>" required></td>
 							</tr>
 							<tr>
 								<td colspan="1">Autor</td>
-								<td colspan="3"><?php 
-									$persona = $_SESSION['persona']; echo $persona['nombre'];?></td>
+								<td colspan="3"><?php echo nombre($reg['autor']);?></td>
 							</tr>
 							<tr>
 							<td>Fecha Inicio</td>
-							<td><input class="form-control" type="date" name="fechaini" required></td>
+							<td><input class="form-control" type="date" name="fechaini" value="<?php echo $reg['fechaInicio']; ?>" required></td>
 							<td>Fecha Fin</td>
-							<td><input class="form-control" type="date" name="fechafin" required></td>
+							<td><input class="form-control" type="date" name="fechafin" value="<?php echo $reg['fechaFin']; ?>" required></td>
 							</tr>
 							<tr>
-								<td colspan="1">Institución</td><td colspan="2"><input class="form-control" type="text" name="institucion" required></td>
+								<td colspan="1">Institución</td><td colspan="2"><input class="form-control" type="text" name="institucion" value="<?php echo $reg['institucion']; ?>" required></td>
 							<td colspan="1">
 								<div class="checkbox input-group-text">
 									<label>
@@ -379,7 +397,7 @@
 							</td>
 							</tr>
 							<tr>
-							<td colspan="1">Descripcion</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
+							<td colspan="1">Descripcion</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"><?php echo $reg['descripcion']; ?></textarea></td>
 							</tr>
 							<tr>
 								<td colspan="4"></td>
@@ -387,8 +405,9 @@
 							<tr>
 								<td colspan="4" align="center">
 									<div class="btn-group d-inline-block">
-										<input class="btn btn-light" type="reset" name="" value="Limpiar">
-										<input class="btn btn-light" type="submit" name="agregar" value="Agregar">
+										<input class="btn btn-light" type="reset" name="" value="Restablecer">
+										<input class="btn btn-light" type="submit" name="agregar" value="Modificar">
+										<a href="../int_colaborador.php/?produccion=<?php echo $id ?>&tipo=2" class="btn btn-light">Colaboradores</a>
 										<input class="btn btn-light" type="submit" name="cancelar" value="Cancelar" formnovalidate>
 									</div>
 								</td>
