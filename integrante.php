@@ -208,6 +208,29 @@
 		            	</div>
 		            	<div class="col-md-4">
 		              		<div class="card mb-4 box-shadow">
+		                		<img class="card-img-top" src="pictures/innovacion.jpg" width="200" height="200" alt="Card image cap">
+		                		<div class="card-body">
+		                			<h3 class="text-center">Linea de innovación</h3>
+		                  			<p class="card-text">Conoce las diferentes lineas de investigación en las que trabajan nuestros integrantes.</p>
+		                  			<div class="d-flex justify-content-between align-items-center">
+		                    			<div class="btn-group">
+		                      				<a href="ver_linea.php"><button type="button" class="btn btn-sm btn-outline-success">Ver Más</button></a>
+		                    			</div>
+		                    			<small class="text-muted">
+		                    				<?php  
+												$sql = "SELECT * FROM lineainn WHERE borrador = false";
+												$resultado = mysqli_query($conexion, $sql);
+												$pendiente = $resultado -> num_rows;
+												$total = $total + $pendiente;
+												echo $pendiente." resultados";
+											?>
+		                    			</small>
+		                  			</div>
+		                		</div>
+		              		</div>
+		            	</div>
+		            	<div class="col-md-4">
+		              		<div class="card mb-4 box-shadow">
 		                		<img class="card-img-top" src="pictures/publicar.jfif" width="200" height="200" alt="Card image cap">
 		                		<div class="card-body">
 		                			<h3 class="text-center">Crear publicación</h3>
