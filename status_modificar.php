@@ -332,7 +332,48 @@
 			}
 			//Linea
 			else if($tipo == 5){
+				if(isset($_POST['agregar'])){
+					$nombre = $_POST['nombre'];
+					$autor = $persona['codigo'];
+					$campo = $_POST['campo'];
 
+					$sql = "UPDATE lineainn SET nombre = '$nombre', campo = '$campo' WHERE id = '$id'";
+					$resultado = mysqli_query($conexion, $sql);
+					header('Location: ../mis_publicaciones.php');
+				}
+
+				$sql = "SELECT * FROM lineainn WHERE id='$id'";
+				$resultado = mysqli_query($conexion, $sql);
+				while($reg = mysqli_fetch_array($resultado)){
+				?>
+					<table class="table table-success table-bordered table-striped table-hover">					
+						<tr>
+							<td colspan="1">Nombre</td>
+							<td colspan="3"><input class="form-control" type="text" name="nombre" value="<?php echo $reg['nombre']; ?>" required></td>
+						</tr>
+						<tr>
+							<td colspan="1">Registra: </td>
+							<td colspan="3"><?php 
+								 echo nombre($reg['codigoPersona']);?></td>
+						</tr>
+						<tr>
+							<td colspan="1">Campo</td><td colspan="3"><input class="form-control" type="text" name="campo" value="<?php echo $reg['campo']; ?>"></td>
+						</tr>
+						<tr>
+							<td colspan="4"></td>
+						</tr>
+						<tr>
+							<td colspan="4" align="center">
+								<div class="btn-group d-inline-block">
+									<input class="btn btn-light" type="reset" name="" value="Limpiar">
+									<input class="btn btn-light" type="submit" name="agregar" value="Modificar">
+									<input class="btn btn-light" type="submit" name="cancelar" value="Cancelar" formnovalidate>
+								</div>
+							</td>
+						</tr>
+					</table>
+				<?php
+				}
 			}
 			//Direcciones
 			else if($tipo == 6){

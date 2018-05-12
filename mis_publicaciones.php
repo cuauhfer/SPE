@@ -75,6 +75,8 @@
 		<!--Div para publicaciones propias-->
 		<div class="container-fluid">
 			<br><br><br><br>
+			<h1 class="bg-success text-white" align="center">Publicaciones propias</h1>
+			<br>
 			<!--Vista rapida-->
 			<?php
 				$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
@@ -473,7 +475,83 @@
 				</div>
 
 				<div class="tab-pane fade" id="linea" role="tabpanel" aria-labelledby="linea-tab">
-					
+					<?php
+						$sql = "SELECT * FROM lineainn WHERE codigoPersona = '$cod'";
+						$resultado = mysqli_query($conexion, $sql);
+
+						while ($reg = mysqli_fetch_array($resultado)){
+					?>
+					<!--Vistas rapidas-->
+						<div class="row container-fluid mb-2">
+
+					        <div class="col-md-6">
+					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/innovacion.jpg" alt="Card image cap" width="200" height="200">
+						            <div class="card-body d-flex flex-column align-items-start">
+						              	<strong class="d-inline-block mb-2 text-primary">Linea de innovación</strong>
+						              	<?php  
+								        	if($reg['borrador'] == true){
+								        		echo '<span class="badge badge-warning">Borrador</span>';
+								        	}
+								        	else{
+								        		echo '<span class="badge badge-success">Público</span>';
+								        	}
+								        ?>
+						              	<h3 class="mb-0">
+						                	<?php echo $reg['nombre']; ?>
+						              	</h3>
+						              	<div class="mb-1 text-muted"><?php echo nombre($reg['codigoPersona']); ?></div>
+						              	<div class="d-inline-block btn-group">
+						              	<?php 
+						              	echo "<a href='linea_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-outline-success'>Ver más</a> "; 
+						              	echo "<a href='status_modificar.php/?id=".$reg['id']."&tipo=5' class='btn btn-outline-primary'>Modificar</a> ";
+						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=1&subaccion=5' class='btn btn-outline-secondary'>Ocultar</a> ";
+						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=0&subaccion=5' class='btn btn-outline-danger'>Eliminar</a>";
+						              	?>
+						              	</div>
+						            </div>
+					            
+					          	</div>
+					        </div>
+						<?php
+							$reg2 = mysqli_fetch_array($resultado);
+							if($reg2){
+						?>
+
+					        <div class="col-md-6">
+					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/innovacion.jpg" alt="Card image cap" width="200" height="200">
+						            <div class="card-body d-flex flex-column align-items-start">
+						              	<strong class="d-inline-block mb-2 text-primary">Linea de Innovación</strong>
+						              	<?php  
+								        	if($reg['borrador'] == true){
+								        		echo '<span class="badge badge-warning">Borrador</span>';
+								        	}
+								        	else{
+								        		echo '<span class="badge badge-success">Público</span>';
+								        	}
+								        ?>
+						              	<h3 class="mb-0">
+						                	<?php echo $reg2['nombre']; ?>
+						              	</h3>
+						              	<div class="mb-1 text-muted"><?php echo nombre($reg2['codigoPersona']); ?></div>
+						              	<div class="d-inline-block btn-group">
+						              	<?php 
+						              	echo "<a href='linea_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn btn-outline-success'>Ver más</a> ";
+						              	echo "<a href='status_modificar.php/?id=".$reg2['id']."&tipo=5' class='btn btn-outline-primary'>Modificar</a> ";
+						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=1&subaccion=5' class='btn btn-outline-secondary'>Ocultar</a> ";
+						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=0&subaccion=5' class='btn btn-outline-danger'>Eliminar</a>";
+						              	?>
+						              	</div>
+						            </div>
+					          	</div>
+					        </div>
+					    </div>
+
+				    <?php 
+				    		}
+				    	}//Llave del while
+				    ?>
 				</div>
 				
 			</div>
@@ -877,7 +955,83 @@
 				</div>
 
 				<div class="tab-pane fade" id="lineagen" role="tabpanel" aria-labelledby="lineagen-tab">
-					
+					<?php
+						$sql = "SELECT * FROM lineainn WHERE codigoPersona != '$cod' AND id != 1";
+						$resultado = mysqli_query($conexion, $sql);
+
+						while ($reg = mysqli_fetch_array($resultado)){
+					?>
+					<!--Vistas rapidas-->
+						<div class="row container-fluid mb-2">
+
+					        <div class="col-md-6">
+					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/innovacion.jpg" alt="Card image cap" width="200" height="200">
+						            <div class="card-body d-flex flex-column align-items-start">
+						              	<strong class="d-inline-block mb-2 text-primary">Linea de innovación</strong>
+						              	<?php  
+								        	if($reg['borrador'] == true){
+								        		echo '<span class="badge badge-warning">Borrador</span>';
+								        	}
+								        	else{
+								        		echo '<span class="badge badge-success">Público</span>';
+								        	}
+								        ?>
+						              	<h3 class="mb-0">
+						                	<?php echo $reg['nombre']; ?>
+						              	</h3>
+						              	<div class="mb-1 text-muted"><?php echo nombre($reg['codigoPersona']); ?></div>
+						              	<div class="d-inline-block btn-group">
+						              	<?php 
+						              	echo "<a href='linea_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-outline-success'>Ver más</a> ";
+						              	echo "<a href='status_modificar.php/?id=".$reg['id']."&tipo=5' class='btn btn-outline-primary'>Modificar</a> ";
+						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=1&subaccion=5' class='btn btn-outline-secondary'>Ocultar</a> ";
+						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=0&subaccion=5' class='btn btn-outline-danger'>Eliminar</a>";
+						              	?>
+						              	</div>
+						            </div>
+					            
+					          	</div>
+					        </div>
+						<?php
+							$reg2 = mysqli_fetch_array($resultado);
+							if($reg2){
+						?>
+
+					        <div class="col-md-6">
+					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/innovacion.jpg" alt="Card image cap" width="200" height="200">
+						            <div class="card-body d-flex flex-column align-items-start">
+						              	<strong class="d-inline-block mb-2 text-primary">Linea de Innovación</strong>
+						              	<?php  
+								        	if($reg['borrador'] == true){
+								        		echo '<span class="badge badge-warning">Borrador</span>';
+								        	}
+								        	else{
+								        		echo '<span class="badge badge-success">Público</span>';
+								        	}
+								        ?>
+						              	<h3 class="mb-0">
+						                	<?php echo $reg2['nombre']; ?>
+						              	</h3>
+						              	<div class="mb-1 text-muted"><?php echo nombre($reg2['codigoPersona']); ?></div>
+						              	<div class="d-inline-block btn-group">
+						              	<?php 
+						              	echo "<a href='linea_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn btn-outline-success'>Ver más</a> ";
+						              	echo "<a href='status_modificar.php/?id=".$reg2['id']."&tipo=5' class='btn btn-outline-primary'>Modificar</a> ";
+						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=1&subaccion=5' class='btn btn-outline-secondary'>Ocultar</a> ";
+						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=0&subaccion=5' class='btn btn-outline-danger'>Eliminar</a>";
+						              	?>
+						              	</div>
+						            </div>
+					          	</div>
+					        </div>
+					    </div>
+
+				    <?php 
+				    		}
+				    	}//Llave del while
+				    ?>
 				</div>
 			</div>
 			<?php  

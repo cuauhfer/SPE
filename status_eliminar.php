@@ -52,6 +52,16 @@
 				$resultado = mysqli_query($conexion, $sql);
 			}
 		}
+		else if($subaccion == "5"){
+			$sql = "SELECT * FROM lineainn WHERE id='$id'";
+			$resultado = mysqli_query($conexion, $sql);
+
+			while($reg = mysqli_fetch_array($resultado)){
+				$idpd = $reg['id'];
+				$sql = "UPDATE lineainn SET borrador = true WHERE id='$idpd'";
+				$resultado = mysqli_query($conexion, $sql);
+			}
+		}
 		
 
 		header('Location: ../mis_publicaciones.php');
@@ -123,6 +133,22 @@
 				$resultado = mysqli_query($conexion, $sql);
 
 				$sql = "DELETE FROM direccionind WHERE id='$idpd'";
+				$resultado = mysqli_query($conexion, $sql);
+			}
+		}
+		else if($subaccion == "5"){
+			$sql = "SELECT * FROM lineainn WHERE id = '$id'";
+			$resultado = mysqli_query($conexion, $sql);
+			while($reg = mysqli_fetch_array($resultado)){
+				$idpd = $reg['id'];
+
+				$sql = "UPDATE articulo SET linea = 1 WHERE linea = '$idpd'";
+				$resultado = mysqli_query($conexion, $sql);
+
+				$sql = "UPDATE libro SET linea = 1 WHERE linea = '$idpd'";
+				$resultado = mysqli_query($conexion, $sql);
+
+				$sql = "DELETE FROM lineainn WHERE id='$idpd'";
 				$resultado = mysqli_query($conexion, $sql);
 			}
 		}
