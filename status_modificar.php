@@ -84,7 +84,10 @@
 	<div class="container">
 		<br><br><br><br>
 		<form method="post">
-		<?php 
+		<?php
+			if(isset($_POST['cancelar'])){
+				header('Location: ../mis_publicaciones.php');
+			}
 
 			$persona = $_SESSION['persona'];
 			$id = $_GET['id'];
@@ -365,7 +368,7 @@
 						<tr>
 							<td colspan="4" align="center">
 								<div class="btn-group d-inline-block">
-									<input class="btn btn-light" type="reset" name="" value="Limpiar">
+									<input class="btn btn-light" type="reset" name="" value="Restablecer">
 									<input class="btn btn-light" type="submit" name="agregar" value="Modificar">
 									<input class="btn btn-light" type="submit" name="cancelar" value="Cancelar" formnovalidate>
 								</div>
@@ -377,11 +380,194 @@
 			}
 			//Direcciones
 			else if($tipo == 6){
+				if(isset($_POST['agregar'])){
+					$fecha = $_POST['fecha'];
+					$empresa = $_POST['empresa'];
+					$proyecto = $_POST['proyecto'];
+					$descripcion = $_POST['descripcion'];
+					$borrador = false;
+					if($_POST['borrador']){
+						$borrador = true;
+					}
+					else{
+						$borrador = false;
+					}
+					$sql = "UPDATE direccionind SET fecha = '$fecha', nombreEmpresa = '$empresa', nombreProyecto = '$proyecto', descripcion = '$descripcion', borrador = '$borrador' WHERE id = '$id'";
+					$resultado = mysqli_query($conexion, $sql);
+					$codigo = mysqli_insert_id($conexion); 
 
+					$sql = "DELETE FROM alumnodireccion WHERE idDireccion = '$id'";
+					$resultado = mysqli_query($conexion, $sql);
+
+					if(!empty($_POST['check_list'])){
+						// Simpre que la lista tenga cuando menos una selección
+
+						foreach($_POST['check_list'] as $selected){
+							echo $selected;
+							$sql = "INSERT INTO alumnodireccion(idAlumno, idDireccion) VALUES('$selected', '$id')";
+							$resultado = mysqli_query($conexion, $sql);
+						}
+					}
+					header('Location: ../mis_publicaciones.php');
+				}
+
+				$sql = "SELECT * FROM direccionind WHERE id='$id'";
+				$resultado = mysqli_query($conexion, $sql);
+				while($reg = mysqli_fetch_array($resultado)){
+				?>
+					<table class="table table-success table-bordered table-striped table-hover">
+						<tr>
+							<td colspan="1">Nombre Empresa</td>
+							<td colspan="3"><input class="form-control" type="text" name="empresa" value="<?php echo $reg['nombreEmpresa']; ?>" required></td>
+						</tr>	
+						<tr>
+							<td>Fecha</td>
+							<td><input class="form-control" type="date" name="fecha" value="<?php echo $reg['fecha']; ?>" required></td>
+							<td colspan="2">
+								<div class="checkbox input-group-text">
+									<label>
+										<input type="checkbox" aria-label="Checkbox for following text input" name="borrador"> Borrador
+									</label>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="1">Nombre Proyecto</td>
+							<td colspan="3"><input class="form-control" type="text" name="proyecto" value="<?php echo $reg['nombreProyecto']; ?>" required></td>
+						</tr>
+						
+						<tr>
+							<td colspan="1">Registra: </td>
+							<td colspan="3"><?php 
+								 echo nombre($reg['codigoPersona']);?></td>
+						</tr>
+
+						<tr>
+							<td colspan="1"> Alumnos </td>
+							<td colspan="3">
+							<?php 
+							$sql = "SELECT * FROM alumno";
+							$resultado = mysqli_query($conexion, $sql);
+							while( $row = mysqli_fetch_array($resultado) ){
+								$alu = $row['idAlumno'];
+								$sql = "SELECT * FROM alumnodireccion WHERE idAlumno = '$alu' AND idDireccion = '$id'";
+								$resul = mysqli_query($conexion, $sql);
+								$pendiente = $resul -> num_rows;
+								echo "<input type=checkbox name='check_list[]'"; if($pendiente > 0){echo " checked ";} echo " value='$row[idAlumno]'><label> $row[nombreAlumno] $row[apellidoP] $row[apellidoM]</label> <br/> ";
+							}//Llave del while
+							?>
+							</td>
+
+						</tr>
+
+						<tr>
+							<td colspan="1">Descripcion</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"><?php echo $reg['descripcion']; ?></textarea></td>
+							</tr>
+							<tr>
+								<td colspan="4"></td>
+							</tr>
+							<tr>
+								<td colspan="4" align="center">
+									<div class="btn-group d-inline-block">
+										<input class="btn btn-light" type="reset" name="" value="Restablecer">
+										<input class="btn btn-light" type="submit" name="agregar" value="Modificar">
+										<input class="btn btn-light" type="submit" name="cancelar" value="Cancelar" formnovalidate>
+									</div>
+								</td>
+							</tr>
+					</table>
+				<?php
+				}
 			}
 			//Estadias
 			else if($tipo == 7){
+				if(isset($_POST['agregar'])){
+					$empresa = $_POST['empresa'];
+					$descripcion = $_POST['descripcion'];
+					$borrador = false;
+					if($_POST['borrador']){
+						$borrador = true;
+					}
+					else{
+						$borrador = false;
+					}
 
+					$sql = "UPDATE estadia SET nombreEmpresa = '$empresa', descripcion = '$descripcion', borrador = '$borrador' WHERE id = '$id'";
+					$resultado = mysqli_query($conexion, $sql);
+					$codigo = mysqli_insert_id($conexion); 
+
+					$sql = "DELETE FROM alumnoestadia WHERE idEstadia = '$id'";
+					$resultado = mysqli_query($conexion, $sql);
+
+					if(!empty($_POST['check_list'])){
+						// Simpre que la lista tenga cuando menos una selección
+
+						foreach($_POST['check_list'] as $selected){
+							echo $selected;
+							$sql = "INSERT INTO alumnoestadia(idAlumno, idEstadia) VALUES('$selected', '$id')";
+							$resultado = mysqli_query($conexion, $sql);
+						}
+					}
+					header('Location: ../mis_publicaciones.php');
+				}
+
+				$sql = "SELECT * FROM estadia WHERE id='$id'";
+				$resultado = mysqli_query($conexion, $sql);
+				while($reg = mysqli_fetch_array($resultado)){
+				?>
+					<table class="table table-success table-bordered table-striped table-hover">
+						<tr>
+							<td>Nombre Empresa</td>
+							<td><input class="form-control" type="text" name="empresa" value="<?php echo $reg['nombreEmpresa']; ?>" required></td>
+							<td colspan="2">
+								<div class="checkbox input-group-text">
+									<label>
+										<input type="checkbox" aria-label="Checkbox for following text input" name="borrador"> Borrador
+									</label>
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<td colspan="1">Registra: </td>
+							<td colspan="3"><?php 
+								 echo nombre($reg['codigoPersona']);?></td>
+						</tr>
+						<tr>
+							<td colspan="1"> Alumnos </td>
+							<td colspan="3">
+							<?php 
+							$sql = "SELECT * FROM alumno";
+							$resultado = mysqli_query($conexion, $sql);
+							while( $row = mysqli_fetch_array($resultado) ){
+								$alu = $row['idAlumno'];
+								$sql = "SELECT * FROM alumnoestadia WHERE idAlumno = '$alu' AND idEstadia = '$id'";
+								$resul = mysqli_query($conexion, $sql);
+								$pendiente = $resul -> num_rows;
+								echo "<input type=checkbox name='check_list[]'"; if($pendiente > 0){echo " checked ";} echo " value='$row[idAlumno]'><label> $row[nombreAlumno] $row[apellidoP] $row[apellidoM]</label> <br/> ";
+							}//Llave del while
+							?>
+							</td>
+
+						</tr>
+						<tr>
+							<td colspan="1">Descripcion</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"><?php echo $reg['descripcion']; ?></textarea></td>
+							</tr>
+							<tr>
+								<td colspan="4"></td>
+							</tr>
+							<tr>
+								<td colspan="4" align="center">
+									<div class="btn-group d-inline-block">
+										<input class="btn btn-light" type="reset" name="" value="Restablecer">
+										<input class="btn btn-light" type="submit" name="agregar" value="Modificar">
+										<input class="btn btn-light" type="submit" name="cancelar" value="Cancelar" formnovalidate>
+									</div>
+								</td>
+							</tr>
+					</table>
+				<?php
+				}
 			}
 			//Proyectos
 			else if($tipo == 8){

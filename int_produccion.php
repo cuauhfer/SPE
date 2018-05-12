@@ -171,7 +171,7 @@
 												<td colspan="1">Linea de pertenencia</td>
 												<td colspan="3"><select class="form-control custom-select" type="select" name="linea" id="linea" required>
 													<?php 
-														$sql = "SELECT * FROM lineainn";
+														$sql = "SELECT * FROM lineainn WHERE borrador = false";
 														$resultado = mysqli_query($conexion, $sql);
 														while ($lineas = mysqli_fetch_array($resultado)){
 															$nombrelinea = $lineas['nombre'];
@@ -439,7 +439,7 @@
 													<td colspan="1">Linea de pertenencia</td>
 													<td colspan="3"><select class="form-control custom-select" type="select" name="linea" id="linea" required>
 														<?php 
-															$sql = "SELECT * FROM lineainn";
+															$sql = "SELECT * FROM lineainn WHERE borrador = false";
 															$resultado = mysqli_query($conexion, $sql);
 															while ($lineas = mysqli_fetch_array($resultado)){
 																$nombrelinea = $lineas['nombre'];

@@ -334,7 +334,7 @@
 						              	<div class="d-inline-block btn-group">
 						              	<?php 
 						              	echo "<a href='estadia_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-outline-success'>Ver más</a> "; 
-						              	echo "<a href='status_modificar.php/?id=".$reg['id']."' class='btn btn-outline-primary'>Modificar</a> ";
+						              	echo "<a href='status_modificar.php/?id=".$reg['id']."&tipo=7' class='btn btn-outline-primary'>Modificar</a> ";
 						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=1&subaccion=3' class='btn btn-outline-secondary'>Ocultar</a> ";
 						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=0&subaccion=3' class='btn btn-outline-danger'>Eliminar</a>";
 						              	?>
@@ -368,7 +368,7 @@
 						              	<div class="d-inline-block btn-group">
 						              	<?php 
 						              	echo "<a href='estadia_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn btn-outline-success'>Ver más</a> "; 
-						              	echo "<a href='status_modificar.php/?id=".$reg2['id']."' class='btn btn-outline-primary'>Modificar</a> ";
+						              	echo "<a href='status_modificar.php/?id=".$reg2['id']."&tipo=7' class='btn btn-outline-primary'>Modificar</a> ";
 						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=1&subaccion=3' class='btn btn-outline-secondary'>Ocultar</a> ";
 						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=0&subaccion=3' class='btn btn-outline-danger'>Eliminar</a>";
 						              	?>
@@ -420,7 +420,7 @@
 						              	<div class="d-inline-block btn-group">
 						              	<?php 
 						              	echo "<a href='direccion_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-outline-success'>Ver más</a> "; 
-						              	echo "<a href='status_modificar.php/?id=".$reg['id']."' class='btn btn-outline-primary'>Modificar</a> ";
+						              	echo "<a href='status_modificar.php/?id=".$reg['id']."&tipo=6' class='btn btn-outline-primary'>Modificar</a> ";
 						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=1&subaccion=4' class='btn btn-outline-secondary'>Ocultar</a> ";
 						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=0&subaccion=4' class='btn btn-outline-danger'>Eliminar</a>";
 						              	?>
@@ -440,7 +440,7 @@
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Dirección individualizada</strong>
 						              	<?php  
-								        	if($reg['borrador'] == true){
+								        	if($reg2['borrador'] == true){
 								        		echo '<span class="badge badge-warning">Borrador</span>';
 								        	}
 								        	else{
@@ -454,7 +454,7 @@
 						              	<div class="d-inline-block btn-group">
 						              	<?php 
 						              	echo "<a href='direccion_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn btn-outline-success'>Ver más</a> "; 
-						              	echo "<a href='status_modificar.php/?id=".$reg2['id']."' class='btn btn-outline-primary'>Modificar</a> ";
+						              	echo "<a href='status_modificar.php/?id=".$reg2['id']."&tipo=6' class='btn btn-outline-primary'>Modificar</a> ";
 						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=1&subaccion=4' class='btn btn-outline-secondary'>Ocultar</a> ";
 						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=0&subaccion=4' class='btn btn-outline-danger'>Eliminar</a>";
 						              	?>
@@ -814,7 +814,7 @@
 						              	<div class="d-inline-block btn-group">
 						              	<?php 
 						              	echo "<a href='estadia_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-outline-success'>Ver más</a> "; 
-						              	echo "<a href='status_modificar.php/?id=".$reg['id']."' class='btn btn-outline-primary'>Modificar</a> ";
+						              	echo "<a href='status_modificar.php/?id=".$reg['id']."&tipo=7' class='btn btn-outline-primary'>Modificar</a> ";
 						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=1&subaccion=3' class='btn btn-outline-secondary'>Ocultar</a> ";
 						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=0&subaccion=3' class='btn btn-outline-danger'>Eliminar</a>";
 						              	?>
@@ -848,7 +848,7 @@
 						              	<div class="d-inline-block btn-group">
 						              	<?php 
 						              	echo "<a href='estadia_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn btn-outline-success'>Ver más</a> "; 
-						              	echo "<a href='status_modificar.php/?id=".$reg2['id']."' class='btn btn-outline-primary'>Modificar</a> ";
+						              	echo "<a href='status_modificar.php/?id=".$reg2['id']."&tipo=7' class='btn btn-outline-primary'>Modificar</a> ";
 						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=1&subaccion=3' class='btn btn-outline-secondary'>Ocultar</a> ";
 						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=0&subaccion=3' class='btn btn-outline-danger'>Eliminar</a>";
 						              	?>
@@ -900,7 +900,7 @@
 						              	<div class="d-inline-block btn-group">
 						              	<?php 
 						              	echo "<a href='direccion_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-outline-success'>Ver más</a> "; 
-						              	echo "<a href='status_modificar.php/?id=".$reg['id']."' class='btn btn-outline-primary'>Modificar</a> ";
+						              	echo "<a href='status_modificar.php/?id=".$reg['id']."&tipo=6' class='btn btn-outline-primary'>Modificar</a> ";
 						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=1&subaccion=4' class='btn btn-outline-secondary'>Ocultar</a> ";
 						              	echo "<a href='status_eliminar.php/?id=".$reg['id']."&accion=0&subaccion=4' class='btn btn-outline-danger'>Eliminar</a>";
 						              	?>
@@ -920,7 +920,7 @@
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Dirección individualizada</strong>
 						              	<?php  
-								        	if($reg['borrador'] == true){
+								        	if($reg2['borrador'] == true){
 								        		echo '<span class="badge badge-warning">Borrador</span>';
 								        	}
 								        	else{
@@ -934,7 +934,7 @@
 						              	<div class="d-inline-block btn-group">
 						              	<?php 
 						              	echo "<a href='direccion_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn btn-outline-success'>Ver más</a> "; 
-						              	echo "<a href='status_modificar.php/?id=".$reg2['id']."' class='btn btn-outline-primary'>Modificar</a> ";
+						              	echo "<a href='status_modificar.php/?id=".$reg2['id']."&tipo=6' class='btn btn-outline-primary'>Modificar</a> ";
 						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=1&subaccion=4' class='btn btn-outline-secondary'>Ocultar</a> ";
 						              	echo "<a href='status_eliminar.php/?id=".$reg2['id']."&accion=0&subaccion=4' class='btn btn-outline-danger'>Eliminar</a>";
 						              	?>
