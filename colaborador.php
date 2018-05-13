@@ -117,11 +117,11 @@
 		              		<div class="card mb-4 box-shadow">
 		                		<img class="card-img-top" src="pictures/publicacion.jfif" width="200" height="200" alt="Card image cap">
 		                		<div class="card-body">
-		                			<h3 class="text-center text-primary">Producción Académica</h3>
+		                			<h3 class="text-center">Producción Académica</h3>
 		                  			<p class="card-text">Artículos, libros, prototipos, manuales, informes técnicos, memorias y mas tipos de producciones académicas desarrolladas por nuestros integrantes.</p>
 		                  			<div class="d-flex justify-content-between align-items-center">
 		                    			<div class="btn-group">
-		                      				<a href="ver_produccion.php"><button type="button" class="btn btn-sm btn-outline-primary">Ver Más</button></a>
+		                      				<a href="ver_produccion.php"><button type="button" class="btn btn-sm btn-outline-success">Ver Más</button></a>
 		                    			</div>
 		                    			<small class="text-muted">
 		                    				<?php  
@@ -140,11 +140,11 @@
 		              		<div class="card mb-4 box-shadow">
 		                		<img class="card-img-top" src="pictures/proyecto.jfif" width="200" height="200" alt="Card image cap">
 		                		<div class="card-body">
-		                			<h3 class="text-center text-primary">Proyectos</h3>
+		                			<h3 class="text-center">Proyectos</h3>
 		                  			<p class="card-text">Descubre los diferentes proyectos desarrollados por nuestros integrantes.</p>
 		                  			<div class="d-flex justify-content-between align-items-center">
 		                    			<div class="btn-group">
-		                      				<a href="ver_proyecto.php"><button type="button" class="btn btn-sm btn-outline-primary">Ver Más</button></a>
+		                      				<a href="ver_proyecto.php"><button type="button" class="btn btn-sm btn-outline-success">Ver Más</button></a>
 		                    			</div>
 		                    			<small class="text-muted">
 		                    				<?php  
@@ -163,11 +163,11 @@
 		              		<div class="card mb-4 box-shadow">
 		                		<img class="card-img-top" src="pictures/estadia.jfif" width="200" height="200" alt="Card image cap">
 		                		<div class="card-body">
-		                			<h3 class="text-center text-primary">Estadía en empresas</h3>
+		                			<h3 class="text-center">Estadía en empresas</h3>
 		                  			<p class="card-text">Conoce la variedad de estadías en empresas que han sido aprobadas para nuestros alumnos.</p>
 		                  			<div class="d-flex justify-content-between align-items-center">
 		                    			<div class="btn-group">
-		                      				<a href="ver_estadia.php"><button type="button" class="btn btn-sm btn-outline-primary">Ver Más</button></a>
+		                      				<a href="ver_estadia.php"><button type="button" class="btn btn-sm btn-outline-success">Ver Más</button></a>
 		                    			</div>
 		                    			<small class="text-muted">
 		                    				<?php  
@@ -186,11 +186,11 @@
 		              		<div class="card mb-4 box-shadow">
 		                		<img class="card-img-top" src="pictures/direccion.jfif" width="200" height="200" alt="Card image cap">
 		                		<div class="card-body">
-		                			<h3 class="text-center text-primary">Dirección individualizada</h3>
+		                			<h3 class="text-center">Dirección individualizada</h3>
 		                  			<p class="card-text">Infórmate sobre las direcciones individualizadas que llevan a cabo nuestros integrantes.</p>
 		                  			<div class="d-flex justify-content-between align-items-center">
 		                    			<div class="btn-group">
-		                      				<a href="ver_direccion.php"><button type="button" class="btn btn-sm btn-outline-primary">Ver Más</button></a>
+		                      				<a href="ver_direccion.php"><button type="button" class="btn btn-sm btn-outline-success">Ver Más</button></a>
 		                    			</div>
 		                    			<small class="text-muted">
 		                    				<?php  
@@ -204,7 +204,8 @@
 		                  			</div>
 		                		</div>
 		              		</div>
-		              		<div class="col-md-4">
+		            	</div>
+		            	<div class="col-md-4">
 		              		<div class="card mb-4 box-shadow">
 		                		<img class="card-img-top" src="pictures/innovacion.jpg" width="200" height="200" alt="Card image cap">
 		                		<div class="card-body">
@@ -226,7 +227,6 @@
 		                  			</div>
 		                		</div>
 		              		</div>
-		            	</div>
 		            	</div>
 		            </div>
 	  			</div>

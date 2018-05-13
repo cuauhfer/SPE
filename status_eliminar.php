@@ -72,6 +72,7 @@
 			$resultado = mysqli_query($conexion, $sql);
 			while($reg = mysqli_fetch_array($resultado)){
 				$idpd = $reg['id'];
+				$nom = $reg['nombre'];
 
 				if($reg['tipoPublicacion'] == 1){
 					$sql = "DELETE FROM articulo WHERE idProduccion='$idpd'";
@@ -93,6 +94,12 @@
 				$sql = "DELETE FROM personaproduccion WHERE idProduccion = '$idpd'";
 				$resultado = mysqli_query($conexion, $sql);
 
+				//Logs
+				$admin = $_SESSION['user'];
+				$adminon = $admin['codigo'];
+				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Elimino la producción $nom', NOW())";
+				$resultado = mysqli_query($conexion, $sql);
+
 				$sql = "DELETE FROM produccion WHERE id='$idpd'";
 				$resultado = mysqli_query($conexion, $sql);
 			}
@@ -102,8 +109,15 @@
 			$resultado = mysqli_query($conexion, $sql);
 			while($reg = mysqli_fetch_array($resultado)){
 				$idpd = $reg['id'];
+				$nom = $reg['nombre'];
 
 				$sql = "DELETE FROM personaproyecto WHERE idProyecto = '$idpd'";
+				$resultado = mysqli_query($conexion, $sql);
+
+				//Logs
+				$admin = $_SESSION['user'];
+				$adminon = $admin['codigo'];
+				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Elimino el proyecto $nom', NOW())";
 				$resultado = mysqli_query($conexion, $sql);
 
 				$sql = "DELETE FROM proyecto WHERE id='$idpd'";
@@ -115,8 +129,15 @@
 			$resultado = mysqli_query($conexion, $sql);
 			while($reg = mysqli_fetch_array($resultado)){
 				$idpd = $reg['id'];
+				$nom = $reg['nombreEmpresa'];
 
 				$sql = "DELETE FROM alumnoestadia WHERE idEstadia = '$idpd'";
+				$resultado = mysqli_query($conexion, $sql);
+
+				//Logs
+				$admin = $_SESSION['user'];
+				$adminon = $admin['codigo'];
+				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Elimino la estadía $nom', NOW())";
 				$resultado = mysqli_query($conexion, $sql);
 
 				$sql = "DELETE FROM estadia WHERE id='$idpd'";
@@ -128,8 +149,15 @@
 			$resultado = mysqli_query($conexion, $sql);
 			while($reg = mysqli_fetch_array($resultado)){
 				$idpd = $reg['id'];
+				$nom = $reg['nombreProyecto'];
 
 				$sql = "DELETE FROM alumnodireccion WHERE idDireccion = '$idpd'";
+				$resultado = mysqli_query($conexion, $sql);
+
+				//Logs
+				$admin = $_SESSION['user'];
+				$adminon = $admin['codigo'];
+				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Elimino la dirección $nom', NOW())";
 				$resultado = mysqli_query($conexion, $sql);
 
 				$sql = "DELETE FROM direccionind WHERE id='$idpd'";
@@ -141,11 +169,18 @@
 			$resultado = mysqli_query($conexion, $sql);
 			while($reg = mysqli_fetch_array($resultado)){
 				$idpd = $reg['id'];
+				$nom = $reg['nombre'];
 
 				$sql = "UPDATE articulo SET linea = 1 WHERE linea = '$idpd'";
 				$resultado = mysqli_query($conexion, $sql);
 
 				$sql = "UPDATE libro SET linea = 1 WHERE linea = '$idpd'";
+				$resultado = mysqli_query($conexion, $sql);
+
+				//Logs
+				$admin = $_SESSION['user'];
+				$adminon = $admin['codigo'];
+				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Elimino la linea de innovacíon $nom', NOW())";
 				$resultado = mysqli_query($conexion, $sql);
 
 				$sql = "DELETE FROM lineainn WHERE id='$idpd'";
@@ -162,7 +197,14 @@
 
 			while($reg = mysqli_fetch_array($resultado)){
 				$idpd = $reg['id'];
+				$nom = $reg['nombre'];
 				$sql = "UPDATE produccion SET rechazo = true, aprobacion = false WHERE id='$idpd'";
+				$resultado = mysqli_query($conexion, $sql);
+
+				//Logs
+				$admin = $_SESSION['user'];
+				$adminon = $admin['codigo'];
+				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Rechazó la producción $nom', NOW())";
 				$resultado = mysqli_query($conexion, $sql);
 			}
 		}
@@ -172,7 +214,14 @@
 
 			while($reg = mysqli_fetch_array($resultado)){
 				$idpd = $reg['id'];
+				$nom = $reg['nombre'];
 				$sql = "UPDATE proyecto SET rechazo = true, aprobacion = false WHERE id='$idpd'";
+				$resultado = mysqli_query($conexion, $sql);
+
+				//Logs
+				$admin = $_SESSION['user'];
+				$adminon = $admin['codigo'];
+				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Rechazó la producción $nom', NOW())";
 				$resultado = mysqli_query($conexion, $sql);
 			}
 		}

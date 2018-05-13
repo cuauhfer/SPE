@@ -121,6 +121,12 @@
 
 									$sql = "INSERT INTO articulo(revista, paginas, linea, issn, idProduccion) VALUES('$revista', '$paginas', '$linea', '$issn', '$idProduccion')";
 									$resultado = mysqli_query($conexion, $sql);
+
+									//Logs
+									$admin = $_SESSION['user'];
+									$adminon = $admin['codigo'];
+									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creo el articulo $nombre', NOW())";
+									$resultado = mysqli_query($conexion, $sql);
 									
 									header('Location: int_colaborador.php/?produccion='.$reg['id'].'&tipo=1');
 									
@@ -234,6 +240,13 @@
 
 									$sql = "INSERT INTO informetec(dependencia, idProduccion) VALUES('$dependencia', '$idProduccion')";
 									$resultado = mysqli_query($conexion, $sql);
+
+									//Logs
+									$admin = $_SESSION['user'];
+									$adminon = $admin['codigo'];
+									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creo el informe técnico $nombre', NOW())";
+									$resultado = mysqli_query($conexion, $sql);
+
 									header('Location: int_colaborador.php/?produccion='.$reg['id'].'&tipo=1');
 								}
 								?>
@@ -311,6 +324,13 @@
 
 									$sql = "INSERT INTO manual(registro, idProduccion) VALUES('$registro', '$idProduccion')";
 									$resultado = mysqli_query($conexion, $sql);
+
+									//Logs
+									$admin = $_SESSION['user'];
+									$adminon = $admin['codigo'];
+									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creo el manual $nombre', NOW())";
+									$resultado = mysqli_query($conexion, $sql);
+
 									header('Location: int_colaborador.php/?produccion='.$reg['id'].'&tipo=1');
 								}
 								?>
@@ -391,6 +411,13 @@
 
 									$sql = "INSERT INTO libro(paginas, editorial, linea, isbn, idProduccion) VALUES('$paginas', '$editorial', '$linea', '$isbn', '$idProduccion')";
 									$resultado = mysqli_query($conexion, $sql);
+
+									//Logs
+									$admin = $_SESSION['user'];
+									$adminon = $admin['codigo'];
+									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creo el libro $nombre', NOW())";
+									$resultado = mysqli_query($conexion, $sql);
+
 									header('Location: int_colaborador.php/?produccion='.$reg['id'].'&tipo=1');
 								}
 								?>
@@ -487,6 +514,12 @@
 									$sql = "INSERT INTO lineainn(nombre, codigoPersona, campo, borrador) VALUES('$nombre', '$autor', '$campo', false)";
 									$resultado = mysqli_query($conexion, $sql);
 
+									//Logs
+									$admin = $_SESSION['user'];
+									$adminon = $admin['codigo'];
+									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creo la linea de innovación $nombre', NOW())";
+									$resultado = mysqli_query($conexion, $sql);
+
 									if(isset($_SESSION['integrante'])){
 										header('Location: integrante.php');
 									}
@@ -557,6 +590,13 @@
 											$resultado = mysqli_query($conexion, $sql);
 										}
 									}
+
+									//Logs
+									$admin = $_SESSION['user'];
+									$adminon = $admin['codigo'];
+									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creo la dirección individualizada $nombre', NOW())";
+									$resultado = mysqli_query($conexion, $sql);
+
 									if(isset($_SESSION['integrante'])){
 										header('Location: integrante.php');
 									}
@@ -654,6 +694,13 @@
 											$resultado = mysqli_query($conexion, $sql);
 										}
 									}
+
+									//Logs
+									$admin = $_SESSION['user'];
+									$adminon = $admin['codigo'];
+									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creo la estadía en empresa $nombre', NOW())";
+									$resultado = mysqli_query($conexion, $sql);
+
 									if(isset($_SESSION['integrante'])){
 										header('Location: integrante.php');
 									}
@@ -736,6 +783,12 @@
 									$sql = "SELECT * FROM proyecto WHERE nombre = '$nombre' AND autor = '$autor'";
 									$resultado = mysqli_query($conexion, $sql);
 									$reg = mysqli_fetch_array($resultado);
+
+									//Logs
+									$admin = $_SESSION['user'];
+									$adminon = $admin['codigo'];
+									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creo el proyecto $nombre', NOW())";
+									$resultado = mysqli_query($conexion, $sql);
 
 									header('Location: int_colaborador.php/?produccion='.$reg['id'].'&tipo=2');
 								}

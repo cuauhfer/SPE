@@ -123,7 +123,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/publicacion.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
 						              	<?php  
@@ -163,7 +163,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/publicacion.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
 						              <?php  
@@ -220,7 +220,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Kiokay.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/proyecto.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Proyecto</strong>
 						              	<?php  
@@ -260,7 +260,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Kiokay.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/proyecto.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              <strong class="d-inline-block mb-2 text-primary">Proyecto</strong>
 						              <?php  
@@ -316,7 +316,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Rukia.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/estadia.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Estadía en empresas</strong>
 						              	<?php  
@@ -350,7 +350,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Rukia.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/estadia.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Estadía en empresas</strong>
 						              	<?php  
@@ -402,7 +402,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Ulquiorra.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/direccion.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Dirección individualizada</strong>
 						              	<?php  
@@ -436,7 +436,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Ulquiorra.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/direccion.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Dirección individualizada</strong>
 						              	<?php  
@@ -524,7 +524,7 @@
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Linea de Innovación</strong>
 						              	<?php  
-								        	if($reg['borrador'] == true){
+								        	if($reg2['borrador'] == true){
 								        		echo '<span class="badge badge-warning">Borrador</span>';
 								        	}
 								        	else{
@@ -603,7 +603,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/publicacion.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
 						              	<?php  
@@ -643,7 +643,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/publicacion.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
 						              <?php  
@@ -700,7 +700,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Kiokay.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/proyecto.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Proyecto</strong>
 						              	<?php  
@@ -740,7 +740,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Kiokay.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/proyecto.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              <strong class="d-inline-block mb-2 text-primary">Proyecto</strong>
 						              <?php  
@@ -796,7 +796,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Rukia.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/estadia.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Estadía en empresas</strong>
 						              	<?php  
@@ -830,7 +830,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Rukia.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/estadia.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Estadía en empresas</strong>
 						              	<?php  
@@ -882,7 +882,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Ulquiorra.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/direccion.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Dirección individualizada</strong>
 						              	<?php  
@@ -916,7 +916,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Ulquiorra.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/direccion.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Dirección individualizada</strong>
 						              	<?php  

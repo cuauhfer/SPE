@@ -44,6 +44,12 @@
 
 			$sql = "INSERT INTO alumno(nombreAlumno, apellidoP, apellidoM, carrera) VALUES('$nombre', '$apep', '$apem', '$carrera')";
 			$resultado = mysqli_query($conexion, $sql);
+
+			//Logs
+			$admin = $_SESSION['user'];
+			$adminon = $admin['codigo'];
+			$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Agrego al alumno $nombre al sistema', NOW())";
+			$resultado = mysqli_query($conexion, $sql);
 		
 			header('Location: int_alumno.php');
 

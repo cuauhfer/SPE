@@ -160,6 +160,13 @@
 						$resultado = mysqli_query($conexion, $sql);
 
 					}
+
+					//Logs
+					$admin = $_SESSION['user'];
+					$adminon = $admin['codigo'];
+					$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Actualizo la información de la publicación $nombre', NOW())";
+					$resultado = mysqli_query($conexion, $sql);
+
 					header('Location: ../mis_publicaciones.php');
 				}
 
@@ -339,9 +346,22 @@
 					$nombre = $_POST['nombre'];
 					$autor = $persona['codigo'];
 					$campo = $_POST['campo'];
+					if($_POST['borrador']){
+						$borrador = true;
+					}
+					else{
+						$borrador = false;
+					}
 
-					$sql = "UPDATE lineainn SET nombre = '$nombre', campo = '$campo' WHERE id = '$id'";
+					$sql = "UPDATE lineainn SET nombre = '$nombre', campo = '$campo', borrador = '$borrador' WHERE id = '$id'";
 					$resultado = mysqli_query($conexion, $sql);
+
+					//Logs
+					$admin = $_SESSION['user'];
+					$adminon = $admin['codigo'];
+					$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Actualizo la información de la linea de innovación $nombre', NOW())";
+					$resultado = mysqli_query($conexion, $sql);
+
 					header('Location: ../mis_publicaciones.php');
 				}
 
@@ -356,8 +376,15 @@
 						</tr>
 						<tr>
 							<td colspan="1">Registra: </td>
-							<td colspan="3"><?php 
+							<td colspan="2"><?php 
 								 echo nombre($reg['codigoPersona']);?></td>
+							<td colspan="1">
+								<div class="checkbox input-group-text">
+									<label>
+										<input type="checkbox" aria-label="Checkbox for following text input" name="borrador"> Borrador
+									</label>
+								</div>
+							</td>
 						</tr>
 						<tr>
 							<td colspan="1">Campo</td><td colspan="3"><input class="form-control" type="text" name="campo" value="<?php echo $reg['campo']; ?>"></td>
@@ -408,6 +435,13 @@
 							$resultado = mysqli_query($conexion, $sql);
 						}
 					}
+
+					//Logs
+					$admin = $_SESSION['user'];
+					$adminon = $admin['codigo'];
+					$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Actualizo la información de la dirección $proyecto', NOW())";
+					$resultado = mysqli_query($conexion, $sql);
+
 					header('Location: ../mis_publicaciones.php');
 				}
 
@@ -508,6 +542,13 @@
 							$resultado = mysqli_query($conexion, $sql);
 						}
 					}
+
+					//Logs
+					$admin = $_SESSION['user'];
+					$adminon = $admin['codigo'];
+					$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Actualizo la información de la estadía en $empresa', NOW())";
+					$resultado = mysqli_query($conexion, $sql);
+
 					header('Location: ../mis_publicaciones.php');
 				}
 
@@ -590,6 +631,13 @@
 					$aprobacion = false;
 					$sql = "UPDATE proyecto SET nombre = '$nombre', fechaInicio = '$fechaini', fechaFin = '$fechafin', institucion = '$institucion', descripcion = '$descripcion', borrador = '$borrador', aprobacion = false, rechazo = false";
 					$resultado = mysqli_query($conexion, $sql);
+
+					//Logs
+					$admin = $_SESSION['user'];
+					$adminon = $admin['codigo'];
+					$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Actualizo la información del proyecto $nombre', NOW())";
+					$resultado = mysqli_query($conexion, $sql);
+
 					header('Location: ../mis_publicaciones.php');
 				}
 

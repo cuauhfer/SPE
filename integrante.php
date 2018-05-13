@@ -270,6 +270,20 @@
 		                		</div>
 		              		</div>
 		            	</div>
+		            	<div class="col-md-4">
+		              		<div class="card mb-4 box-shadow">
+		                		<img class="card-img-top" src="pictures/estadistica.jpg" width="200" height="200" alt="Card image cap">
+		                		<div class="card-body">
+		                			<h3 class="text-center">Estadística</h3>
+		                  			<p class="card-text">Estadísticas, información y cifras de nuestro sistema.</p>
+		                  			<div class="d-flex justify-content-between align-items-center">
+		                    			<div class="btn-group">
+		                      				<a href="estadistica.php"><button type="button" class="btn btn-sm btn-outline-success">Ver</button></a>
+		                    			</div>
+		                  			</div>
+		                		</div>
+		              		</div>
+		            	</div>
 	  				</div>
 	  			</div>
 

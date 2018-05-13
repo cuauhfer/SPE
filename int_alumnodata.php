@@ -80,12 +80,31 @@
 			$sql = "UPDATE alumno SET nombreAlumno='$nombre', apellidoP='$apep', apellidoM='$apem', carrera='$carrera' WHERE idAlumno='$id'";
 			$resultado = mysqli_query($conexion, $sql);
 
+			//Logs
+			$admin = $_SESSION['user'];
+			$adminon = $admin['codigo'];
+			$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Cambio los datos del alumno $nombre', NOW())";
+			$resultado = mysqli_query($conexion, $sql);
+
 			header('Location: int_alumno.php');
 
 		}//llave del if guardar
 		else if(isset($_POST['eliminar'])){
+			$sql = "DELETE FROM alumnoestadia WHERE idAlumno = '$id'";
+			$resultado = mysqli_query($conexion, $sql);
+
+			$sql = "DELETE FROM alumnodireccion WHERE idAlumno = '$id'";
+			$resultado = mysqli_query($conexion, $sql);
+
 			$sql = "DELETE FROM alumno WHERE idAlumno='$id'";
 			$resultado = mysqli_query($conexion, $sql);
+
+			//Logs
+			$admin = $_SESSION['user'];
+			$adminon = $admin['codigo'];
+			$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Elimino el alumno $nombre del sistema', NOW())";
+			$resultado = mysqli_query($conexion, $sql);
+
 			header('Location: int_alumno.php');
 		}
 		else if(isset($_POST['cancelar'])){

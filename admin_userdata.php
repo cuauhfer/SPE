@@ -124,8 +124,9 @@
 				$resultado = mysqli_query($conexion, $sql);
 
 				//Logs
-				$cod = $codigo;
-				$sql = "INSERT INTO logs (codigo_usuario, actividad, fecha) VALUES ('$cod', 'Se modifico su perfil por medio del administrador $codigoadmin', NOW())";
+				$admin = $_SESSION['user'];
+				$adminon = $admin['codigo'];
+				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Modifico el perfil de $username por medio del administrador', NOW())";
 				$resultado = mysqli_query($conexion, $sql);
 
 				if(($reg['nivel'] != $_POST['nivel']) && ($_POST['username'] == $_SESSION['username'])){
@@ -150,9 +151,11 @@
 			$resultado = mysqli_query($conexion, $sql);
 
 			//Logs
-			$cod = $codigo;
-			$sql = "INSERT INTO logs (codigo_usuario, actividad, fecha) VALUES ('$cod', 'Se elimino su perfil por medio de administrador', NOW())";
-			$resultado = mysqli_query($conexion, $sql);
+				$admin = $_SESSION['user'];
+				$adminon = $admin['codigo'];
+				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Elimino el perfil de $username por medio del administrador', NOW())";
+				$resultado = mysqli_query($conexion, $sql);
+
 			header('Location: admin_usuario.php');
 		}
 		else if(isset($_POST['cancelar'])){

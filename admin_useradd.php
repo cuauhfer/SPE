@@ -46,6 +46,12 @@
 				
 				$sql = "INSERT INTO persona(codigo, nombre, apellidoP, apellidoM, email, telefono, division, escolaridad) VALUES('$codigo', '$nombre', '$apep', '$apem', '$correo', '$telefono', '$division', '$escolaridad')";
 				$resultado = mysqli_query($conexion, $sql);
+
+				//Logs
+				$admin = $_SESSION['user'];
+				$adminon = $admin['codigo'];
+				$sql = "INSERT INTO log(codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Dio de alta a $username en el sistema', NOW())";
+				$resultado = mysqli_query($conexion, $sql);
 				
 				header('Location: admin_usuario.php');
 			}

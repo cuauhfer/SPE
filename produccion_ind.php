@@ -98,7 +98,6 @@
 	<?php 
 		$var1 = $_GET['nombre'];
 		$var2 = $_GET['autor']; 
-
 		$sql = "SELECT * FROM produccion WHERE nombre='$var1'";
 		$resultado = mysqli_query($conexion, $sql);
 		while($reg = mysqli_fetch_array($resultado)){
@@ -110,7 +109,7 @@
 
 			<div class="row jumbotron p-3 p-md-5 rounded bg-ligth rounded">
 				<div class="col-md-4">
-					<img class="card-img-right flex-auto d-none d-md-block" src="../pictures/Adlet.png" alt="Card image cap" width="200" height="200">
+					<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="../pictures/publicacion.jfif" alt="Card image cap" width="200" height="200">
 				</div>
 	        	<div class="col-md-8 px-0">
 			        <h3 class="text-primary display-4 font-italic"><?php echo $reg['nombre'];?></h3>
