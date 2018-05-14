@@ -391,7 +391,7 @@
 						              	</h3>
 						              	<div class="mb-1 text-muted"><?php echo nombre($reg['codigoPersona']); ?></div>
 						              	<?php 
-							              	echo "<a href='estadia_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn-outline-success'>Ver más</a>";
+							              	echo "<a href='estadia_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-outline-success'>Ver más</a>";
 							            ?>
 						            </div>
 					            
@@ -412,7 +412,7 @@
 						              	</h3>
 						              	<div class="mb-1 text-muted"><?php echo nombre($reg2['codigoPersona']); ?></div>
 						              	<?php 
-							              	echo "<a href='estadia_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn-outline-success'>Ver más</a>";
+							              	echo "<a href='estadia_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn btn-outline-success'>Ver más</a>";
 							            ?>
 						            </div>
 					          	</div>

@@ -122,7 +122,7 @@
 		                  			<p class="card-text">Artículos, libros, prototipos, manuales, informes técnicos, memorias y mas tipos de producciones académicas desarrolladas por nuestros integrantes.</p>
 		                  			<div class="d-flex justify-content-between align-items-center">
 		                    			<div class="btn-group">
-		                      				<a href="ver_produccion.php"><button type="button" class="btn btn-sm btn-outline-primary">Ver Más</button></a>
+		                      				<a href="ver_produccion.php"><button type="button" class="btn btn-sm btn-outline-success">Ver Más</button></a>
 		                    			</div>
 		                    			<small class="text-muted">
 		                    				<?php  
@@ -145,7 +145,7 @@
 		                  			<p class="card-text">Descubre los diferentes proyectos desarrollados por nuestros integrantes.</p>
 		                  			<div class="d-flex justify-content-between align-items-center">
 		                    			<div class="btn-group">
-		                      				<a href="ver_proyecto.php"><button type="button" class="btn btn-sm btn-outline-primary">Ver Más</button></a>
+		                      				<a href="ver_proyecto.php"><button type="button" class="btn btn-sm btn-outline-success">Ver Más</button></a>
 		                    			</div>
 		                    			<small class="text-muted">
 		                    				<?php  
@@ -168,7 +168,7 @@
 		                  			<p class="card-text">Conoce la variedad de estadías en empresas que han sido aprobadas para nuestros alumnos.</p>
 		                  			<div class="d-flex justify-content-between align-items-center">
 		                    			<div class="btn-group">
-		                      				<a href="ver_estadia.php"><button type="button" class="btn btn-sm btn-outline-primary">Ver Más</button></a>
+		                      				<a href="ver_estadia.php"><button type="button" class="btn btn-sm btn-outline-success">Ver Más</button></a>
 		                    			</div>
 		                    			<small class="text-muted">
 		                    				<?php  
@@ -191,7 +191,7 @@
 		                  			<p class="card-text">Infórmate sobre las direcciones individualizadas que llevan a cabo nuestros integrantes.</p>
 		                  			<div class="d-flex justify-content-between align-items-center">
 		                    			<div class="btn-group">
-		                      				<a href="ver_direccion.php"><button type="button" class="btn btn-sm btn-outline-primary">Ver Más</button></a>
+		                      				<a href="ver_direccion.php"><button type="button" class="btn btn-sm btn-outline-success">Ver Más</button></a>
 		                    			</div>
 		                    			<small class="text-muted">
 		                    				<?php  
@@ -265,7 +265,7 @@
 							              	</h3>
 							              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
 							              	<?php 
-							              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-outline-primary'>Ver más</a>";
+							              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-outline-success'>Ver más</a>";
 							              	?>
 							            </div>
 						            
@@ -286,7 +286,7 @@
 							              	</h3>
 							              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
 							              	<?php 
-							              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-outline-primary'>Ver más</a>";
+							              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-outline-success'>Ver más</a>";
 							              	?>
 							            </div>
 						          	</div>
@@ -324,7 +324,7 @@
 						              	</h3>
 						              	<div class="mb-1 text-muted"><?php echo nombre($reg['codigoPersona']); ?></div>
 						              	<?php 
-							              	echo "<a href='estadia_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn-outline-primary'>Ver más</a>";
+							              	echo "<a href='estadia_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-outline-success'>Ver más</a>";
 							            ?>
 						            </div>
 					            
@@ -345,7 +345,7 @@
 						              	</h3>
 						              	<div class="mb-1 text-muted"><?php echo nombre($reg2['codigoPersona']); ?></div>
 						              	<?php 
-							              	echo "<a href='estadia_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn-outline-primary'>Ver más</a>";
+							              	echo "<a href='estadia_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn btn-outline-success'>Ver más</a>";
 							            ?>
 						            </div>
 					          	</div>
@@ -386,7 +386,7 @@
 						              	</h3>
 						              	<div class="mb-1 text-muted"><?php echo nombre($reg['codigoPersona']); ?></div>
 						              	<?php 
-							              	echo "<a href='direccion_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-outline-primary'>Ver más</a>";
+							              	echo "<a href='direccion_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-outline-success'>Ver más</a>";
 							            ?>
 						            </div>
 					            
@@ -407,7 +407,7 @@
 						              	</h3>
 						              	<div class="mb-1 text-muted"><?php echo nombre($reg2['codigoPersona']); ?></div>
 						              	<?php 
-							              	echo "<a href='direccion_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn btn-outline-primary'>Ver más</a>";
+							              	echo "<a href='direccion_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn btn-outline-success'>Ver más</a>";
 							            ?>
 						            </div>
 					          	</div>
@@ -445,7 +445,7 @@
 							              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
 							              	<div class="d-inline-block btn-group">
 								              	<?php 
-								              	echo "<a href='proyecto_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-outline-primary'>Ver más</a>";
+								              	echo "<a href='proyecto_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-outline-success'>Ver más</a>";
 								              	?>
 							              	</div>
 							            </div>
@@ -467,7 +467,7 @@
 							              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
 							              	<div class="d-inline-block btn-group">
 								              	<?php 
-								              	echo "<a href='proyecto_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-outline-primary'>Ver más</a>";
+								              	echo "<a href='proyecto_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-outline-success'>Ver más</a>";
 								              	?>
 							              	</div>
 							            </div>
