@@ -113,7 +113,7 @@
 
 	<section>
 		<br><br><br><br>
-		<div class="container">
+		<div class="container" id="HTMLtoPDF">
 
 			<div class="row jumbotron p-3 p-md-5 rounded bg-ligth rounded">
 				<div class="col-md-4">
@@ -152,8 +152,15 @@
 	<?php 
 		}
 	?>
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<div class="container">
+		<a class="btn btn-outline-success" onclick="HTMLtoPDF()">Guardar PDF</a>
+		<br><br>
+	</div>
+	<script src="../assets/pdf/jspdf.js"></script>
+	<script src="../assets/pdf/jquery-2.1.3.js"></script>
+	<script src="../assets/pdf/pdfFromHTML.js"></script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 </body>
 
 </html>

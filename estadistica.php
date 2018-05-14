@@ -99,18 +99,18 @@
 	<div class="row">
 	  	<div class="col-3">
 	    	<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-	      		<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Todas las publicaciones</a>
-	      		<a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" <?php if(!isset($_SESSION['administrador']) && !isset($_SESSION['integrante'])){
+	      		<a class="nav-link active btn-outline-success" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Todas las publicaciones</a>
+	      		<a class="nav-link btn-outline-success" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" <?php if(!isset($_SESSION['administrador']) && !isset($_SESSION['integrante'])){
 	      			echo " disabled";
 	      		} ?>>Mis publicaciones</a>
-	      		<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Producción Académica</a>
-	      		<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Proyectos</a>
-	      		<a class="nav-link" id="v-pills-direccion-tab" data-toggle="pill" href="#v-pills-direccion" role="tab" aria-controls="v-pills-direccion" aria-selected="false">Dirección individualizada</a>
-	      		<a class="nav-link" id="v-pills-estadia-tab" data-toggle="pill" href="#v-pills-estadia" role="tab" aria-controls="v-pills-estadia" aria-selected="false">Estadía en empresa</a>
-	      		<a class="nav-link" id="v-pills-linea-tab" data-toggle="pill" href="#v-pills-linea" role="tab" aria-controls="v-pills-linea" aria-selected="false">Lineas de innovación</a>
+	      		<a class="nav-link btn-outline-success" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Producción Académica</a>
+	      		<a class="nav-link btn-outline-success" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Proyectos</a>
+	      		<a class="nav-link btn-outline-success" id="v-pills-direccion-tab" data-toggle="pill" href="#v-pills-direccion" role="tab" aria-controls="v-pills-direccion" aria-selected="false">Dirección individualizada</a>
+	      		<a class="nav-link btn-outline-success" id="v-pills-estadia-tab" data-toggle="pill" href="#v-pills-estadia" role="tab" aria-controls="v-pills-estadia" aria-selected="false">Estadía en empresa</a>
+	      		<a class="nav-link btn-outline-success" id="v-pills-linea-tab" data-toggle="pill" href="#v-pills-linea" role="tab" aria-controls="v-pills-linea" aria-selected="false">Lineas de innovación</a>
 	    	</div>
 	 	</div>
-	  	<div class="col-9">
+	  	<div class="col-9" id="HTMLtoPDF">
 	    	<div class="tab-content" id="v-pills-tabContent">
 	      		<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
 	      			<div class="col-9">
@@ -255,11 +255,11 @@
 
 						?>
 
-						<script id="publicaciones">
+						<script>
 							window.onload = function() {
 								var chart1 = new CanvasJS.Chart("chartContainer1", {
 									theme: "light2", // "light1", "light2", "dark1", "dark2"
-									exportEnabled: false,
+									exportEnabled: true,
 									animationEnabled: true,
 									title: {
 										text: "Publicaciones SPE"
@@ -284,6 +284,7 @@
 								chart1.render();
 
 								var chart2 = new CanvasJS.Chart("chartContainer2", {
+									exportEnabled: true,
 									animationEnabled: true,
 									theme: "light2", // "light1", "light2", "dark1", "dark2"
 									title: {
@@ -318,6 +319,7 @@
 								chart2.render();
 
 								var chart3 = new CanvasJS.Chart("chartContainer3", {
+									exportEnabled: true,
 									animationEnabled: true,
 									theme: "light2", // "light1", "light2", "dark1", "dark2"
 									title: {
@@ -351,6 +353,7 @@
 								chart3.render();
 
 								var chart4 = new CanvasJS.Chart("chartContainer4", {
+									exportEnabled: true,
 									animationEnabled: true,
 									theme: "light2", // "light1", "light2", "dark1", "dark2"
 									title: {
@@ -384,6 +387,7 @@
 								chart4.render();
 
 								var chart5 = new CanvasJS.Chart("chartContainer5", {
+									exportEnabled: true,
 									animationEnabled: true,
 									theme: "light2", // "light1", "light2", "dark1", "dark2"
 									title: {
@@ -417,6 +421,7 @@
 								chart5.render();
 
 								var chart6 = new CanvasJS.Chart("chartContainer6", {
+									exportEnabled: true,
 									animationEnabled: true,
 									theme: "light2", // "light1", "light2", "dark1", "dark2"
 									title: {
@@ -450,6 +455,7 @@
 								chart6.render();
 
 								var chart7 = new CanvasJS.Chart("chartContainer7", {
+									exportEnabled: true,
 									animationEnabled: true,
 									theme: "light2", // "light1", "light2", "dark1", "dark2"
 									title: {
@@ -486,6 +492,7 @@
 						</script>
 
 						<div id="chartContainer1" style="height: 500px; max-width: 1200px; margin: 0px auto;"></div>
+						<br>
 					</div>
 	      		</div>
 
@@ -529,6 +536,9 @@
 	  	</div>
 	</div>
 
+	<script src="assets/pdf/jspdf.js"></script>
+	<script src="assets/pdf/jquery-2.1.3.js"></script>
+	<script src="assets/pdf/pdfFromHTML.js"></script>
 	<script src="assets/script/canvasjs.min.js"></script>
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
