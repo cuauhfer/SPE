@@ -6,7 +6,7 @@
 }
 
 body{
-	background-image: url(../pictures/bg-azul.jpg);
+	background-image: url(../pictures/diagrama-ca.png);
 	display: flex;
 	min-height: 100vh;
 }
@@ -15,7 +15,7 @@ form{
 	margin: auto;
 	width: 100%;
 	max-width: 500px;
-	background: transparent;
+	background: #263D55;
 	padding: 30px;
 	border: 1px solid rgba(0, 0, 0, 0.8)
 }
@@ -60,7 +60,7 @@ input{
 }
 
 input[type="submit"]{
-	background: linear-gradient(#6699FF, #66AAFF);
+	background: linear-gradient(#5599FF, #66AAFF);
 	border: 0;
 	color: blue;
 	opacity: 0.8;

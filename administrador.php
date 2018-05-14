@@ -65,7 +65,7 @@
 	          			var screen = screen.availWidth;
 	          			print '';
 	          		</script>
-	          		<img class="first-slide" src="pictures/diagrama-ca.png" width="1360" height="500" alt="First slide">
+	          		<img class="first-slide" src="pictures/diagrama-ca.png" width="1360" height="500" alt="First slide Responsive image">
             		<div class="container">
 	              		<div class="carousel-caption text-left">
 	                		<h1>Sistema de Producciones educativas SPE</h1>
@@ -324,7 +324,7 @@
 
 						        <div class="col-md-6">
 						          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-							          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
+							          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/publicacion.jfif" alt="Card image cap" width="200" height="200">
 							            <div class="card-body d-flex flex-column align-items-start">
 							              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
 							              	<h3 class="mb-0">
@@ -345,7 +345,7 @@
 
 						        <div class="col-md-6">
 						          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-							          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Adlet.png" alt="Card image cap" width="200" height="200">
+							          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/publicacion.jfif" alt="Card image cap" width="200" height="200">
 							            <div class="card-body d-flex flex-column align-items-start">
 							              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
 							              	<h3 class="mb-0">
@@ -383,7 +383,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Rukia.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/estadia.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Estadía</strong>
 						              	<h3 class="mb-0">
@@ -404,7 +404,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Ulquiorra.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/estadia.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              <strong class="d-inline-block mb-2 text-primary">Estadía</strong>
 						              	<h3 class="mb-0">
@@ -445,7 +445,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Ulquiorra.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/direccion.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              	<strong class="d-inline-block mb-2 text-primary">Dirección</strong>
 						              	<h3 class="mb-0">
@@ -466,7 +466,7 @@
 
 					        <div class="col-md-6">
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/Ulquiorra.png" alt="Card image cap" width="200" height="200">
+						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/direccion.jfif" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
 						              <strong class="d-inline-block mb-2 text-primary">Dirección</strong>
 						              	<h3 class="mb-0">
@@ -503,7 +503,7 @@
 
 					        <div class="col-md-6">
 						          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-							          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/kiokay.png" alt="Card image cap" width="200" height="200">
+							          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/proyecto.jfif" alt="Card image cap" width="200" height="200">
 							            <div class="card-body d-flex flex-column align-items-start">
 							              <strong class="d-inline-block mb-2 text-primary">Proyecto</strong>
 							              	<h3 class="mb-0">
@@ -525,7 +525,7 @@
 
 					        <div class="col-md-6">
 						          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-							          	<img class="card-img-right flex-auto d-none d-md-block" src="pictures/kiokay.png" alt="Card image cap" width="200" height="200">
+							          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/proyecto.jfif" alt="Card image cap" width="200" height="200">
 							            <div class="card-body d-flex flex-column align-items-start">
 							              <strong class="d-inline-block mb-2 text-primary">Proyecto</strong>
 							              	<h3 class="mb-0">
