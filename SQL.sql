@@ -116,6 +116,7 @@ create table Articulo(
 	linea int not null,
 	issn varchar (30) not null,
 	idProduccion int not null,
+	tipoArticulo varchar (50) not null,
 	foreign key(idProduccion) references Produccion(id),
 	foreign key(linea) references LineaInn(id)
 );
@@ -131,6 +132,7 @@ create table Manual(
 	id int primary key AUTO_INCREMENT,
 	registro varchar(40) not null,
 	idProduccion int not null,
+	tipoManual varchar (50) not null,
 	foreign key(idProduccion) references Produccion(id)
 );
 
@@ -141,6 +143,7 @@ create table Libro(
 	linea int not null,
 	isbn varchar (30) not null,
 	idProduccion int not null,
+	tipoLibro varchar (50) not null,
 	foreign key(idProduccion) references Produccion(id),
 	foreign key(linea) references LineaInn(id)
 );
@@ -149,6 +152,6 @@ create table Log(
 	id int primary key AUTO_INCREMENT,
 	codigoUsuario int not null,
 	actividad varchar (100),
-	fecha date,
+	fecha datetime,
 	foreign key (codigoUsuario) references Usuario(codigo)
 );
