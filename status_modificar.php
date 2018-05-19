@@ -127,8 +127,9 @@
 						}
 						$linea = $_POST['linea'];
 						$issn = $_POST['issn'];
+						$tipoart = $_POST['tipoart'];
 
-						$sql = "UPDATE articulo SET revista = '$revista', paginas = '$paginas', linea = '$linea', issn = '$issn' WHERE idProduccion = '$id'";
+						$sql = "UPDATE articulo SET revista = '$revista', paginas = '$paginas', linea = '$linea', issn = '$issn', tipoArticulo = '$tipoart' WHERE idProduccion = '$id'";
 						$resultado = mysqli_query($conexion, $sql);
 					}
 					else if($tipo == 2){
@@ -138,7 +139,8 @@
 					}
 					else if($tipo == 3){
 						$registro = $_POST['registro'];
-						$sql = "UPDATE manual SET registro= '$registro' WHERE idProduccion = '$id'";
+						$tipoman = $_POST['tipoman'];
+						$sql = "UPDATE manual SET registro= '$registro', tipoManual = '$tipoman' WHERE idProduccion = '$id'";
 						$resultado = mysqli_query($conexion, $sql);
 					}
 					else if($tipo == 4){
@@ -155,8 +157,9 @@
 						}
 						$linea = $_POST['linea'];
 						$isbn = $_POST['isbn'];	
+						$tipolib = $_POST['tipolib'];
 
-						$sql = "UPDATE libro SET editorial = '$editorial', paginas = '$paginas', linea = '$linea', isbn = '$isbn' WHERE idProduccion = '$id'";
+						$sql = "UPDATE libro SET editorial = '$editorial', paginas = '$paginas', linea = '$linea', isbn = '$isbn', tipoLibro = '$tipolib' WHERE idProduccion = '$id'";
 						$resultado = mysqli_query($conexion, $sql);
 
 					}
@@ -244,6 +247,14 @@
 												</select></td>
 											</tr>
 											<tr>
+												<td colspan="1">Tipo de artículo</td>
+												<td colspan="3"><select class="form-control custom-select" type="select" name="tipoart" id="tipoart" required>
+													<option value="Artículo de difusión y divulgación">Artículo de difusión y divulgación</option>
+													<option value="Artículo arbitrario">Artículo arbitrario</option>
+													<option value="Artículo de revista indexada">Artículo de revista indexada</option>
+												</select></td>
+											</tr>
+											<tr>
 												<td colspan="1">ISSN</td><td colspan="3"><input class="form-control" type="text" name="issn" value="<?php echo $art['issn']; ?>"></td>
 											</tr>
 										<?php
@@ -263,6 +274,14 @@
 										$resultado = mysqli_query($conexion, $sql);
 										$man = mysqli_fetch_array($resultado);
 										?>
+											<tr>
+												<td colspan="1">Tipo de publicación</td>
+												<td colspan="3"><select class="form-control custom-select" type="select" name="tipoman" id="tipoman" required>
+													<option value="Manual de operación">Manual de operación</option>
+													<option value="Productividad innovadora">Productividad innovadora</option>
+													<option value="Prototipo">Prototipo</option>
+												</select></td>
+											</tr>
 											<tr>
 												<td colspan="1">Registro</td><td colspan="3"><input class="form-control" type="text" name="registro" value="<?php echo $man['registro']; ?>"></td>
 											</tr>
@@ -311,6 +330,14 @@
 																}
 
 															?>
+														</select></td>
+													</tr>
+													<tr>
+														<td colspan="1">Tipo de publicación</td>
+														<td colspan="3"><select class="form-control custom-select" type="select" name="tipolib" id="tipolib" required>
+															<option value="Libro">Libro</option>
+															<option value="Capitulo de libro">Capitulo de libro</option>
+															<option value="Memorias">Memorias</option>
 														</select></td>
 													</tr>
 													<tr>

@@ -98,6 +98,7 @@
 			<!--Vista rapida-->
 			<h1 align="center">Producción Académica</h1>
 			<br>
+			<div class="row container-fluid mb-2">
 			<?php  
 				function nombre($codigo){
 					$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
@@ -122,20 +123,44 @@
 					}
 				}
 				else{
-					$sql = "SELECT * FROM produccion WHERE aprobacion = true ORDER BY `produccion`.`id`";
+					$sql = "SELECT * FROM produccion WHERE aprobacion = true ORDER BY `produccion`.`tipoPublicacion`";
 					$resultado = mysqli_query($conexion, $sql);
 				}
 
 				while ($reg = mysqli_fetch_array($resultado)){
 			?>
-			<!--Vistas rapidas-->
-				<div class="row container-fluid mb-2">
-
-			        <div class="col-md-6">
+				<!--Vistas rapidas-->
+					 <div class="col-md-6">
 			          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
 				          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/publicacion.jfif" alt="Card image cap" width="200" height="200">
 				            <div class="card-body d-flex flex-column align-items-start">
-				              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
+				            	<?php  
+				            		if($reg['tipoPublicacion'] == 1){
+				            			$idpr = $reg['id'];
+				            			$sql = "SELECT * FROM articulo WHERE idProduccion = '$idpr'"; 
+				            			$resul = mysqli_query($conexion, $sql);
+				            			$resart = mysqli_fetch_array($resul);
+				            			echo '<strong class="d-inline-block mb-2 text-primary">'.$resart['tipoArticulo'].'</strong>';
+				            		}
+				            		if($reg['tipoPublicacion'] == 2){
+				            			echo '<strong class="d-inline-block mb-2 text-primary">Informe técnico</strong>';
+				            		}
+				            		if($reg['tipoPublicacion'] == 3){
+				            			$idpr = $reg['id'];
+				            			$sql = "SELECT * FROM manual WHERE idProduccion = '$idpr'"; 
+				            			$resul = mysqli_query($conexion, $sql);
+				            			$resart = mysqli_fetch_array($resul);
+				            			echo '<strong class="d-inline-block mb-2 text-primary">'.$resart['tipoManual'].'</strong>';
+				            		}
+				            		if($reg['tipoPublicacion'] == 4){
+				            			$idpr = $reg['id'];
+				            			$sql = "SELECT * FROM libro WHERE idProduccion = '$idpr'"; 
+				            			$resul = mysqli_query($conexion, $sql);
+				            			$resart = mysqli_fetch_array($resul);
+				            			echo '<strong class="d-inline-block mb-2 text-primary">'.$resart['tipoLibro'].'</strong>';
+				            		}
+				            	?>
+				              	
 				              	<h3 class="mb-0">
 				                	<?php echo $reg['nombre']; ?>
 				              	</h3>
@@ -156,7 +181,32 @@
 			          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
 				          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/publicacion.jfif" alt="Card image cap" width="200" height="200">
 				            <div class="card-body d-flex flex-column align-items-start">
-				              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
+				              	<?php  
+				            		if($reg2['tipoPublicacion'] == 1){
+				            			$idpr = $reg2['id'];
+				            			$sql = "SELECT * FROM articulo WHERE idProduccion = '$idpr'"; 
+				            			$resul = mysqli_query($conexion, $sql);
+				            			$resart = mysqli_fetch_array($resul);
+				            			echo '<strong class="d-inline-block mb-2 text-primary">'.$resart['tipoArticulo'].'</strong>';
+				            		}
+				            		if($reg2['tipoPublicacion'] == 2){
+				            			echo '<strong class="d-inline-block mb-2 text-primary">Informe técnico</strong>';
+				            		}
+				            		if($reg2['tipoPublicacion'] == 3){
+				            			$idpr = $reg2['id'];
+				            			$sql = "SELECT * FROM manual WHERE idProduccion = '$idpr'"; 
+				            			$resul = mysqli_query($conexion, $sql);
+				            			$resart = mysqli_fetch_array($resul);
+				            			echo '<strong class="d-inline-block mb-2 text-primary">'.$resart['tipoManual'].'</strong>';
+				            		}
+				            		if($reg2['tipoPublicacion'] == 4){
+				            			$idpr = $reg2['id'];
+				            			$sql = "SELECT * FROM libro WHERE idProduccion = '$idpr'"; 
+				            			$resul = mysqli_query($conexion, $sql);
+				            			$resart = mysqli_fetch_array($resul);
+				            			echo '<strong class="d-inline-block mb-2 text-primary">'.$resart['tipoLibro'].'</strong>';
+				            		}
+				            	?>
 				              	<h3 class="mb-0">
 				                	<?php echo $reg2['nombre']; ?>
 				              	</h3>
@@ -167,13 +217,11 @@
 				            </div>
 			          	</div>
 			        </div>
-			    </div>
-
 		    <?php 
 		    		}
 		    	}//Llave del while
 		    ?>
-
+		    </div>
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<br>

@@ -109,7 +109,32 @@
 				          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
 					          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/publicacion.jfif" alt="Card image cap" width="200" height="200">
 					            <div class="card-body d-flex flex-column align-items-start">
-					              	<strong class="d-inline-block mb-2 text-primary">Producción</strong>
+					              	<?php  
+					            		if($reg['tipoPublicacion'] == 1){
+					            			$idpr = $reg['id'];
+					            			$sql = "SELECT * FROM articulo WHERE idProduccion = '$idpr'"; 
+					            			$resul = mysqli_query($conexion, $sql);
+					            			$resart = mysqli_fetch_array($resul);
+					            			echo '<strong class="d-inline-block mb-2 text-primary">'.$resart['tipoArticulo'].'</strong>';
+					            		}
+					            		if($reg['tipoPublicacion'] == 2){
+					            			echo '<strong class="d-inline-block mb-2 text-primary">Informe técnico</strong>';
+					            		}
+					            		if($reg['tipoPublicacion'] == 3){
+					            			$idpr = $reg['id'];
+					            			$sql = "SELECT * FROM manual WHERE idProduccion = '$idpr'"; 
+					            			$resul = mysqli_query($conexion, $sql);
+					            			$resart = mysqli_fetch_array($resul);
+					            			echo '<strong class="d-inline-block mb-2 text-primary">'.$resart['tipoManual'].'</strong>';
+					            		}
+					            		if($reg['tipoPublicacion'] == 4){
+					            			$idpr = $reg['id'];
+					            			$sql = "SELECT * FROM libro WHERE idProduccion = '$idpr'"; 
+					            			$resul = mysqli_query($conexion, $sql);
+					            			$resart = mysqli_fetch_array($resul);
+					            			echo '<strong class="d-inline-block mb-2 text-primary">'.$resart['tipoLibro'].'</strong>';
+					            		}
+					            	?>
 					              	<?php  
 							        	if($reg['aprobacion'] == true){
 							        		echo '<span class="badge badge-success">Público</span>';
@@ -146,7 +171,32 @@
 				          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
 					          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/publicacion.jfif" alt="Card image cap" width="200" height="200">
 					            <div class="card-body d-flex flex-column align-items-start">
-					              <strong class="d-inline-block mb-2 text-primary">Producción</strong>
+					              	<?php  
+					            		if($reg2['tipoPublicacion'] == 1){
+					            			$idpr = $reg2['id'];
+					            			$sql = "SELECT * FROM articulo WHERE idProduccion = '$idpr'"; 
+					            			$resul = mysqli_query($conexion, $sql);
+					            			$resart = mysqli_fetch_array($resul);
+					            			echo '<strong class="d-inline-block mb-2 text-primary">'.$resart['tipoArticulo'].'</strong>';
+					            		}
+					            		if($reg2['tipoPublicacion'] == 2){
+					            			echo '<strong class="d-inline-block mb-2 text-primary">Informe técnico</strong>';
+					            		}
+					            		if($reg2['tipoPublicacion'] == 3){
+					            			$idpr = $reg2['id'];
+					            			$sql = "SELECT * FROM manual WHERE idProduccion = '$idpr'"; 
+					            			$resul = mysqli_query($conexion, $sql);
+					            			$resart = mysqli_fetch_array($resul);
+					            			echo '<strong class="d-inline-block mb-2 text-primary">'.$resart['tipoManual'].'</strong>';
+					            		}
+					            		if($reg2['tipoPublicacion'] == 4){
+					            			$idpr = $reg2['id'];
+					            			$sql = "SELECT * FROM libro WHERE idProduccion = '$idpr'"; 
+					            			$resul = mysqli_query($conexion, $sql);
+					            			$resart = mysqli_fetch_array($resul);
+					            			echo '<strong class="d-inline-block mb-2 text-primary">'.$resart['tipoLibro'].'</strong>';
+					            		}
+					            	?>
 					              <?php  
 							        	if($reg2['aprobacion'] == true){
 							        		echo '<span class="badge badge-success">Público</span>';

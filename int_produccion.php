@@ -72,10 +72,10 @@
 							<tr>
 								<td colspan="1">Tipo de Publicación</td>
 								<td colspan="2"><select class="form-control custom-select" type="select" name="tipo" id="tipo">
-									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="1"){echo "selected";}?> value="1">Artículo</option>
+									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="1"){echo "selected";}?> value="1">Artículos</option>
 									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="2"){echo "selected";}?> value="2">Informe técnico</option>
-									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="3"){echo "selected";}?> value="3">Manual</option>
-									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="4"){echo "selected";}?> value="4">Libro</option>
+									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="3"){echo "selected";}?> value="3">Manual de operación, productividad innovadora, prototipo</option>
+									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="4"){echo "selected";}?> value="4">Libro, capitulo de libro, memorias</option>
 									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="5"){echo "selected";}?> value="5">Línea de innovación</option>
 									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="6"){echo "selected";}?> value="6">Dirección individualizada </option>
 									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="7"){echo "selected";}?> value="7">Estadía en Empresa</option>
@@ -118,8 +118,9 @@
 									$paginas = "Página ".$_POST['pag1']." hasta la página ".$_POST['pag2'];
 									$linea = $_POST['linea'];
 									$issn = $_POST['issn'];
+									$tipoart = $_POST['tipoart'];
 
-									$sql = "INSERT INTO articulo(revista, paginas, linea, issn, idProduccion) VALUES('$revista', '$paginas', '$linea', '$issn', '$idProduccion')";
+									$sql = "INSERT INTO articulo(revista, paginas, linea, issn, idProduccion, tipoArticulo) VALUES('$revista', '$paginas', '$linea', '$issn', '$idProduccion', '$tipoart')";
 									$resultado = mysqli_query($conexion, $sql);
 
 									//Logs
@@ -188,6 +189,14 @@
 														}
 
 													?>
+												</select></td>
+											</tr>
+											<tr>
+												<td colspan="1">Tipo de artículo</td>
+												<td colspan="3"><select class="form-control custom-select" type="select" name="tipoart" id="tipoart" required>
+													<option value="Artículo de difusión y divulgación">Artículo de difusión y divulgación</option>
+													<option value="Artículo arbitrario">Artículo arbitrario</option>
+													<option value="Artículo de revista indexada">Artículo de revista indexada</option>
 												</select></td>
 											</tr>
 											<tr>
@@ -321,8 +330,9 @@
 
 									$idProduccion = $reg['id'];
 									$registro = $_POST['registro'];
+									$tipoman = $_POST['tipoman'];
 
-									$sql = "INSERT INTO manual(registro, idProduccion) VALUES('$registro', '$idProduccion')";
+									$sql = "INSERT INTO manual(registro, idProduccion, tipoManual) VALUES('$registro', '$idProduccion', '$tipoman')";
 									$resultado = mysqli_query($conexion, $sql);
 
 									//Logs
@@ -356,6 +366,14 @@
 															</label>
 														</div>
 													</td>
+												</tr>
+												<tr>
+													<td colspan="1">Tipo de publicación</td>
+													<td colspan="3"><select class="form-control custom-select" type="select" name="tipoman" id="tipoman" required>
+														<option value="Manual de operación">Manual de operación</option>
+														<option value="Productividad innovadora">Productividad innovadora</option>
+														<option value="Prototipo">Prototipo</option>
+													</select></td>
 												</tr>
 												<tr>
 													<td colspan="1">Registro</td><td colspan="3"><input class="form-control" type="text" name="registro"></td>
@@ -408,8 +426,8 @@
 									$paginas = "Página ".$_POST['pag1']." hasta la página ".$_POST['pag2'];
 									$linea = $_POST['linea'];
 									$isbn = $_POST['isbn'];
-
-									$sql = "INSERT INTO libro(paginas, editorial, linea, isbn, idProduccion) VALUES('$paginas', '$editorial', '$linea', '$isbn', '$idProduccion')";
+									$tipolib = $_POST['tipolib'];
+									$sql = "INSERT INTO libro(paginas, editorial, linea, isbn, idProduccion, tipoLibro) VALUES('$paginas', '$editorial', '$linea', '$isbn', '$idProduccion', '$tipolib')";
 									$resultado = mysqli_query($conexion, $sql);
 
 									//Logs
@@ -434,16 +452,16 @@
 														$persona = $_SESSION['persona']; echo $persona['nombre'];?></td>
 												</tr>
 												<tr>
-												<td>Fecha</td>
-												<td><input class="form-control" type="date" name="fecha" required></td>
-												<td colspan="2">
-													<div class="checkbox input-group-text">
-														<label>
-															<input type="checkbox" aria-label="Checkbox for following text input" name="borrador"> Borrador
-														</label>
-													</div>
-												</td>
-											</tr>
+													<td>Fecha</td>
+													<td><input class="form-control" type="date" name="fecha" required></td>
+													<td colspan="2">
+														<div class="checkbox input-group-text">
+															<label>
+																<input type="checkbox" aria-label="Checkbox for following text input" name="borrador"> Borrador
+															</label>
+														</div>
+													</td>
+												</tr>
 												<tr>
 													<td colspan="1">ISBN</td><td colspan="3"><input class="form-control" type="text" name="isbn" required></td>
 												</tr>
@@ -477,6 +495,14 @@
 															}
 
 														?>
+													</select></td>
+												</tr>
+												<tr>
+													<td colspan="1">Tipo de publicación</td>
+													<td colspan="3"><select class="form-control custom-select" type="select" name="tipolib" id="tipolib" required>
+														<option value="Libro">Libro</option>
+														<option value="Capitulo de libro">Capitulo de libro</option>
+														<option value="Memorias">Memorias</option>
 													</select></td>
 												</tr>
 												<tr>
