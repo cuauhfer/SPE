@@ -13,7 +13,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src='js/script-form.js'></script>
 	<!--Titulo-->
-	<title>Modificar Usuario</title>
+	<title>Agregar Usuario</title>
 </head>
 <?php 
 	//Inicio de secion
@@ -50,7 +50,7 @@
 				//Logs
 				$admin = $_SESSION['user'];
 				$adminon = $admin['codigo'];
-				$sql = "INSERT INTO log(codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Dio de alta a $username en el sistema', NOW())";
+				$sql = "INSERT INTO log(codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Dió de alta a $username en el sistema', NOW())";
 				$resultado = mysqli_query($conexion, $sql);
 				
 				header('Location: admin_usuario.php');
@@ -64,7 +64,7 @@
 		<header class="fixed-top">
 			<nav>
 				<ul>
-					<a href='admin_usuario.php'><li>Atras</li></a>
+					<a href='admin_usuario.php'><li>Atrás</li></a>
 				</ul>
 					
 					<img id='logo' src='pictures/logo.png'>

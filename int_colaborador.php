@@ -35,6 +35,8 @@
 	if(isset($_SESSION['username'])){
 		$conexion = mysqli_connect("localhost", "Fernando", "Cuauhtli", "b17_21017364_CuerpoAcademico");
 		$usuario = $_SESSION['username'];
+		$admin = $_SESSION['user'];
+		$adminon = $admin['codigo'];
 ?>
 <body>
 	<header class="fixed-top">
@@ -116,7 +118,7 @@
 						<td colspan="4">
 							<select class="form-control custom-select" type="select" name="persona" id="persona" required>
 								<?php 
-									$sql = "SELECT * FROM persona WHERE nombre != 'Administrador'";
+									$sql = "SELECT * FROM persona WHERE nombre != 'Administrador' AND codigo != '$adminon'";
 									$resultado = mysqli_query($conexion, $sql);
 									while ($personas = mysqli_fetch_array($resultado)){
 										$nombre = $personas['nombre'];

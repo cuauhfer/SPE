@@ -153,13 +153,13 @@
 
 								while($reg = mysqli_fetch_array($resultado)){
 								echo 
-									"<tr><td>Codigo</td><td>".$reg['codigo']."</td></tr>".
+									"<tr><td>Código</td><td>".$reg['codigo']."</td></tr>".
 									"<tr><td>Nombre</td><td>".$reg_p['nombre']."</td>"."</tr>".
 									"<tr><td>Apellido Paterno</td><td>".$reg_p['apellidoP']."</td>"."</tr>".
 									"<tr><td>Apellido Materno</td><td>".$reg_p['apellidoM']."</td>"."</tr>".
 									"<tr><td>Correo</td><td>".$reg_p['email']."</td>"."</tr>".
-									"<tr><td>Telefono</td><td>".$reg_p['telefono']."</td>"."</tr>".
-									"<tr><td>Division</td><td>".$reg_p['division']."</td>"."</tr>".
+									"<tr><td>Teléfono</td><td>".$reg_p['telefono']."</td>"."</tr>".
+									"<tr><td>División</td><td>".$reg_p['division']."</td>"."</tr>".
 									"<tr><td>Escolaridad</td><td>".$reg_p['escolaridad']."</td>"."</tr>".
 									"<tr><td>Nombre de Usuario</td><td>".$reg['username']."</td>"."</tr>";
 								}//Llave del while

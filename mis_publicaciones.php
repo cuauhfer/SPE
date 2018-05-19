@@ -488,7 +488,7 @@
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
 						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/innovacion.jpg" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
-						              	<strong class="d-inline-block mb-2 text-primary">Linea de innovación</strong>
+						              	<strong class="d-inline-block mb-2 text-primary">Línea de innovación</strong>
 						              	<?php  
 								        	if($reg['borrador'] == true){
 								        		echo '<span class="badge badge-warning">Borrador</span>';
@@ -522,7 +522,7 @@
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
 						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/innovacion.jpg" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
-						              	<strong class="d-inline-block mb-2 text-primary">Linea de Innovación</strong>
+						              	<strong class="d-inline-block mb-2 text-primary">Línea de Innovación</strong>
 						              	<?php  
 								        	if($reg2['borrador'] == true){
 								        		echo '<span class="badge badge-warning">Borrador</span>';
@@ -968,7 +968,7 @@
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
 						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/innovacion.jpg" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
-						              	<strong class="d-inline-block mb-2 text-primary">Linea de innovación</strong>
+						              	<strong class="d-inline-block mb-2 text-primary">Línea de innovación</strong>
 						              	<?php  
 								        	if($reg['borrador'] == true){
 								        		echo '<span class="badge badge-warning">Borrador</span>';
@@ -1002,7 +1002,7 @@
 					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
 						          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/innovacion.jpg" alt="Card image cap" width="200" height="200">
 						            <div class="card-body d-flex flex-column align-items-start">
-						              	<strong class="d-inline-block mb-2 text-primary">Linea de Innovación</strong>
+						              	<strong class="d-inline-block mb-2 text-primary">Línea de Innovación</strong>
 						              	<?php  
 								        	if($reg['borrador'] == true){
 								        		echo '<span class="badge badge-warning">Borrador</span>';

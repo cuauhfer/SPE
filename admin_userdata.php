@@ -126,7 +126,7 @@
 				//Logs
 				$admin = $_SESSION['user'];
 				$adminon = $admin['codigo'];
-				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Modifico el perfil de $username por medio del administrador', NOW())";
+				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Modificó el perfil de $username por medio del administrador', NOW())";
 				$resultado = mysqli_query($conexion, $sql);
 
 				if(($reg['nivel'] != $_POST['nivel']) && ($_POST['username'] == $_SESSION['username'])){
@@ -153,7 +153,7 @@
 			//Logs
 				$admin = $_SESSION['user'];
 				$adminon = $admin['codigo'];
-				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Elimino el perfil de $username por medio del administrador', NOW())";
+				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Eliminó el perfil de $username por medio del administrador', NOW())";
 				$resultado = mysqli_query($conexion, $sql);
 
 			header('Location: admin_usuario.php');
@@ -168,7 +168,7 @@
 		<header class="fixed-top">
 			<nav>
 				<ul>
-					<a href='admin_usuario.php'><li>Atras</li></a>
+					<a href='admin_usuario.php'><li>Atrás</li></a>
 				</ul>
 						
 					<img id='logo' src='pictures/logo.png'>
@@ -205,7 +205,7 @@
 							?>
 							</table>
 						<div class="row">
-							<div class="col-sm-12 col-md-6 col-lg-6 text-danger">Se cambiaran los datos del usuario</div>
+							<div class="col-sm-12 col-md-6 col-lg-6 text-danger">Se cambiarán los datos del usuario</div>
 							<div class="col-sm-12 col-md-6 col-lg-6">
 								<input class="btn btn-outline-success" type="submit" name="guardar" value="Guardar"> 
 								<input class="btn btn-outline-success" type="submit" name="eliminar" value="Eliminar">   

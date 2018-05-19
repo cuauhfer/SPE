@@ -48,7 +48,7 @@
 			//Logs
 			$admin = $_SESSION['user'];
 			$adminon = $admin['codigo'];
-			$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Agrego al alumno $nombre al sistema', NOW())";
+			$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Agregó al alumno $nombre al sistema', NOW())";
 			$resultado = mysqli_query($conexion, $sql);
 		
 			header('Location: int_alumno.php');

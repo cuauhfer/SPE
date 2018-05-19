@@ -114,20 +114,6 @@
 				</div>
 	        	<div class="col-md-8 px-0">
 			        <h3 class="text-primary display-4 font-italic"><?php echo $reg['nombre'];?></h3>
-			        <?php  
-			        	if($reg['aprobacion'] == true){
-			        		echo '<span class="badge badge-success">Público</span>';
-			        	}
-			        	else if($reg['borrador'] == true){
-			        		echo '<span class="badge badge-warning">Borrador</span>';
-			        	}
-			        	else if($reg['rechazo'] == true){
-			        		echo '<span class="badge badge-danger">Rechazada</span>';
-			        	}
-			        	else{
-			        		echo '<span class="badge badge-dark">En espera</span>';
-			        	}
-			        ?>
 			        <div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
 			        <div class="mb-1 text-muted">Fecha de inicio: <?php echo $reg['fechaInicio'] ?></div>
 			        <div class="mb-1 text-muted">Fecha de termino: <?php echo $reg['fechaFin'] ?></div>
@@ -159,8 +145,14 @@
 		}
 	?>
 	<div class="container">
+		<?php 
+			if(isset($_SESSION['administrador']) || isset($_SESSION['integrante'])){
+		?>
 		<a class="btn btn-outline-success" onclick="HTMLtoPDF()">Guardar PDF</a>
 		<br><br>
+		<?php  
+			}
+		?>
 	</div>
 	<script src="../assets/pdf/jspdf.js"></script>
 	<script src="../assets/pdf/jquery-2.1.3.js"></script>

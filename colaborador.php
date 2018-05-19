@@ -27,6 +27,7 @@
 			<nav>
 				<ul>
 					<a href='persona.php'><li>Perfil</li></a>
+					<a href='mis_participaciones.php'><li>Participaciones</li></a>
 					
 				</ul>
 					
@@ -52,11 +53,11 @@
 	          			var screen = screen.availWidth;
 	          			print '';
 	          		</script>
-	          		<img class="first-slide" src="pictures/diagrama-ca.png" width="1360" height="500" alt="First slide">
+	          		<img class="first-slide" src="pictures/diagrama-ca.png" width="1360" height="500" alt="First slide Responsive image">
             		<div class="container">
 	              		<div class="carousel-caption text-left">
-	                		<h1>Sistema de Producciones educativas SPE</h1>
-	                		<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+	                		<h1 style="color: white; text-shadow: black 0.1em 0.1em 0.2em">Sistema de Producciones educativas SPE</h1>
+	                		<p style="color: white; text-shadow: black 0.1em 0.1em 0.2em">SPE es un sitio web que está dedicado a las publicaciones de cualquier producción académica que hayan sido realizadas por algún integrante del cuerpo académico al que pertenece el sistema.</p>
 	              		</div>
 	            	</div>
 	          	</div>
@@ -64,8 +65,8 @@
 	            	<img class="second-slide" src="pictures/mision.jpg" width="1360" height="500" alt="Second slide">
 	            	<div class="container">
 	              		<div class="carousel-caption">
-	                		<h1>Misión</h1>
-	                		<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+	                		<h1 style="color: white; text-shadow: black 0.1em 0.1em 0.2em">Misión</h1>
+	                		<p style="color: white; text-shadow: black 0.1em 0.1em 0.2em">Crear un sistema en línea compatible con la mayoría de dispositivos, donde cualquier persona pueda conocer la producción educativa de los conjuntos de cuerpos académicos pertenecientes a una universidad o división.</p>
 	              		</div>
 	            	</div>
 	          	</div>
@@ -73,8 +74,8 @@
 	            	<img class="third-slide" src="pictures/Vision.png" width="1360" height="500" alt="Third slide">
 	            		<div class="container">
 	              			<div class="carousel-caption text-right">
-	                			<h1>Visión</h1>
-	                			<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+	                			<h1 style="color: white; text-shadow: black 0.1em 0.1em 0.2em">Visión</h1>
+	                			<p style="color: white; text-shadow: black 0.1em 0.1em 0.2em">Ser el sitio ideal para compartir tu conocimiento con el resto del campo académico. Proporcionando un entorno en el cual todos los profesores de una universidad podrán compartir sus logros, haciendo de SPE su principal medio de difusión.</p>
 	              			</div>
 	           		 	</div>
 	          		</div>
@@ -209,7 +210,7 @@
 		              		<div class="card mb-4 box-shadow">
 		                		<img class="card-img-top" src="pictures/innovacion.jpg" width="200" height="200" alt="Card image cap">
 		                		<div class="card-body">
-		                			<h3 class="text-center">Linea de innovación</h3>
+		                			<h3 class="text-center">Línea de innovación</h3>
 		                  			<p class="card-text">Conoce las diferentes lineas de investigación en las que trabajan nuestros integrantes.</p>
 		                  			<div class="d-flex justify-content-between align-items-center">
 		                    			<div class="btn-group">
@@ -484,7 +485,62 @@
 				</div>
 
 	  			<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-	  				
+	  				<div class="row">
+	  					<?php  
+	  						$sql = "SELECT * FROM persona WHERE nombre != 'Administrador' ORDER BY `persona`.`nombre` ASC";
+	  						$resultado = mysqli_query($conexion, $sql);
+	  						while($reg = mysqli_fetch_array($resultado)){
+	  					?>
+			  				<div class="col-md-6">
+					          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
+					          		<?php
+									$foto = $reg['codigo'];
+									if(file_exists("profile_pictures/".$foto.".jpg")){
+									?>
+						          		<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="profile_pictures/<?php echo $reg['codigo']; ?>.jpg" alt="Card image cap" width="200" height="200">
+						          	<?php  
+									}else{
+									?>
+										<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="profile_pictures/default.png" alt="Card image cap" width="200" height="200">
+									<?php  
+									}
+									?>
+						            <div class="card-body d-flex flex-column align-items-start">
+						            	<?php  
+						            		$codigo = $reg['codigo'];
+						            		$sql = "SELECT * FROM usuario WHERE codigo = '$codigo'";
+	  										$resul = mysqli_query($conexion, $sql);
+	  										$usreg = mysqli_fetch_array($resul);
+						            		if($usreg['nivel']==1){
+						            			echo '<strong class="d-inline-block mb-2 text-primary">Colaborador</strong>';
+						            		}
+						            		else if($usreg['nivel']==2){
+						            			echo '<strong class="d-inline-block mb-2 text-primary">Integrante</strong>';
+						            		}
+						            		else if($usreg['nivel']==3){
+						            			echo '<strong class="d-inline-block mb-2 text-primary">Administrador</strong>';
+						            		}
+						            	?>
+						              	
+						              	<h3 class="mb-0">
+						                	<?php echo $reg['nombre']." ".$reg['apellidoP']." ".$reg['apellidoM']; ?>
+						              	</h3>
+						              	<div class="mb-1 text-muted"><?php echo $reg['escolaridad']; ?></div>
+						              	<div class="mb-1 text-muted"><?php echo $reg['email']; ?></div>
+						              	<?php  
+						              		if($reg['telefono'] >= 10000000 && $reg['telefono'] <= 9999999999999){
+						              			echo '<div class="mb-1 text-muted">'.$reg['telefono'].'</div>';
+						              		}
+						              	
+						              	?>
+						            </div>
+					            
+					          	</div>
+					        </div>
+				        <?php  
+				        }
+				        ?>
+			        </div>
 	  			</div>
 	  		</div>
 		</section>

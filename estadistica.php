@@ -183,7 +183,7 @@
 									$resultado = mysqli_query($conexion, $sql);
 									$produccion3 = $resultado -> num_rows;
 
-									array_push($arreglo_prod, array($produccion3, $reg['nombre']));
+									array_push($arreglo_prod, array($produccion3, $reg['apellidoP']));
 								}
 								
 								$arreglo_prod = burbuja($arreglo_prod);
@@ -199,7 +199,7 @@
 									$resultado = mysqli_query($conexion, $sql);
 									$produccion4 = $resultado -> num_rows;
 
-									array_push($arreglo_proy, array($produccion4, $reg['nombre']));
+									array_push($arreglo_proy, array($produccion4, $reg['apellidoP']));
 								}
 								
 								$arreglo_proy = burbuja($arreglo_proy);
@@ -215,7 +215,7 @@
 									$resultado = mysqli_query($conexion, $sql);
 									$produccion5 = $resultado -> num_rows;
 
-									array_push($arreglo_dirc, array($produccion5, $reg['nombre']));
+									array_push($arreglo_dirc, array($produccion5, $reg['apellidoP']));
 								}
 								
 								$arreglo_dirc = burbuja($arreglo_dirc);
@@ -231,7 +231,7 @@
 									$resultado = mysqli_query($conexion, $sql);
 									$produccion6 = $resultado -> num_rows;
 
-									array_push($arreglo_esta, array($produccion6, $reg['nombre']));
+									array_push($arreglo_esta, array($produccion6, $reg['apellidoP']));
 								}
 								
 								$arreglo_esta = burbuja($arreglo_esta);
@@ -247,7 +247,7 @@
 									$resultado = mysqli_query($conexion, $sql);
 									$produccion7 = $resultado -> num_rows;
 
-									array_push($arreglo_line, array($produccion7, $reg['nombre']));
+									array_push($arreglo_line, array($produccion7, $reg['apellidoP']));
 								}
 								
 								$arreglo_line = burbuja($arreglo_line);
@@ -323,7 +323,7 @@
 									animationEnabled: true,
 									theme: "light2", // "light1", "light2", "dark1", "dark2"
 									title: {
-										text: "Mas producciones académicas"
+										text: "Más producciones académicas"
 									},
 									subtitles: [{
 										text: "",
@@ -357,7 +357,7 @@
 									animationEnabled: true,
 									theme: "light2", // "light1", "light2", "dark1", "dark2"
 									title: {
-										text: "Mas proyectos"
+										text: "Más proyectos"
 									},
 									subtitles: [{
 										text: "",
@@ -391,7 +391,7 @@
 									animationEnabled: true,
 									theme: "light2", // "light1", "light2", "dark1", "dark2"
 									title: {
-										text: "Mas direcciones"
+										text: "Más direcciones"
 									},
 									subtitles: [{
 										text: "",
@@ -425,7 +425,7 @@
 									animationEnabled: true,
 									theme: "light2", // "light1", "light2", "dark1", "dark2"
 									title: {
-										text: "Mas estadías"
+										text: "Más estadías"
 									},
 									subtitles: [{
 										text: "",
@@ -459,7 +459,7 @@
 									animationEnabled: true,
 									theme: "light2", // "light1", "light2", "dark1", "dark2"
 									title: {
-										text: "Mas lineas de innovación"
+										text: "Más lineas de innovación"
 									},
 									subtitles: [{
 										text: "",

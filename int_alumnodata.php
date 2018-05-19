@@ -83,7 +83,7 @@
 			//Logs
 			$admin = $_SESSION['user'];
 			$adminon = $admin['codigo'];
-			$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Cambio los datos del alumno $nombre', NOW())";
+			$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Cambió los datos del alumno $nombre', NOW())";
 			$resultado = mysqli_query($conexion, $sql);
 
 			header('Location: int_alumno.php');
@@ -102,7 +102,7 @@
 			//Logs
 			$admin = $_SESSION['user'];
 			$adminon = $admin['codigo'];
-			$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Elimino el alumno $nombre del sistema', NOW())";
+			$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Eliminó el alumno $nombre del sistema', NOW())";
 			$resultado = mysqli_query($conexion, $sql);
 
 			header('Location: int_alumno.php');

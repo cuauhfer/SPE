@@ -164,7 +164,7 @@
 					//Logs
 					$admin = $_SESSION['user'];
 					$adminon = $admin['codigo'];
-					$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Actualizo la información de la publicación $nombre', NOW())";
+					$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Actualizó la información de la publicación $nombre', NOW())";
 					$resultado = mysqli_query($conexion, $sql);
 
 					header('Location: ../mis_publicaciones.php');
@@ -359,7 +359,7 @@
 					//Logs
 					$admin = $_SESSION['user'];
 					$adminon = $admin['codigo'];
-					$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Actualizo la información de la linea de innovación $nombre', NOW())";
+					$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Actualizó la información de la linea de innovación $nombre', NOW())";
 					$resultado = mysqli_query($conexion, $sql);
 
 					header('Location: ../mis_publicaciones.php');
@@ -439,7 +439,7 @@
 					//Logs
 					$admin = $_SESSION['user'];
 					$adminon = $admin['codigo'];
-					$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Actualizo la información de la dirección $proyecto', NOW())";
+					$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Actualizó la información de la dirección $proyecto', NOW())";
 					$resultado = mysqli_query($conexion, $sql);
 
 					header('Location: ../mis_publicaciones.php');
@@ -546,7 +546,7 @@
 					//Logs
 					$admin = $_SESSION['user'];
 					$adminon = $admin['codigo'];
-					$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Actualizo la información de la estadía en $empresa', NOW())";
+					$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Actualizó la información de la estadía en $empresa', NOW())";
 					$resultado = mysqli_query($conexion, $sql);
 
 					header('Location: ../mis_publicaciones.php');
@@ -629,13 +629,13 @@
 						$borrador = false;
 					}
 					$aprobacion = false;
-					$sql = "UPDATE proyecto SET nombre = '$nombre', fechaInicio = '$fechaini', fechaFin = '$fechafin', institucion = '$institucion', descripcion = '$descripcion', borrador = '$borrador', aprobacion = false, rechazo = false";
+					$sql = "UPDATE proyecto SET nombre = '$nombre', fechaInicio = '$fechaini', fechaFin = '$fechafin', institucion = '$institucion', descripcion = '$descripcion', borrador = '$borrador', aprobacion = false, rechazo = false WHERE id = '$id'";
 					$resultado = mysqli_query($conexion, $sql);
 
 					//Logs
 					$admin = $_SESSION['user'];
 					$adminon = $admin['codigo'];
-					$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Actualizo la información del proyecto $nombre', NOW())";
+					$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Actualizó la información del proyecto $nombre', NOW())";
 					$resultado = mysqli_query($conexion, $sql);
 
 					header('Location: ../mis_publicaciones.php');

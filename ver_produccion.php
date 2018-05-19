@@ -141,7 +141,7 @@
 				              	</h3>
 				              	<div class="mb-1 text-muted"><?php echo nombre($reg['autor']); ?></div>
 				              	<?php 
-					              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver mas</a>";
+					              	echo "<a href='produccion_ind.php/?nombre=".$reg['nombre']."&autor=".$reg['autor']."' class='btn btn-primary'>Ver más</a>";
 					            ?>
 				            </div>
 			            
@@ -162,7 +162,7 @@
 				              	</h3>
 				              	<div class="mb-1 text-muted"><?php echo nombre($reg2['autor']); ?></div>
 				              	<?php 
-					              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver mas</a>";
+					              	echo "<a href='produccion_ind.php/?nombre=".$reg2['nombre']."&autor=".$reg2['autor']."' class='btn btn-primary'>Ver más</a>";
 					            ?>
 				            </div>
 			          	</div>

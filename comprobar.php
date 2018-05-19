@@ -102,7 +102,7 @@
 
 			//Logs
 			$cod = $codigo;
-			$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$cod', 'Modifico su perfil', NOW())";
+			$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$cod', 'Modificó su perfil', NOW())";
 			$resultado = mysqli_query($conexion, $sql);
 
 			if(isset($_SESSION['integrante'])){

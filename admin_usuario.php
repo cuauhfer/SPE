@@ -78,7 +78,7 @@
 			<div class="row container-fluid">
 				<div class="container col-xs-12 col-sm-12 col-md-8 col-lg-9">
 					<table class="table table-success table-bordered table-striped table-hover">
-						<tr><th>Codigo</th><th>Nombre</th><th>Nombre Usuario</th><th>Nivel</th></tr>
+						<tr><th>Código</th><th>Nombre</th><th>Nombre Usuario</th><th>Nivel</th></tr>
 						<?php 
 							while($reg = mysqli_fetch_array($resultado)){
 								$sql = "SELECT * FROM `persona`";
@@ -99,7 +99,7 @@
 					<form method="post">
 						<input class="form" type="text" name="codigo" required>
 						<input class="btn btn-outline-success" type="submit" name="seleccionar" value="Buscar">
-						<h5 class="text-dark">Seleccione un codigo para operar con ese usuario</h5>
+						<h5 class="text-dark">Seleccione un código para operar con ese usuario</h5>
 					</form>
 				</div>
 			</div>

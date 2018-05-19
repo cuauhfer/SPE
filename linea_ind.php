@@ -114,14 +114,6 @@
 				</div>
 	        	<div class="col-md-8 px-0">
 			        <h3 class="text-primary display-4 font-italic"><?php echo $reg['nombre'];?></h3>
-			        <?php  
-			        	if($reg['borrador'] == true){
-			        		echo '<span class="badge badge-warning">Borrador</span>';
-			        	}
-			        	else{
-			        		echo '<span class="badge badge-success">Público</span>';
-			        	}
-			        ?>
 			        <div class="mb-1 text-muted">Creador: <?php echo nombre($reg['codigoPersona']); ?></div>
 			        <div class="mb-1 text-muted">Campo: <?php echo $reg['campo'] ?></div>
 		        </div>
@@ -132,8 +124,14 @@
 		}
 	?>
 	<div class="container">
+		<?php 
+			if(isset($_SESSION['administrador']) || isset($_SESSION['integrante'])){
+		?>
 		<a class="btn btn-outline-success" onclick="HTMLtoPDF()">Guardar PDF</a>
 		<br><br>
+		<?php  
+			}
+		?>
 	</div>
 	<script src="../assets/pdf/jspdf.js"></script>
 	<script src="../assets/pdf/jquery-2.1.3.js"></script>

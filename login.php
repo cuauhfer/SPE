@@ -47,7 +47,7 @@
 
 			//Logs
 			$cod = $reg['codigo'];
-			$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$cod', 'Ingreso al sistema', NOW())";
+			$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$cod', 'Ingresó al sistema', NOW())";
 			$resultado = mysqli_query($conexion, $sql);
 
 			if($reg['nivel'] == 2){

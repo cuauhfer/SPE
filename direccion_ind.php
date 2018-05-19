@@ -153,8 +153,14 @@
 		}
 	?>
 	<div class="container">
+		<?php 
+			if(isset($_SESSION['administrador']) || isset($_SESSION['integrante'])){
+		?>
 		<a class="btn btn-outline-success" onclick="HTMLtoPDF()">Guardar PDF</a>
 		<br><br>
+		<?php  
+			}
+		?>
 	</div>
 	<script src="../assets/pdf/jspdf.js"></script>
 	<script src="../assets/pdf/jquery-2.1.3.js"></script>

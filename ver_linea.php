@@ -135,13 +135,13 @@
 			          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
 				          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/innovacion.jpg" alt="Card image cap" width="200" height="200">
 				            <div class="card-body d-flex flex-column align-items-start">
-				              	<strong class="d-inline-block mb-2 text-primary">Linea de innovación</strong>
+				              	<strong class="d-inline-block mb-2 text-primary">Línea de innovación</strong>
 				              	<h3 class="mb-0">
 				                	<?php echo $reg['nombre']; ?>
 				              	</h3>
 				              	<div class="mb-1 text-muted"><?php echo nombre($reg['codigoPersona']); ?></div>
 				              	<?php 
-					              	echo "<a href='linea_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-primary'>Ver mas</a>";
+					              	echo "<a href='linea_ind.php/?nombre=".$reg['id']."&autor=".$reg['codigoPersona']."' class='btn btn-primary'>Ver más</a>";
 					            ?>
 				            </div>
 			            
@@ -156,13 +156,13 @@
 			          	<div class="card flex-md-row mb-4 box-shadow h-md-250">
 				          	<img class="card-img-right flex-auto d-none d-md-block rounded-circle" src="pictures/innovacion.jpg" alt="Card image cap" width="200" height="200">
 				            <div class="card-body d-flex flex-column align-items-start">
-				              <strong class="d-inline-block mb-2 text-primary">Linea de Innovación</strong>
+				              <strong class="d-inline-block mb-2 text-primary">Línea de Innovación</strong>
 				              	<h3 class="mb-0">
 				                	<?php echo $reg2['nombre']; ?>
 				              	</h3>
 				              	<div class="mb-1 text-muted"><?php echo nombre($reg2['codigoPersona']); ?></div>
 				              	<?php 
-					              	echo "<a href='linea_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn btn-primary'>Ver mas</a>";
+					              	echo "<a href='linea_ind.php/?nombre=".$reg2['id']."&autor=".$reg2['codigoPersona']."' class='btn btn-primary'>Ver más</a>";
 					            ?>
 				            </div>
 			          	</div>

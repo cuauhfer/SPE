@@ -48,7 +48,7 @@
 						}
 						else if(isset($_SESSION['administrador'])){
 							?>
-								<a href='administrador.php'><li>Atras</li></a>
+								<a href='administrador.php'><li>Atrás</li></a>
 							<?php
 						}
 					?>
@@ -70,14 +70,14 @@
 						<!-- Tabla para ver el tipo de publicacion o registro-->
 						<table class="table table-success table-bordered table-striped table-hover">
 							<tr>
-								<td colspan="1">Tipo de Publicacion</td>
+								<td colspan="1">Tipo de Publicación</td>
 								<td colspan="2"><select class="form-control custom-select" type="select" name="tipo" id="tipo">
-									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="1"){echo "selected";}?> value="1">Articulo</option>
-									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="2"){echo "selected";}?> value="2">Informe Tecnico</option>
+									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="1"){echo "selected";}?> value="1">Artículo</option>
+									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="2"){echo "selected";}?> value="2">Informe técnico</option>
 									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="3"){echo "selected";}?> value="3">Manual</option>
 									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="4"){echo "selected";}?> value="4">Libro</option>
-									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="5"){echo "selected";}?> value="5">Linea de Innovación</option>
-									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="6"){echo "selected";}?> value="6">Direccion Individualizada </option>
+									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="5"){echo "selected";}?> value="5">Línea de innovación</option>
+									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="6"){echo "selected";}?> value="6">Dirección individualizada </option>
 									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="7"){echo "selected";}?> value="7">Estadía en Empresa</option>
 									<option <?php if(isset($_POST['tipo']) && $_POST['tipo']=="8"){echo "selected";}?> value="8">Proyecto</option>
 								</select></td>
@@ -125,7 +125,7 @@
 									//Logs
 									$admin = $_SESSION['user'];
 									$adminon = $admin['codigo'];
-									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creo el articulo $nombre', NOW())";
+									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creó el articulo $nombre', NOW())";
 									$resultado = mysqli_query($conexion, $sql);
 									
 									header('Location: int_colaborador.php/?produccion='.$reg['id'].'&tipo=1');
@@ -194,7 +194,7 @@
 												<td colspan="1">ISSN</td><td colspan="3"><input class="form-control" type="text" name="issn"></td>
 											</tr>
 											<tr>
-												<td colspan="1">Descripcion</td><td colspan="3"><textarea type="text" id="descripcion" name="descripcion" class="form-control" rows="5"></textarea></td>
+												<td colspan="1">Descripción</td><td colspan="3"><textarea type="text" id="descripcion" name="descripcion" class="form-control" rows="5"></textarea></td>
 											</tr>
 											<tr>
 												<td colspan="4"></td>
@@ -244,7 +244,7 @@
 									//Logs
 									$admin = $_SESSION['user'];
 									$adminon = $admin['codigo'];
-									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creo el informe técnico $nombre', NOW())";
+									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creó el informe técnico $nombre', NOW())";
 									$resultado = mysqli_query($conexion, $sql);
 
 									header('Location: int_colaborador.php/?produccion='.$reg['id'].'&tipo=1');
@@ -277,7 +277,7 @@
 													<td colspan="1">Dependencia</td><td colspan="3"><input class="form-control" type="text" name="dependencia" required></td>
 												</tr>
 												<tr>
-												<td colspan="1">Descripcion</td><td colspan="3"><textarea id="descripcion" name="descripcion" class="form-control" rows="5"></textarea></td>
+												<td colspan="1">Descripción</td><td colspan="3"><textarea id="descripcion" name="descripcion" class="form-control" rows="5"></textarea></td>
 											</tr>
 											<tr>
 												<td colspan="4"></td>
@@ -328,7 +328,7 @@
 									//Logs
 									$admin = $_SESSION['user'];
 									$adminon = $admin['codigo'];
-									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creo el manual $nombre', NOW())";
+									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creó el manual $nombre', NOW())";
 									$resultado = mysqli_query($conexion, $sql);
 
 									header('Location: int_colaborador.php/?produccion='.$reg['id'].'&tipo=1');
@@ -361,7 +361,7 @@
 													<td colspan="1">Registro</td><td colspan="3"><input class="form-control" type="text" name="registro"></td>
 												</tr>
 												<tr>
-												<td colspan="1">Descripcion</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
+												<td colspan="1">Descripción</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
 												</tr>
 												<tr>
 													<td colspan="4"></td>
@@ -415,7 +415,7 @@
 									//Logs
 									$admin = $_SESSION['user'];
 									$adminon = $admin['codigo'];
-									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creo el libro $nombre', NOW())";
+									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creó el libro $nombre', NOW())";
 									$resultado = mysqli_query($conexion, $sql);
 
 									header('Location: int_colaborador.php/?produccion='.$reg['id'].'&tipo=1');
@@ -483,7 +483,7 @@
 													<td colspan="1">Editorial</td><td colspan="3"><input class="form-control" type="text" name="editorial" required></td>
 												</tr>
 												<tr>
-												<td colspan="1">Descripcion</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
+												<td colspan="1">Descripción</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
 												</tr>
 												<tr>
 													<td colspan="4"></td>
@@ -517,7 +517,7 @@
 									//Logs
 									$admin = $_SESSION['user'];
 									$adminon = $admin['codigo'];
-									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creo la linea de innovación $nombre', NOW())";
+									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creó la linea de innovación $nombre', NOW())";
 									$resultado = mysqli_query($conexion, $sql);
 
 									if(isset($_SESSION['integrante'])){
@@ -594,7 +594,7 @@
 									//Logs
 									$admin = $_SESSION['user'];
 									$adminon = $admin['codigo'];
-									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creo la dirección individualizada $nombre', NOW())";
+									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creó la dirección individualizada $nombre', NOW())";
 									$resultado = mysqli_query($conexion, $sql);
 
 									if(isset($_SESSION['integrante'])){
@@ -648,7 +648,7 @@
 											</tr>
 
 											<tr>
-												<td colspan="1">Descripcion</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
+												<td colspan="1">Descripción</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
 												</tr>
 												<tr>
 													<td colspan="4"></td>
@@ -698,7 +698,7 @@
 									//Logs
 									$admin = $_SESSION['user'];
 									$adminon = $admin['codigo'];
-									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creo la estadía en empresa $nombre', NOW())";
+									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creó la estadía en empresa $nombre', NOW())";
 									$resultado = mysqli_query($conexion, $sql);
 
 									if(isset($_SESSION['integrante'])){
@@ -742,7 +742,7 @@
 
 											</tr>
 											<tr>
-												<td colspan="1">Descripcion</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
+												<td colspan="1">Descripción</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
 												</tr>
 												<tr>
 													<td colspan="4"></td>
@@ -787,7 +787,7 @@
 									//Logs
 									$admin = $_SESSION['user'];
 									$adminon = $admin['codigo'];
-									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creo el proyecto $nombre', NOW())";
+									$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Creó el proyecto $nombre', NOW())";
 									$resultado = mysqli_query($conexion, $sql);
 
 									header('Location: int_colaborador.php/?produccion='.$reg['id'].'&tipo=2');
@@ -822,7 +822,7 @@
 												</td>
 												</tr>
 												<tr>
-												<td colspan="1">Descripcion</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
+												<td colspan="1">Descripción</td><td colspan="3"><textarea name="descripcion" class="form-control" rows="5"></textarea></td>
 												</tr>
 												<tr>
 													<td colspan="4"></td>

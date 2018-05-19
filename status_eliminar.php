@@ -97,7 +97,7 @@
 				//Logs
 				$admin = $_SESSION['user'];
 				$adminon = $admin['codigo'];
-				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Elimino la producción $nom', NOW())";
+				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Eliminó la producción $nom', NOW())";
 				$resultado = mysqli_query($conexion, $sql);
 
 				$sql = "DELETE FROM produccion WHERE id='$idpd'";
@@ -117,7 +117,7 @@
 				//Logs
 				$admin = $_SESSION['user'];
 				$adminon = $admin['codigo'];
-				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Elimino el proyecto $nom', NOW())";
+				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Eliminó el proyecto $nom', NOW())";
 				$resultado = mysqli_query($conexion, $sql);
 
 				$sql = "DELETE FROM proyecto WHERE id='$idpd'";
@@ -137,7 +137,7 @@
 				//Logs
 				$admin = $_SESSION['user'];
 				$adminon = $admin['codigo'];
-				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Elimino la estadía $nom', NOW())";
+				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Eliminó la estadía $nom', NOW())";
 				$resultado = mysqli_query($conexion, $sql);
 
 				$sql = "DELETE FROM estadia WHERE id='$idpd'";
@@ -157,7 +157,7 @@
 				//Logs
 				$admin = $_SESSION['user'];
 				$adminon = $admin['codigo'];
-				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Elimino la dirección $nom', NOW())";
+				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Eliminó la dirección $nom', NOW())";
 				$resultado = mysqli_query($conexion, $sql);
 
 				$sql = "DELETE FROM direccionind WHERE id='$idpd'";
@@ -180,7 +180,7 @@
 				//Logs
 				$admin = $_SESSION['user'];
 				$adminon = $admin['codigo'];
-				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Elimino la linea de innovacíon $nom', NOW())";
+				$sql = "INSERT INTO log (codigoUsuario, actividad, fecha) VALUES ('$adminon', 'Eliminó la linea de innovacíon $nom', NOW())";
 				$resultado = mysqli_query($conexion, $sql);
 
 				$sql = "DELETE FROM lineainn WHERE id='$idpd'";
