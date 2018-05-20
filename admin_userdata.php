@@ -101,7 +101,7 @@
 			if($_POST['password']=="" || $_POST['password'] == " "){
 				$password= $reg['password'];
 			}else{
-				$password = $_POST['password'];
+				$password = md5($_POST['password']);
 			}
 			//nivel
 			if($_POST['nivel']==""){

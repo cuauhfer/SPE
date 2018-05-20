@@ -32,7 +32,7 @@
 
 		//Recepción de variables ingresadas
 		$usuario = $_POST['username'];
-		$pwd = $_POST['password'];
+		$pwd = md5($_POST['password']);
 
 		//Consulta a la base de datos
 		$sql = "SELECT * FROM usuario WHERE username='$usuario' AND password='$pwd'";

@@ -26,7 +26,7 @@
 		if(isset($_POST['agregar'])){
 			$codigo = $_POST['codigo'];
 			$username =  $_POST['username'];
-			$password =  $_POST['password'];
+			$password =  md5($_POST['password']);
 			$nivel =  $_POST['nivel'];
 			$nombre =  $_POST['nombre'];
 			$apep =  $_POST['apellidop'];
